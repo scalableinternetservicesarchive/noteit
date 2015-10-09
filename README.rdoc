@@ -12,4 +12,4 @@ Ariel
 Alick R Xu
 Oliver Townsend
 Aviral Takkar
-![alt tag]
+![alt tag](https://raw.githubusercontent.com/scalableinternetservices/TweetMagic/master/team_photos/AAEAAQAAAAAAAAJsAAAAJGU5YWZiZWEyLTZjZjAtNGVjYS1iOTE3LTdiZjBhMmVhNDIyYQ.jpg)
