@@ -2,7 +2,7 @@
 
 The aim of this project is to present a location based summary of Tweets to a user based on his/her interests.
 
-Pivotal  Tracker: 
+Pivotal  Tracker: https://www.pivotaltracker.com/n/projects/1445290
 
 
 == Team Members
@@ -10,7 +10,7 @@ Pivotal  Tracker:
 Harshitha Chidanand
 
 
-Ariel 
+Ariel  
 http://i60.tinypic.com/nmg5qh.png
 
 Alick R Xu
