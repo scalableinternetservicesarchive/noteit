@@ -1,8 +1,8 @@
-== TweetMagic
+== NoteIt (formerly TweetMagic)
 
-The aim of this project is to present a location based summary of Tweets to a user based on his/her interests.
+The aim for this project is to create a system where classmates can share notes for their classes
 
-Pivotal  Tracker: https://www.pivotaltracker.com/n/projects/1445290
+Pivotal Tracker: https://www.pivotaltracker.com/n/projects/1445290
 
 
 == Team Members
