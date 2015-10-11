@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151010233817) do
+ActiveRecord::Schema.define(version: 20151011003307) do
 
   create_table "notes", force: :cascade do |t|
     t.string   "content"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20151010233817) do
     t.string   "class_subject"
     t.integer  "class_number"
     t.string   "professor"
+    t.integer  "privacy_level"
   end
 
 end
