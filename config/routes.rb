@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  
+
+  
+  get 'sessions/new'
+
+  root 'home_page#new'
+
+  get 'users/new'
+
   devise_for :users
   
   get 'comments/new'
