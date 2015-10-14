@@ -15,3 +15,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore schema.rb - run bundle exec rake db:migrate everytime a merge happens to generate a new schema.rb
+/db/schema.rb
