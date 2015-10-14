@@ -1,6 +1,12 @@
 == NoteIt (formerly TweetMagic)
 
-The aim for this project is to create a system where classmates can share notes for their classes
+The aim for this project is to create a system where classmates can share notes for their classes.
+
+We are trying to make it possible for users to upload class notes to to our application, tagged by University/Professor/Class etc. in order to facilitate easy sharing of study material. We intend to make the notes available via search and browsing. It would be possible for a logged in user to comment on notes or upvote/downvote it.
+
+Later on, we want to be able to perform NLP on each note's content in order to extract keywords/named entities from them, and then fetch and display relevant information from Wolfram Alpha or Wikipedia.
+
+
 
 Pivotal Tracker: https://www.pivotaltracker.com/n/projects/1445290
 
