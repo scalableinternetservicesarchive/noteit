@@ -38,7 +38,7 @@ gem 'bootstrap-will_paginate', '0.0.10'
 
 #for user authentication 
 gem 'devise'
-
+gem 'angularjs-rails', '~> 1.4.7'
 
 
 group :development, :test do

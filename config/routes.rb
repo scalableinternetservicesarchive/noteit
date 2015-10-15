@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   #get 'sessions/new'
 
   root 'static_pages#new'
-
+  get '/static_pages/home_page'
   #get 'users/new'
 
   devise_for :users
