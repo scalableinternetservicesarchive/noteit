@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#new'
   get '/static_pages/home_page'
+  get '/notes/new'
   #get 'users/new'
 
   devise_for :users
