@@ -99,7 +99,11 @@
                                 content: $scope.htmlContent
                             }
                             confirm(noteObj.content);
-
+                            $http({
+                                method : 'POST',
+                                url : '/notes',
+                                data : noteObj
+                    });
                           /*  $http.post('/api/save', noteObj)
                                     .success(function (noteObj) {
                                         console.log("success");
