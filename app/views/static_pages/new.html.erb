@@ -54,16 +54,16 @@
                         <a href="#about">Services</a>
                     </li>
                     <li>
-                    	<% if user_signed_in? %>
-                    		<%= link_to "Log out", destroy_user_session_path, method: "delete" %>
-                    	<%else%>
-                    		<%= link_to "Log in", new_user_session_path %>
-                    	<%end%>
+                        <% if user_signed_in? %>
+                            <%= link_to "Log out", destroy_user_session_path, method: "delete" %>
+                        <%else%>
+                            <%= link_to "Log in", new_user_session_path %>
+                        <%end%>
                         
                     </li>
                     <li>
-                    	<%if !user_signed_in? %>
-                    		<%= link_to "Sign Up", new_user_registration_path%>
+                        <%if !user_signed_in? %>
+                            <%= link_to "Sign Up", new_user_registration_path%>
                         <%end%>
                     </li>
                 </ul>
@@ -128,7 +128,7 @@
 
    <!-- Page Content -->
 
-	<a  name="services"></a>
+    <a  name="services"></a>
     <div class="content-section-a">
 
         <div class="container">
@@ -184,7 +184,7 @@
                     <p class="lead">Search notes from all around the world.</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                	<%= image_tag("3.jpg", class: "img-responsive")  %>
+                    <%= image_tag("3.jpg", class: "img-responsive")  %>
                     
                 </div>
             </div>
