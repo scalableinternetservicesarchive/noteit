@@ -1,5 +1,5 @@
 class Note < ActiveRecord::Base
-	validates :title, presence: true
+	validates :title, presence: true, length: { maximum: 60 }
 	validates :content, presence: true
 	belongs_to :user
 	has_many :comments

@@ -18,4 +18,9 @@ class NoteTest < ActiveSupport::TestCase
 		@note.content = ""
 		assert_not @note.valid?
 	end
+
+	test "title_should_not_be_too_long" do
+		@note.title = "a" * 61
+		assert_not @note.valid?
+	end
 end
