@@ -148,10 +148,7 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-<<<<<<< HEAD
-=======
     underscore-rails (1.8.3)
->>>>>>> 81316ff6b036172478449b91c98715001e69d7e0
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.2.1)
