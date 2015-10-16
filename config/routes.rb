@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+
   get 'users/new'
 
   #get 'user/new'
 
   devise_for :users, controllers: { sessions: "users/sessions" }
+
+
+  get 'comments/new'
+
+  get 'notes/new'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

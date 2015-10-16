@@ -9,3 +9,10 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( landing-page.css )
+Rails.application.config.assets.precompile += %w( bootstrap.css )
+Rails.application.config.assets.precompile += %w( bootstrap.min.css )
+Rails.application.config.assets.precompile += %w( textAngular-rangy.min.js )
+Rails.application.config.assets.precompile += %w( textAngular-sanitize.min.js )
+Rails.application.config.assets.precompile += %w( textAngular.min.js )
+Rails.application.config.assets.precompile += %w( homeController.js )

@@ -25,7 +25,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+
 gem 'devise'
+
+
+#for user authentication 
+gem 'devise'
+
+#Angular
+gem 'angularjs-rails', '~> 1.4.7'
+gem 'underscore-rails'
+gem 'angular_rails_csrf'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
