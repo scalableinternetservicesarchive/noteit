@@ -5,15 +5,17 @@ class NotesController < ApplicationController
   end
 
   def create
-  	 @note = current_user.notes.build(note_params)
+	puts "NOTE CREATION" 
+	@note = current_user.notes.build(note_params)
     if @note.save
-      flash[:success] = "Nice one!"
-      redirect_to root_url
+		puts "NOTE SAVED"
+	   	flash[:success] = "Nice one!"
     else
-      flash[:alert] = "Oops!"
-      redirect_to root_url
+		puts "ERROR: NOTE NOT SAVED"
+      	flash[:alert] = "Oops!"
     end
-
+    redirect_to root_url
+    return
   end
 
    private
