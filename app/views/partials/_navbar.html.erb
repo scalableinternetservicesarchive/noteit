@@ -16,9 +16,25 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><%= link_to "Home", '#'%></li>
-                    <li><%= link_to "Notes", '/notes/new' %></li>
+                    <li>
+                        <%if user_signed_in? && request.env['PATH_INFO'] != '/notes/new'%>
+                            <%= link_to "Create-Note", '/notes/new' %>
+                        <%end%>
+                    </li>
                     <li><%= link_to "About", '#' %></li>
-                    <li><%= link_to "Logout", destroy_user_session_path, method: "delete" %></li>
+                     <li>
+                        <% if user_signed_in? %>
+                            <%= link_to "Log out", destroy_user_session_path, method: "delete" %>
+                        <%else%>
+                            <%= link_to "Log in", new_user_session_path %>
+                        <%end%>
+                    </li>
+                    <li>
+                        <%if !user_signed_in? %>
+                            <%= link_to "Sign Up", new_user_registration_path%>
+                        <%end%>
+                    </li>
+                    <!--<li><%= link_to "Logout", destroy_user_session_path, method: "delete" %></li>-->
                     <!--
                     <li>
                         <a href="#about">Services</a>
