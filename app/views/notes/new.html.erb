@@ -32,6 +32,25 @@
             </div>
             <br>
 
+            <!--note uni-->
+            <div class="form-group">
+                <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold;">University:</label>
+                <input class="form-control" type="text" ng-model="university" style="width: 250px">
+            </div>
+
+            <!--note class-->
+            <div class="form-group">
+                <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold;">Class:</label>
+                <input class="form-control" type="text" ng-model="notes_class" style="width: 250px">
+            </div>
+
+            <!--note prof-->
+            <div class="form-group">
+                <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold;">Professor:</label>
+                <input class="form-control" type="text" ng-model="professor" style="width: 250px">
+            </div>
+            <br>
+
             <!--Angular Text Editor-->
             <div class="container lighter">
                 <div text-angular ng-model="htmlContent" name="demo-editor" ta-text-editor-class="border-around container" ta-html-editor-class="border-around"></div>
@@ -52,6 +71,8 @@
             <br>
         </div>
 
+        
+
 
         <script type="text/javascript">
             angular.module("textAngularDemo", ['textAngular'])
@@ -59,7 +80,10 @@
                         $scope.save = function(){
                             var noteObj = {
                                 title: $scope.title,
-                                content: $scope.htmlContent
+                                content: $scope.htmlContent,
+                                university: $scope.university,
+                                notes_class: $scope.notes_class,
+                                professor: $scope.professor
                             }
                             //confirm(noteObj.content);
                             $http({
@@ -79,5 +103,13 @@
 
                     });
         </script>
+
+
     </body>
 </html>
+
+
+
+
+
+
