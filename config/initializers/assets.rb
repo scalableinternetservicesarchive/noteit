@@ -12,7 +12,10 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( landing-page.css )
 Rails.application.config.assets.precompile += %w( bootstrap.css )
 Rails.application.config.assets.precompile += %w( bootstrap.min.css )
+Rails.application.config.assets.precompile += %w( bootstrap-tags.css )
+
 Rails.application.config.assets.precompile += %w( textAngular-rangy.min.js )
 Rails.application.config.assets.precompile += %w( textAngular-sanitize.min.js )
 Rails.application.config.assets.precompile += %w( textAngular.min.js )
 Rails.application.config.assets.precompile += %w( homeController.js )
+Rails.application.config.assets.precompile += %w( bootstrap-tags.js )
