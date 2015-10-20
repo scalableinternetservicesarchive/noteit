@@ -65,7 +65,7 @@
                     style=" background-color: white; border-color: black; width: 120px; color:black; font-weight: bold;
                     margin-top: 20px; float: right; margin-right: 50px">
                 <!-- <span class="glyphicon glyphicon-save"></span>&nbsp&nbsp Save &nbsp&nbsp -->
-                <%= link_to "Save", root_path, class: "glyphicon glyphicon-save" %>
+                <%= link_to "Save", "/notes/view_note", class: "glyphicon glyphicon-save" %>
             </button>
             <br>
             <br>
@@ -77,6 +77,7 @@
         <script type="text/javascript">
             angular.module("textAngularDemo", ['textAngular'])
                     .controller("demoController", function demoController($scope, $http) {
+
                         $scope.save = function(){
                             var noteObj = {
                                 title: $scope.title,
