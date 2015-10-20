@@ -45,7 +45,8 @@
             <button class="btn btn-success" ng-click="save()"
                     style=" background-color: white; border-color: black; width: 120px; color:black; font-weight: bold;
                     margin-top: 20px; float: right; margin-right: 50px">
-                <span class="glyphicon glyphicon-save"></span>&nbsp&nbsp Save &nbsp&nbsp
+                <!-- <span class="glyphicon glyphicon-save"></span>&nbsp&nbsp Save &nbsp&nbsp -->
+                <%= link_to "Save", root_path, class: "glyphicon glyphicon-save" %>
             </button>
             <br>
             <br>
@@ -60,7 +61,7 @@
                                 title: $scope.title,
                                 content: $scope.htmlContent
                             }
-                            confirm(noteObj.content);
+                            //confirm(noteObj.content);
                             $http({
                                 method : 'POST',
                                 url : '/notes',
