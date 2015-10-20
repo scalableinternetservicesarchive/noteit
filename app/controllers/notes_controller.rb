@@ -15,6 +15,10 @@ class NotesController < ApplicationController
     end
   end
 
+  def show
+    @note = Note.first
+  end
+
   private
 
     def note_params
