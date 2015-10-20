@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore
+//= require jquery-2.0.2.min
+//= require jquery.upvote
 //= require bootstrap
 //= require bootstrap-sprockets
 //= require angular
