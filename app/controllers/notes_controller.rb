@@ -8,11 +8,14 @@ class NotesController < ApplicationController
   	 @note = current_user.notes.build(note_params)
     if @note.save
       flash.now[:success] = "Nice one!"
-      redirect_to root_url
+      #redirect_to root_url
     else
       flash.now[:alert] = "Oops! Say something before submitting."
-      redirect_to root_url
+      #redirect_to root_url
     end
+  end
+
+  def show
   end
 
   private
