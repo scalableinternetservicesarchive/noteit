@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
   get 'comments/new'
 
-  get 'notes/new'
+  resources :notes
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
