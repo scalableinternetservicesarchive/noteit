@@ -1,0 +1,14 @@
+<% provide(:title, 'All notes') %>
+<h1>All notes for <%=current_user%></h1>
+
+<%= will_paginate %>
+
+<ul class="notes">
+  <% @notes.each do |note| %>
+    <li>
+      <%= link_to note.title, note %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>

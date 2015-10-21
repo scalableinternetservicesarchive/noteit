@@ -34,6 +34,12 @@ gem 'angularjs-rails', '~> 1.4.7'
 gem 'underscore-rails'
 gem 'angular_rails_csrf'
 
+#Faker to seed database
+gem 'faker',                '1.4.2'
+
+#Pagination
+gem 'will_paginate',           '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -17,6 +17,7 @@
     </head>
 
     <body>
+        <div id="note_save_msg" style="display: none;"></div>
         <div id="ng-app" ng-app="textAngularDemo" ng-controller="demoController" class="ng-scope">
             <br>
             <br>
@@ -72,7 +73,7 @@
                     style=" background-color: white; border-color: black; width: 120px; color:black; font-weight: bold;
                     margin-top: 20px; float: right; margin-right: 50px">
                 <!-- <span class="glyphicon glyphicon-save"></span>&nbsp&nbsp Save &nbsp&nbsp -->
-                <%= link_to "Save", root_url, class: "glyphicon glyphicon-save" %>
+                <span>Save</span>
             </button>
             <br>
             <br>
@@ -106,7 +107,7 @@
                             // called asynchronously if an error occurs
                             // or server returns response with an error status.
                             })*/;
-
+                            
                         }
 
                     });
