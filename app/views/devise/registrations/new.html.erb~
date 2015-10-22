@@ -28,7 +28,7 @@
 <table>
   <div class="field">
     <tr><td><%= f.label :email %></td>
-    </td><%= f.email_field :email, autofocus: true %></td></tr>
+    <td><%= f.email_field :email, autofocus: true %></td></tr>
   </div>
 
   <div class="field">
@@ -41,11 +41,11 @@
 
   <div class="field">
     <tr><td><%= f.label :password_confirmation %></td>
-    <td><%= f.password_field :password_confirmation, autocomplete: "off" %></td></tr></table>
+    <td><%= f.password_field :password_confirmation, autocomplete: "off" %></td></tr>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <tr><td><%= f.submit "Sign up" %></td></tr>
   </div>
 <% end %>
 
