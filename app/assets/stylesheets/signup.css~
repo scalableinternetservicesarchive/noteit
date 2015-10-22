@@ -23,11 +23,9 @@ position:relative;
 }
 
 
-.font
+.signupbutton
 {
-font-family:Bodani;
-font-size:100px;
-font-style:italic;
-color:white;
+
+color:black;
 }
 
