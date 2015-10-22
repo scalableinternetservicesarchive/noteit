@@ -32,10 +32,10 @@
   </div>
 
   <div class="field">
-    <tr><td><%= f.label :password %></td>
+    <tr><td><%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><td>
+    <% end %></td><td>
     <%= f.password_field :password, autocomplete: "off" %></td></tr>
   </div>
 
@@ -45,7 +45,7 @@
   </div>
 
   <div class="actions">
-    <tr><td><%= f.submit "Sign up" %></td></tr>
+    <tr><td colspan="2"><%= f.submit "Sign up" %></td></tr>
   </div>
 <% end %>
 
