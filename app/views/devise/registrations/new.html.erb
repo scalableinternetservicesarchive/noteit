@@ -17,8 +17,10 @@
 
 </head>
 <body>
+<div class="back">
+<h2>WELCOME</h2>
 <div class="signupbox">
-<h2>Sign up</h2>
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -49,6 +51,9 @@
 
 <%= render "devise/shared/links" %>
 
+</div>
+<div class="font">
+Sign up to access the World's Note
 </div>
 </body>
 </html>
