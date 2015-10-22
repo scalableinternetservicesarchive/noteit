@@ -20,7 +20,7 @@
         <div class="panel panel-default" style="position:fixed; top: 25%; left:5%; background-color:transparent; width:70%">
             <div class="panel-body" >
                 <h2>Course Description</h2>
-                <%=@note.content%>
+                <%=@note.content.html_safe%>
             </div>
         </div>
 
