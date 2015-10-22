@@ -1,0 +1,37 @@
+.signupbox
+{
+top:200px;
+left:700px;
+height:670px;
+width:1000px;
+position:relative;
+}
+
+.loginback {
+    padding-top: 50px; 
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url("/assets/bg1.jpg") no-repeat center center;
+    background-size: cover;
+	color:white;
+	
+}
+.signupback {
+    padding-top: 50px; 
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url("/assets/bg2.jpg") no-repeat center center;
+    background-size: cover;
+	color:white;
+	
+}
+
+
+.signupbutton
+{
+
+color:black;
+}
+
