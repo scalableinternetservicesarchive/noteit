@@ -14,17 +14,20 @@ class NotesController < ApplicationController
     if @note.save
       #flash.now[:success] = "Nice one!"
       #flash.keep(:success)
-      redirect_to root_url
+      #redirect_to root_url
       #render :js => "window.location = '#{note_path(@note)}"
-      #respond_to do |format|
-       # format.html { redirect_to note_path @note } 
-        #format.json { }
-      #end
+      respond_to do |format|
+        format.html {render nothing: true, status: 200} 
+        format.json {render nothing: true, status: 200} 
+      end
     
     else
       #flash.now[:alert] = "Oops! Say something before submitting."
       #flash.keep(:alert)
-      redirect_to root_url
+      respond_to do |format|
+        format.html {render nothing: false, status: 400} 
+        format.json {render nothing: false, status: 400}
+      end
     end
   end
 

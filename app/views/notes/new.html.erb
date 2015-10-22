@@ -78,13 +78,9 @@
             <br>
             <br>
         </div>
-
-        
-
-
         <script type="text/javascript">
             angular.module("textAngularDemo", ['textAngular'])
-                    .controller("demoController", function demoController($scope, $http) {
+                    .controller("demoController", function demoController($scope, $http, $window) {
 
                         $scope.save = function(){
                             var noteObj = {
@@ -95,11 +91,19 @@
                                 professor: $scope.professor
                             }
                             //confirm(noteObj.content);
-                            $http({
+                            $http.post('/notes', noteObj).success(function(data, status){
+                                    confirm(status);
+                                    $window.location.href = '/notes';
+                                }).error(function(data, status){
+                                    confirm(status);    
+                                });
+
+
+                            /*$http({
                                 method : 'POST',
                                 url : '/notes',
                                 data : noteObj
-                            })/*then(function successCallback(response) {
+                            })*//*then(function successCallback(response) {
                             // this callback will be called asynchronously
                             // when the response is available
                                 
