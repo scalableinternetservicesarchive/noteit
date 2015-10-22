@@ -25,10 +25,10 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-
+<table>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <tr><td><%= f.label :email %></td>
+    </td><%= f.email_field :email, autofocus: true %></td></tr>
   </div>
 
   <div class="field">
@@ -51,9 +51,6 @@
 
 <%= render "devise/shared/links" %>
 
-</div>
-<div class="font">
-Sign up to access the World's Note
 </div>
 </body>
 </html>

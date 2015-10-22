@@ -16,7 +16,7 @@ position:relative;
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: url("/assets/bg1.jpg") no-repeat center;
+    background: url("/assets/bg1.jpg") no-repeat center center;
     background-size: cover;
 	color:white;
 	
