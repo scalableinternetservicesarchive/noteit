@@ -25,7 +25,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-<table>
+<table style="padding:10px;">
   <div class="field">
     <tr><td><%= f.label :email %></td>
     <td><%= f.email_field :email, autofocus: true %></td></tr>
