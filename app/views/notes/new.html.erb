@@ -11,20 +11,18 @@
         <meta charset="utf-8">
         <title>textAngular :: Lightweight Angular.js, Javascript Wysiwyg/Text-Editor</title>
         <link rel="shortcut icon" href="images/favicon.png">
+        <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
 
-        <%= javascript_include_tag "textAngular-rangy.min", "textAngular-sanitize.min", "textAngular.min" %>
-
+        <%= javascript_include_tag "textAngular-rangy.min", "textAngular-sanitize.min", "textAngular.min", "bootstrap-tags" %>
+        <%= stylesheet_link_tag "bootstrap-tags" %>
     </head>
 
     <body>
-        <div class="panel panel-default">
-            <div class="panel-body"><% provide(:title, 'New Note!') %> </div>
-        </div>
-
-        <h2>New Note!</h2>
-
         <div id="note_save_msg" style="display: none;"></div>
         <div id="ng-app" ng-app="textAngularDemo" ng-controller="demoController" class="ng-scope">
+            <br>
+            <br>
+            <br>
             <br>
             
 
@@ -55,10 +53,12 @@
             </div>
 
             <!--note tags-->
-            <div class="form-group">
+            <p class="col-sm-1 control-label" style="margin-left:50px; font-weight: bold;">Tags: </p>
+            <div id="tags" style="margin-left: 150px; width: 500px"></div>
+<!--             <div class="form-group">
                 <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold;">Tags:</label>
                 <input class="form-control" type="text" ng-model="tags" style="width: 500px">
-            </div>
+            </div> -->
 
             <br>
 
@@ -82,6 +82,13 @@
             <br>
         </div>
         <script type="text/javascript">
+            $(function(){
+                $("#tags").tags({
+                  suggestions: ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india"],
+                  tagData: ["network", "internet service"]
+                });
+              });
+
             angular.module("textAngularDemo", ['textAngular'])
                     .controller("demoController", function demoController($scope, $http, $window) {
 
@@ -123,6 +130,7 @@
 
     </body>
 </html>
+
 
 
 
