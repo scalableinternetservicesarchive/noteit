@@ -26,11 +26,11 @@
 
   <div class="field">
     <tr><td><%= f.label :email %></td><td>
-    <%= f.email_field :email, autofocus: true %></td></tr>
+    <%= f.email_field :email, autofocus: true, :class => 'signupbutton' %></td></tr>
   </div>
 
   <div class="actions">
-    <tr><td colspan="2"><%= f.submit "Send me reset password instructions" %></td></tr>
+    <tr><td colspan="2"><%= f.submit "Send me reset password instructions", :class => 'signupbutton' %></td></tr>
   </div>
 <% end %>
 <tr><td colspan="2">

@@ -26,17 +26,17 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <tr><td><%= f.label :email %></td><td>
-    <%= f.email_field :email, autofocus: true %></td></tr>
+    <%= f.email_field :email, autofocus: true, :class => 'signupbutton' %></td></tr>
   </div>
 
   <div class="field">
     <tr><td><%= f.label :password %></td><td>
-    <%= f.password_field :password, autocomplete: "off" %></td></tr>
+    <%= f.password_field :password, autocomplete: "off", :class => 'signupbutton' %></td></tr>
   </div>
 
   <% if devise_mapping.rememberable? -%>
     <div class="field">
-      <tr><td><%= f.check_box :remember_me %>
+      <tr><td><%= f.check_box :remember_me, :class => 'signupbutton' %>
       <%= f.label :remember_me %></td></tr>
     </div>
   <% end -%>

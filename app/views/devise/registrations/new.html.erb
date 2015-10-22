@@ -28,7 +28,7 @@
 <table style="padding:10px;">
   <div class="field">
     <tr><td><%= f.label :email %></td>
-    <td><%= f.email_field :email, autofocus: true %></td></tr>
+    <td><%= f.email_field :email, autofocus: true, :class => 'signupbutton' %></td></tr>
   </div>
 
   <div class="field">
@@ -36,12 +36,12 @@
     <% if @minimum_password_length %>
     <br/><em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %></td><td>
-    <%= f.password_field :password, autocomplete: "off" %></td></tr>
+    <%= f.password_field :password, autocomplete: "off", :class => 'signupbutton' %></td></tr>
   </div>
 
   <div class="field">
     <tr><td><%= f.label :password_confirmation %></td>
-    <td><%= f.password_field :password_confirmation, autocomplete: "off" %></td></tr>
+    <td><%= f.password_field :password_confirmation, autocomplete: "off", :class => 'signupbutton' %></td></tr>
   </div>
 
   <div class="actions">
