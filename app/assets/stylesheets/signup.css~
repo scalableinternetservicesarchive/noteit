@@ -1,0 +1,51 @@
+.signupbox
+{
+top:200px;
+left:700px;
+height:670px;
+width:1000px;
+position:relative;
+}
+
+.loginback {
+    padding-top: 50px; 
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url("/assets/bg1.jpg") no-repeat center center;
+    background-size: cover;
+	color:white;
+	
+}
+.signupback {
+    padding-top: 50px; 
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url("/assets/bg7.jpg") no-repeat center center;
+    background-size: cover;
+	color:white;
+	
+}
+.forgotpwdback {
+    padding-top: 50px; 
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url("/assets/bg2.jpg") no-repeat center center;
+    background-size: cover;
+    color:white;
+	
+}
+
+.linkdesign
+{
+
+background-color:rgba(248, 247, 216, 0.7); 
+}
+.signupbutton
+{
+
+color:black;
+}
+
