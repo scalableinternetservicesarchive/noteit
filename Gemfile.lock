@@ -177,6 +177,7 @@ DEPENDENCIES
   faker (= 1.4.2)
   jbuilder (~> 2.0)
   jquery-rails
+  nokogiri
   rails (= 4.2.4)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
