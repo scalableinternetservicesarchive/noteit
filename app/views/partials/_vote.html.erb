@@ -1,0 +1,19 @@
+<div id = "upvote_form">
+	<div id="upvote_count"><%=pluralize(@note.get_upvotes.size, 'upvote')%></div>
+	<div id = "upvote_form_form">
+		<%= form_for(@note, remote: true) do |f| %>
+  		<div><%= hidden_field_tag :upvote, current_user %></div>
+  		<%= f.submit "Upvote" %>
+		<% end %>
+	</div>
+</div>
+
+<div id = "downvote_form">
+	<div id = "downvote_form_form">
+		<%= form_for(@note, remote: true) do |f| %>
+  		<div><%= hidden_field_tag :downvote, current_user %></div>
+  		<%= f.submit "Downvote" %>
+		<% end %>
+	</div>
+	<div id = "downvote_count"><%=pluralize(@note.get_downvotes.size, 'downvote')%></div>
+</div>

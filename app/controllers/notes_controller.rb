@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :except => [:show]
   #respond_to :html, :js
 
   def index
@@ -31,14 +31,41 @@ class NotesController < ApplicationController
     end
   end
 
+  def update
+    
+    @note = Note.find(params[:id])
+    if(params[:upvote])
+      @note.upvote_by current_user
+      @vote_type = :upvote
+      flash.now[:success] = "Upvoted!"
+      respond_to do |format|
+        format.html { redirect_to @note }
+        format.js
+      end
+    elsif(params[:downvote])
+      @note.downvote_by current_user
+      flash.now[:alert] = "Downvoted!"
+      @vote_type = :downvote
+      respond_to do |format|
+        format.html { redirect_to @note }
+        format.js
+      end
+    end 
+  end
+
   def show
     @note = Note.find(params[:id])
+    if(user_signed_in?)
+      @note_owner = @note.user_id
+    else
+      @note_owner = -1
+    end
   end
 
   private
 
     def note_params
-      params.require(:note).permit(:title, :content, :university, :class_subject, :professor)
+      params.require(:note).permit(:title, :content, :university, :class_subject, :professor, :tags)
     end
 
     def correct_user

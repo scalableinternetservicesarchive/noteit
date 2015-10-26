@@ -98,7 +98,8 @@
                                 content: $scope.htmlContent,
                                 university: $scope.university,
                                 class_subject: $scope.notes_class,
-                                professor: $scope.professor
+                                professor: $scope.professor,
+                                
                             }
                             //confirm(noteObj.content);
                             $http.post('/notes', noteObj).success(function(data, status){
