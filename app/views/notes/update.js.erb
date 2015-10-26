@@ -1,0 +1,11 @@
+<%if @vote_type == :upvote%>
+	$("#upvote_form_form").css("color", "green");
+	$("#downvote_form_form").css("color", "black");
+	$("#upvote_count").html('<%=pluralize(@note.get_upvotes.size, 'upvote')%>');
+	$("#downvote_count").html('<%=pluralize(@note.get_downvotes.size, 'downvote')%>');	
+<%else%>
+	$("#upvote_form_form").css("color", "black");
+	$("#downvote_form_form").css("color", "red");
+	$("#upvote_count").html('<%=pluralize(@note.get_upvotes.size, 'upvote')%>');
+	$("#downvote_count").html(' <%=pluralize(@note.get_downvotes.size, 'downvote')%>');
+<%end%>

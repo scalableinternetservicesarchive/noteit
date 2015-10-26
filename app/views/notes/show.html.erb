@@ -16,7 +16,6 @@
         <%= javascript_include_tag "bootstrap-tags" %>
         <%= javascript_include_tag "vote" %>
     </head>
-
     <body ng-controller="MainCtrl">
 
         <div class="page-header" style="position:fixed; left: 5%" >
@@ -32,10 +31,8 @@
             </div>
 
         </div>
-
-
-
-        <div class="panel panel-default" style="position:fixed; bottom: 5%; left:5%">
+    
+       <!-- <div class="panel panel-default" style="position:fixed; bottom: 5%; left:5%">
             <div class="panel-body" >
                 <i title="Up Votes" ng-click="changeVote(vote, 'up', 1)" class="fa fa-arrow-circle-up fa-3x" ng-class="{true:'up', false:''}[vote=='up']"></i>
                 <br>
@@ -43,12 +40,15 @@
                 <br>Vote: {{vote}}
             </div>
 
-        </div>
-
+        </div> -->
+        <section class="panel panel-default" style="position:fixed; bottom: 5%; left:5%">
         
-
-
+            <% if(user_signed_in? && current_user.id != @note_owner) %>
+                <%= render 'partials/vote' %>
+            <%end%>
+        </section>
     </body>
+
 </html>
 
 
