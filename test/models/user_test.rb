@@ -1,20 +1,21 @@
+
 require 'test_helper'
 
 
 class UserTest < ActiveSupport::TestCase
-    include Devise::TestHelpers
+#    include Devise::TestHelpers
 
-=begin    
+  
 
-    def setup
-      @user = User.create!(email: "me@home.com", password: "watching the telly")
-      sign_in @user
-    end
+ #   def setup
+  #    @user = User.new(email: "me@home.com", password: "watching the telly")
+   #   #sign_in @user
+    #end
     test "name should be present" do
       @user.name = "     "
       assert_not @user.valid?
     end
-
+=begin  
     test "email should be present" do
       @user.email = "     "
       assert_not @user.valid?
