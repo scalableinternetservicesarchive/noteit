@@ -3,13 +3,12 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
     include Devise::TestHelpers
-    def setup
-      @user = User.new(name: "Example User", email: "user123@example123.com", password: "foobar12", password_confirmation: "foobar12")
-      sign_in (:user)
-    end
 
-    test "should be valid" do
-      assert @user.valid?
+=begin    
+
+    def setup
+      @user = User.create!(email: "me@home.com", password: "watching the telly")
+      sign_in @user
     end
     test "name should be present" do
       @user.name = "     "
@@ -66,5 +65,5 @@ class UserTest < ActiveSupport::TestCase
         @user.destroy
       end
     end
-
+=end
   end

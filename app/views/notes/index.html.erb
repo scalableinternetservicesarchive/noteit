@@ -1,8 +1,9 @@
+<% provide(:title, "All Notes") %>
 <div class="panel panel-default">
   <div class="panel-body"><% provide(:title, 'All Notes') %> </div>
 </div>
 
-<h1>All notes for <%=current_user.name %></h1>
+<h1>All your notes <%=current_user.name %></h1>
 
 <%= will_paginate %>
 
