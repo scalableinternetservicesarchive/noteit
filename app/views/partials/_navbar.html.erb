@@ -14,7 +14,7 @@
     </div>
     
     <div class="collapse navbar-collapse">
-        
+        <%if !(request.env['PATH_INFO'] == root_path) %>
         <div class="col-sm-3 col-md-3"> 
             <form class="navbar-form" role="search">
                 <div class="input-group">
@@ -25,6 +25,7 @@
                 </div>
             </form>
         </div>
+        <%end%>
 
 
         <ul class="nav navbar-nav pull-right">
