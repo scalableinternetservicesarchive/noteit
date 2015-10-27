@@ -1,8 +1,8 @@
 
 
 .loginback {
-    padding-top: 50px; 
-    padding-bottom: 50px;
+    padding-top: 100px; 
+    height: 100%;
     text-align: center;
     color: #f8f8f8;
     background: url("/assets/bg1.jpg") no-repeat center center;
