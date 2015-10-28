@@ -1,6 +1,14 @@
 class NotesController < ApplicationController
-  before_action :authenticate_user!, :except => [:show]
+  before_action :authenticate_user!, :except => [:show, :search]
   #respond_to :html, :js
+
+  def search
+    @query = Note.search do
+        fulltext params[:search]
+    end
+    @keyword = params[:search]
+    @notes = @query.results
+  end
 
   def index
     @notes = current_user.notes.paginate(page: params[:page])
@@ -61,6 +69,7 @@ class NotesController < ApplicationController
       @note_owner = -1
     end
   end
+
 
   private
 
