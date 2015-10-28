@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :notes
 
 
-  #get 'notes/view_note'
+  post 'search' => 'notes#search'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

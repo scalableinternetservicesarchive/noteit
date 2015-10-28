@@ -44,6 +44,9 @@ gem 'bootstrap-will_paginate', '0.0.10'
 #For AWS
 gem 'nokogiri'
 
+#For Search
+
+
 #Support for voting
 gem 'acts_as_votable', '~> 0.10.0'
 
@@ -67,6 +70,11 @@ group :test do
   gem 'guard-minitest',     '2.3.1'
 end
 
+gem 'sunspot_rails'
+ 
+group :development do
+    gem 'sunspot_solr'
+end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

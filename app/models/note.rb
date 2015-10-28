@@ -5,5 +5,8 @@ class Note < ActiveRecord::Base
 	has_many :comments
 	default_scope -> { order(created_at: :desc) }
 	acts_as_votable
-
+	searchable do
+    	text :title, :boost => 2
+    	text :content
+	end
 end
