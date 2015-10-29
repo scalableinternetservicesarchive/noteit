@@ -17,10 +17,15 @@
 
 </head>
 <body>
-  <div class="signupback">
+  <div style="padding-top: 100px; 
+    height: 100%;
+    text-align: center;
+	background: url(<%= asset_path 'bg7.jpg' %>);
+      background-size: cover;
+    color:white;">
   <h2 class="font">Sign Up</h2>
 
-  <div class="signupbox">
+  <div >
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
