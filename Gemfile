@@ -71,10 +71,8 @@ group :test do
 end
 
 gem 'sunspot_rails'
- 
-group :development do
-    gem 'sunspot_solr'
-end
+gem 'sunspot_solr'
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
