@@ -46,6 +46,8 @@
         
             <% if(user_signed_in? && current_user.id != @note_owner) %>
                 <%= render 'partials/vote' %>
+            <%else%>
+                <%= render 'partials/view_vote' %>
             <%end%>
         </section>
     </body>
