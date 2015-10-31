@@ -63,6 +63,7 @@ class NotesController < ApplicationController
 
   def show
     @note = Note.find(params[:id])
+    
     if(user_signed_in?)
       @note_owner = @note.user_id
     else
@@ -70,8 +71,24 @@ class NotesController < ApplicationController
     end
   end
 
+  def upload_note
+    @note = current_user.notes.build(upload_note_params)
+    if @note.save
+      flash[:success] = "Saved successfully!"
+      redirect_to notes_path
+    else
+      flash[:alert] = "Save unsuccessful. Please make sure all three fields have a value!"
+      redirect_to static_pages_home_path
+    end
+
+  end
+
 
   private
+
+    def upload_note_params
+      params.require(:note).permit(:title, :content, :avatar)
+    end
 
     def note_params
       params.require(:note).permit(:title, :content, :university, :class_subject, :professor, :tags)

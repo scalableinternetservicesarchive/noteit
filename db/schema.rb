@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151025233500) do
+ActiveRecord::Schema.define(version: 20151031190852) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
@@ -34,10 +34,14 @@ ActiveRecord::Schema.define(version: 20151025233500) do
     t.string   "class_subject"
     t.integer  "class_number"
     t.integer  "privacy_level"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "user_id"
     t.string   "tags"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "notes", ["user_id"], name: "index_notes_on_user_id"
