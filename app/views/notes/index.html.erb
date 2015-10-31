@@ -4,6 +4,10 @@
 </div>
 <br/>
 <br/>
+    <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+  
 <h1>All your notes <%=current_user.name %></h1>
 
 <%= will_paginate %>

@@ -50,6 +50,9 @@ gem 'nokogiri'
 #Support for voting
 gem 'acts_as_votable', '~> 0.10.0'
 
+#Uploading stuff
+gem 'paperclip'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

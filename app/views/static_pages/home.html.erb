@@ -86,12 +86,20 @@
                         <h1 class="page-header">
                             Dashboard
                         </h1>
+                        <% flash.each do |message_type, message| %>
+                            <div class="alert alert-<%= message_type %>"><%= message %></div>
+                        <% end %>
                         <div class="btn-group">
                           <%= link_to "View Notes", notes_path, :class => "btn btn-info" %>
                           <%= link_to "Create Note", '/notes/new', :class => "btn btn-info" %>
                           <%= link_to "Favorite Notes", '/notes/new', :class => "btn btn-info" %>
                         </div>
-
+                        <div>
+                            <br/>
+                            <span>Upload a note!</span>
+                            <br/>
+                            <%= render 'partials/upload_note' %>
+                        </div>
                         <hr>
 
                         <p> Your Notebooks! </p>
