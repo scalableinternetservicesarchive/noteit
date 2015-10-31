@@ -2,7 +2,7 @@
 	<%= form_for :note, url: upload_note_path, html: { multipart: true } do |form| %>
   		<%= form.label :title %>
   		<%= form.text_field :title%>
-  		<%= form.label :keywords %>
+  		<%= form.label :keywords%>
   		<%= form.text_field :content %>
   		<%= form.file_field :avatar %>
   		<%= form.submit "Upload" %>

@@ -63,6 +63,7 @@ class NotesController < ApplicationController
 
   def show
     @note = Note.find(params[:id])
+    
     if(user_signed_in?)
       @note_owner = @note.user_id
     else
