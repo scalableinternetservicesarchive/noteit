@@ -70,8 +70,24 @@ class NotesController < ApplicationController
     end
   end
 
+  def upload_note
+    @note = current_user.notes.build(upload_note_params)
+    if @note.save
+      flash[:success] = "Saved Successfully!"
+      redirect_to notes_path
+    else
+      flash[:alert] = "Save Unsuccessful, Please Try Again!"
+      redirect_to static_pages_home_path
+    end
+
+  end
+
 
   private
+
+    def upload_note_params
+      params.require(:note).permit(:title, :content, :avatar)
+    end
 
     def note_params
       params.require(:note).permit(:title, :content, :university, :class_subject, :professor, :tags)

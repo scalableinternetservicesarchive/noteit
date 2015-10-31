@@ -30,9 +30,13 @@
                
                 <%=@note.content.html_safe%>
             </div>
-
+            
         </div>
-    
+        <div>
+            <%= image_tag @note.avatar.url %>
+            <%= image_tag @note.avatar.url(:medium) %>
+            <%= image_tag @note.avatar.url(:thumb) %>
+        </div>
        <!-- <div class="panel panel-default" style="position:fixed; bottom: 5%; left:5%">
             <div class="panel-body" >
                 <i title="Up Votes" ng-click="changeVote(vote, 'up', 1)" class="fa fa-arrow-circle-up fa-2x" ng-class="{true:'up', false:''}[vote=='up']"></i>
@@ -50,6 +54,7 @@
                 <%= render 'partials/view_vote' %>
             <%end%>
         </section>
+
     </body>
 
 </html>
