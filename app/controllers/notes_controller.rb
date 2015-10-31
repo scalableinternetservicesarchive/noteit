@@ -63,7 +63,7 @@ class NotesController < ApplicationController
 
   def show
     @note = Note.find(params[:id])
-    
+
     if(user_signed_in?)
       @note_owner = @note.user_id
     else
@@ -77,7 +77,7 @@ class NotesController < ApplicationController
       flash[:success] = "Saved successfully!"
       redirect_to notes_path
     else
-      flash[:alert] = "Save unsuccessful. Please make sure all three fields have a value!"
+      flash[:error] = "Save unsuccessful. Please make sure all three fields have a value!"
       redirect_to static_pages_home_path
     end
 

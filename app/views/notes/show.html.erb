@@ -31,6 +31,7 @@
                     
             </div>
         </div>
+        <%if @note.avatar_file_name %>
         <% if @note.avatar_content_type =~ /image*/ %>
             <div>
                     <%= link_to "View original image", @note.avatar.url%> 
@@ -42,6 +43,7 @@
             <div>
                 <%= link_to "View uploaded file", @note.avatar.url%>
             </div>
+        <%end%>
         <%end%>
         <section class="panel panel-default" style="position:fixed; bottom: 5%; left:5%">
         
