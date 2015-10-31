@@ -93,10 +93,13 @@
                           <%= link_to "View Notes", notes_path, :class => "btn btn-info" %>
                           <%= link_to "Create Note", '/notes/new', :class => "btn btn-info" %>
                           <%= link_to "Favorite Notes", '/notes/new', :class => "btn btn-info" %>
-                          <br/ >
-                          <%= render 'partials/upload_note' %>
                         </div>
-
+                        <div>
+                            <br/>
+                            <span>Upload a note!</span>
+                            <br/>
+                            <%= render 'partials/upload_note' %>
+                        </div>
                         <hr>
 
                         <p> Your Notebooks! </p>

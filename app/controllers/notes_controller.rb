@@ -73,10 +73,10 @@ class NotesController < ApplicationController
   def upload_note
     @note = current_user.notes.build(upload_note_params)
     if @note.save
-      flash[:success] = "Saved Successfully!"
+      flash[:success] = "Saved successfully!"
       redirect_to notes_path
     else
-      flash[:alert] = "Save Unsuccessful, Please Try Again!"
+      flash[:alert] = "Save unsuccessful. Please make sure all three fields have a value!"
       redirect_to static_pages_home_path
     end
 

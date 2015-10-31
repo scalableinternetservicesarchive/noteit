@@ -17,35 +17,25 @@
         <%= javascript_include_tag "bootstrap-tags" %>
         <%= javascript_include_tag "vote" %>
     </head>
-    <body ng-controller="MainCtrl">
+    <body> <!-- ng-controller="MainCtrl">-->
 
-        <div class="page-header" style="position:fixed; left: 5%" >
+        <div class="page-header" style="left: 5%" >
             <h1 style="color:grey"><%= @note.title%></h1>
             <div id="tags"><%=@note.university %>  <%=@note.class_subject %>  <%=@note.professor %></div>
         
         </div>
 
-        <div class="panel panel-default" style="position:fixed; top: 25%; left:5%; background-color:transparent; width:70%">
-            <div class="panel-body" >
-               
+        <div class="panel panel-default" style="top: 25%; left:5%; background-color:transparent; width:70%">
+            <div class="panel-body" >   
                 <%=@note.content.html_safe%>
+                    
             </div>
-            
         </div>
         <div>
-            <%= image_tag @note.avatar.url %>
-            <%= image_tag @note.avatar.url(:medium) %>
-            <%= image_tag @note.avatar.url(:thumb) %>
+                    <%= image_tag @note.avatar.url %>
+                    <%= image_tag @note.avatar.url(:medium) %>
+                    <%= image_tag @note.avatar.url(:thumb) %>
         </div>
-       <!-- <div class="panel panel-default" style="position:fixed; bottom: 5%; left:5%">
-            <div class="panel-body" >
-                <i title="Up Votes" ng-click="changeVote(vote, 'up', 1)" class="fa fa-arrow-circle-up fa-2x" ng-class="{true:'up', false:''}[vote=='up']"></i>
-                <br>
-                <i title="Down Votes" ng-click="changeVote(vote, 'down', -1)" class="fa fa-arrow-circle-down fa-2x"  ng-class="{true:'down', false:''}[vote=='down']"></i>
-                <br>Vote: {{vote}}
-            </div>
-
-        </div> -->
         <section class="panel panel-default" style="position:fixed; bottom: 5%; left:5%">
         
             <% if(user_signed_in? && current_user.id != @note_owner) %>
