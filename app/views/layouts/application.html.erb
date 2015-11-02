@@ -35,10 +35,10 @@
 <body>
 
   <%= render 'partials/navbar' %>
-
-  <div class="container">
-      <%= yield %>
-  <!--    <%= debug(params) if Rails.env.development? %>-->
+  <%= yield %>
+  <br/>
+  <div >
+     <%= debug(params) if Rails.env.development? %>
   </div>
 
 </body>
