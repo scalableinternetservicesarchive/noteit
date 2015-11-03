@@ -17,7 +17,7 @@
         <%if !(request.env['PATH_INFO'] == root_path) %>
         <div class="col-sm-3 col-md-3" style="margin-top: 10px"> 
             <%= form_tag search_path, :html => { :class => 'navbar-form' } do |f| %>
-                <%= text_field_tag :search%>
+                <%= text_field_tag :search, nil, placeholder: 'Search notes..' %>
                 <%= submit_tag "Search", class: "btn" %>
                <!-- <%= button_tag do %>
                     <i class="icon-search"></i>
@@ -30,10 +30,15 @@
         <ul class="nav navbar-nav pull-right">
             <li>
                 <%if user_signed_in? && request.env['PATH_INFO'] != '/notes/new'%>
-                    <%= link_to "Create-Note", '/notes/new' %>
+                    <%= link_to "Create Note", '/notes/new' %>
                 <%end%>
             </li>
-            <li><%= link_to "About", '#' %></li>
+        
+            <li>
+                <% if user_signed_in? %>
+                <%= link_to "Signed in as #{current_user.email}", "#"%>
+                <%end%>
+            </li>
             <li>
                 <% if user_signed_in? %>
                     <%= link_to "Log out", destroy_user_session_path, method: "delete" %>

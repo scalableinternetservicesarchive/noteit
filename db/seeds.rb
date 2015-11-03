@@ -20,8 +20,15 @@ User.create!(name:  "Note It User",
                )
 end
 user = User.find_by(name: 'Note It User')
+
+5.times do
+  title = Faker::Lorem.sentence(1)
+  user.notebooks.create!(title: title) 
+end
+
 50.times do
   content = Faker::Lorem.sentence(5)
   title = Faker::Lorem.sentence(1)
-  user.notes.create!(title: title, content: content) 
+  notebook = Notebook.find_by(id: 1)
+  user.notes.create!(title: title, content: content, notebook_id: notebook.id) 
 end

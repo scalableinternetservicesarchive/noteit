@@ -9,5 +9,6 @@ class User < ActiveRecord::Base
             uniqueness: true
   #validates :name, length: {maximum: 50}
   has_many :notes
+  has_many :notebooks
   has_many :comments, :through => :notes
 end

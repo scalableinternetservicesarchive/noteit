@@ -4,6 +4,9 @@
   		<%= form.text_field :title%>
   		<%= form.label :keywords%>
   		<%= form.text_field :content %>
+  		<% options = options_from_collection_for_select(@notebooks, 'id', 'title') %>
+		<%= form.label :Notebook%>
+		<%= form.select :notebook_id,  options %>
   		<%= form.file_field :avatar %>
   		<%= form.submit "Upload" %>
 	<% end %>
