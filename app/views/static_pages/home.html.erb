@@ -92,20 +92,26 @@
                         <div class="btn-group">
                           <%= link_to "View Notes", notes_path, :class => "btn btn-info" %>
                           <%= link_to "Create Note", '/notes/new', :class => "btn btn-info" %>
-                          <%= link_to "Favorite Notes", '/notes/new', :class => "btn btn-info" %>
+                          <!--<%= link_to "Favorite Notes", '/notes/new', :class => "btn btn-info" %>-->
                         </div>
                         <div>
                             <br/>
-                            <span>Upload a note!</span>
+                            <span>Upload a note</span>
                             <br/>
                             <%= render 'partials/upload_note' %>
                         </div>
                         <hr>
 
-                        <p> Your Notebooks! </p>
+                        <p> Your Notebooks </p>
                         
                         <div id="notebook-row" class="row">
-                            <!-- Populated by Javascript below -->
+                            <ul class="notebooks">
+                            <% @notebooks.each do |notebook| %>
+                            <li>
+                                <%= link_to notebook.title, notebook %>
+                            </li>
+                            <% end %>
+                            </ul>
                         </div>
                         <!-- End notebook row -->
 
@@ -113,7 +119,7 @@
 
                     </div>
 
-                            <script>
+                      <!--      <script>
                                 var classes = ["TMP 241", "CS 290B", "CS 270", "Homework"];
 
                                 for (i = 0; i < classes.length; i++) { 
@@ -156,7 +162,7 @@
                                     // var child = document.getElementById("p1");
                                     // element.insertBefore(para,child);
                                 }
-                            </script>
+                            </script>-->
                         
                         
 

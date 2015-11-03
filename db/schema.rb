@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031190852) do
+ActiveRecord::Schema.define(version: 20151103060058) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20151031190852) do
   end
 
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "notebooks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "title"
+  end
+
+  add_index "notebooks", ["user_id"], name: "index_notebooks_on_user_id"
 
   create_table "notes", force: :cascade do |t|
     t.string   "title"
@@ -42,8 +51,10 @@ ActiveRecord::Schema.define(version: 20151031190852) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "notebook_id"
   end
 
+  add_index "notes", ["notebook_id"], name: "index_notes_on_notebook_id"
   add_index "notes", ["user_id"], name: "index_notes_on_user_id"
 
   create_table "users", force: :cascade do |t|

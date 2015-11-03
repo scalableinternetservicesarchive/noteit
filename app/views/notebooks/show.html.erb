@@ -1,0 +1,20 @@
+<% provide(:title, "Notebook #{@notebook.title}") %>
+<div class="panel panel-default">
+  <div class="panel-body"><</div>
+</div>
+<br/>
+<br/>
+    <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+  
+<h1>All your notes in notebook <%=@notebook.title %></h1>
+
+
+<ul class="notes">
+  <% @notes.each do |note| %>
+    <li>
+      <%= link_to note.title, note %>
+    </li>
+  <% end %>
+</ul>

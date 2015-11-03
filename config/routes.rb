@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'comments/new'
 
   resources :notes
-
+  resources :notebooks
 
   post 'search' => 'notes#search'
   post 'upload-note' => 'notes#upload_note'
