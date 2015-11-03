@@ -93,13 +93,14 @@
                           <%= link_to "View Notes", notes_path, :class => "btn btn-info" %>
                           <%= link_to "Create Note", '/notes/new', :class => "btn btn-info" %>
                           <%= link_to "Favorite Notes", '/notes/new', :class => "btn btn-info" %>
+                          <button type="button" class="btn btn-info" onClick="$('#myModal').modal()" data-target="#myModal">Upload Note</button>
                         </div>
-                        <div>
+                        <!-- <div>
                             <br/>
                             <span>Upload a note!</span>
                             <br/>
                             <%= render 'partials/upload_note' %>
-                        </div>
+                        </div> -->
                         <hr>
 
                         <p> Your Notebooks! </p>
@@ -112,6 +113,8 @@
                         <hr>
 
                     </div>
+
+                    
 
                             <script>
                                 var classes = ["TMP 241", "CS 290B", "CS 270", "Homework"];
@@ -166,6 +169,27 @@
 
             </div>
             <!-- /.container-fluid -->
+            <!-- Modal -->
+                    <div id="myModal" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Upload Note</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>Some text in the modal.</p>
+                            <%= render 'partials/upload_note' %>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
 
         </div>
         <!-- /#page-wrapper -->
@@ -173,11 +197,6 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
 
 </body>
 

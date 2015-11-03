@@ -25,10 +25,10 @@
             <br>
             <br>
 
-            <div class="panel panel-primary">
+            <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3><%= @note.title%></h3>
-                    <div id="tags">: <%=@note.university %>  <%=@note.class_subject %>  <%=@note.professor %></div>
+                    <span class="text-primary"><%=@note.university %>  <%=@note.class_subject %>  <%=@note.professor %></span>
                 </div>
                 <div class="panel-body"><%=@note.content.html_safe%> 
                 </div>
@@ -66,9 +66,9 @@
                 <h4>Leave a Comment:</h4>
                 <form role="form">
                     <div class="form-group">
-                        <textarea class="form-control" rows="3"></textarea>
+                        <textarea id="comment" class="form-control" rows="3"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button id="comment-submit" onclick="myFunction()" type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
             <!-- End comments form -->
@@ -77,6 +77,14 @@
         <!-- End container -->
 
     </body>
+
+    <script>
+    function myFunction() {
+        var comment = document.getElementById("comment").value;
+        window.alert("Comment: " + comment);
+
+    }
+    </script>
 
 </html>
 
