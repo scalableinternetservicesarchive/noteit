@@ -30,7 +30,7 @@
         <ul class="nav navbar-nav pull-right">
             <li>
                 <%if user_signed_in? && request.env['PATH_INFO'] != '/notes/new'%>
-                    <%= link_to "Create-Note", '/notes/new' %>
+                    <%= link_to "Create Note", '/notes/new' %>
                 <%end%>
             </li>
         

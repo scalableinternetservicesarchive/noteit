@@ -9,4 +9,21 @@ class NotebooksController < ApplicationController
       		@note_owner = -1
     	end
 	end
+
+	def create
+		@notebook = current_user.notebooks.build(notebook_params)
+		if @notebook.save
+			flash[:success] = "Notebook created"
+		else
+			flash[:alert] = "Sorry, we experienced an error"
+		end
+		redirect_to static_pages_home_path
+	end
+
+	private
+
+    	def notebook_params
+      		params.require(:notebook).permit(:title)
+    	end
+    
 end

@@ -64,7 +64,7 @@
             </div>
             <br/>
             <!--note tags-->
-            <p class="col-sm-1 control-label" style="margin-left:50px; font-weight: bold;">Tags: </p>
+            <!--<p class="col-sm-1 control-label" style="margin-left:50px; font-weight: bold;">Tags: </p>
             <div id="tags" style="margin-left: 150px; width: 500px"></div>
 <!--             <div class="form-group">
                 <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold;">Tags:</label>
@@ -93,12 +93,12 @@
             <br>
         </div>
         <script type="text/javascript">
-            $(function(){
-                $("#tags").tags({
-                  suggestions: ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india"],
-                  tagData: ["network", "internet service"]
-                });
-              });
+            //$(function(){
+              //  $("#tags").tags({
+                //  suggestions: ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india"],
+                  //tagData: ["network", "internet service"]
+                //});
+              //});
 
             angular.module("textAngularDemo", ['textAngular'])
                     .controller("demoController", function demoController($scope, $http, $window) {
