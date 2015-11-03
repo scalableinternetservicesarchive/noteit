@@ -1,4 +1,4 @@
-<% provide(:title, "Notebook #{@notebook.title}") %>
+<% provide(:title, "All Notes") %>
 <div class="panel panel-default">
   <div class="panel-body"><</div>
 </div>
@@ -7,9 +7,8 @@
     <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
-  
-<h1>All your notes in notebook <%=@notebook.title %></h1>
-
+<% if @notes.count > 0 %>  
+<h1>All notes in notebook <span style="color:green"><%= @notebook.title %></span></h1>
 
 <ul class="notes">
   <% @notes.each do |note| %>
@@ -18,3 +17,6 @@
     </li>
   <% end %>
 </ul>
+<%else%>
+	<span style="color:green"><%= @notebook.title %></span> has no notes.
+<%end%>

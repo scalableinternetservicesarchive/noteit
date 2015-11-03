@@ -17,7 +17,7 @@
         <%if !(request.env['PATH_INFO'] == root_path) %>
         <div class="col-sm-3 col-md-3" style="margin-top: 10px"> 
             <%= form_tag search_path, :html => { :class => 'navbar-form' } do |f| %>
-                <%= text_field_tag :search%>
+                <%= text_field_tag :search, nil, placeholder: 'Search notes..' %>
                 <%= submit_tag "Search", class: "btn" %>
                <!-- <%= button_tag do %>
                     <i class="icon-search"></i>

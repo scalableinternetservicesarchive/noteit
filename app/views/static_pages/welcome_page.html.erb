@@ -53,10 +53,10 @@
 
 
                         <hr class="intro-divider">
-                        <div >
-                          <div class="signupbutton" >
+                        <div class="lead", style="color:black">
+                          <div >
                             <%= form_tag search_path do |f| %>
-                                <%= text_field_tag :search %>
+                                <%= text_field_tag :search, nil, placeholder: 'Keyword, Title..' %>
                                 <%= submit_tag "Search", class: "btn" %>
                <!-- <%= button_tag do %>
                     <i class="icon-search"></i>
@@ -66,7 +66,7 @@
                         </div>
                         <br>
 
-                        <ul class="list-inline intro-social-buttons">
+                       <!-- <ul class="list-inline intro-social-buttons">
                             <li>
                                 <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">By University</span></a>
                             </li>
@@ -76,7 +76,7 @@
                             <li>
                                 <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">By Professor</span></a>
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
             </div>

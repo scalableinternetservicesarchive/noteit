@@ -54,7 +54,15 @@
                 <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold;">Professor:</label>
                 <input class="form-control" type="text" ng-model="professor" style="width: 250px">
             </div>
-
+            <div>
+                Choose Notebook: 
+                <select id="notebook_id">
+                    <%@notebooks.each do |option|%>
+                    <option value="#{option.id}"><%=option.title%></option>
+                    <%end%>
+                </select>  
+            </div>
+            <br/>
             <!--note tags-->
             <p class="col-sm-1 control-label" style="margin-left:50px; font-weight: bold;">Tags: </p>
             <div id="tags" style="margin-left: 150px; width: 500px"></div>
