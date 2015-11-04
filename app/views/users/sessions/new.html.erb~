@@ -18,16 +18,18 @@
   <div style="padding-top: 100px; 
     height: 100%;
     text-align: center;
-    background: url(<%= asset_path 'bg1.jpg' %>);
+    background: url(<%= asset_path 'bg1.jpg' %>) ;
     background-size: cover;
-	color:white;"
+	color:white;
+
+"
 	>
       <!-- <form class="form-signin"> -->
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-control") do |f| %>
         <h2 class="form-signin-heading">Sign in</h2>
         <br>
         <div class="email">
-          <%= f.label :email %>&nbsp&nbsp&nbsp
+          <%= f.label :email %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
           <%= f.email_field :email, autofocus: true, :class => 'signupbutton' %>
         </div>
         <br>
