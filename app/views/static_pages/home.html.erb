@@ -13,8 +13,8 @@
 
 .notebookstyle
 {
-height:250px;
-width:200px;
+height:200px;
+width:150px;
 border:transparent;
 margin:10px;
 background:url(<%= asset_path('notebook.png') %>);
@@ -26,8 +26,8 @@ color:white;
 .notebookstyle:hover
 {
 
-height:250px;
-width:200px;
+height:210px;
+width:160px;
 border:5 black;
 margin:10px;
 background:url(<%= asset_path('notebook7.jpg') %>);
@@ -77,8 +77,11 @@ text-transform:uppercase;
                     <li>
                         <a href="#" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-book"></i> Notebooks <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
- <% @notebooks.each do |notebook| %>
-<li><%= link_to notebook.title, notebook, :style=>"text-transform:capitalize" %></li><% end %>
+                            <% @notebooks.each do |notebook| %>
+                                <li>
+                                    <%= link_to notebook.title, notebook, :style=>"text-transform:capitalize" %>
+                                </li>
+                            <% end %>
                             
                         </ul>
                     </li>
@@ -200,26 +203,6 @@ text-transform:uppercase;
 
                                     document.getElementById('notebook-row').appendChild(notebook);
 
-
-
-
-                                    // var notebook = document.createElement("button");
-                                    // var t = document.createTextNode("CS290B!");  
-                                    // var div = document.createElement("div");
-                                    // var br = document.createElement("br");
-
-                                    // notebook.className = "btn btn-success";
-                                    // notebook.text = "CS290B!";
-                                    // notebook.appendChild(t)
-                                    // notebook.appendChild(br);
-                                    // notebook.appendChild(div);
-
-                                    // document.getElementById('notebooks').appendChild(notebook);
-                                    // document.getElementById('notebooks').appendChild(div);
-
-                                    // var element = document.getElementById("div1");
-                                    // var child = document.getElementById("p1");
-                                    // element.insertBefore(para,child);
                                 }
                             </script>-->
                         

@@ -3,47 +3,50 @@
   <div class="panel-body"></div>
 </div>
 -->
-<br/>
-<br/>  
-    <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
-  
-<h2 style="margin-left:2%; margin-top: 30px; color:black"><%=current_user.name %> 's Notes</h2>
+<div class="container">
+  <br/>
+  <br/> 
+  <br/> 
+      <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+    
+  <h2 style="margin-top: 30px; color:black"><%=current_user.name %>'s Notes</h2>
 
-<%= will_paginate %>
+  <%= will_paginate %>
 
-<table class="table table-striped" style="width: 95%; margin-left:2%; margin-top:20px">
-	 <thead>
-      <tr>
-        <th>Title</th>
-        <th>Notebook</th>
-        <th>University</th>
-        <th>Class</th>
-        <th>Professor</th>
-      </tr>
-    </thead>
-
-    <tbody class="notes">
-        <% @notes.each do |note| %>
+  <table class="table table-striped" style="width: 95%; margin-left:2%; margin-top:20px">
+  	 <thead>
         <tr>
-            <td><%= link_to note.title, note, :style => "color:brown"  %></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td> 
+          <th>Title</th>
+          <th>Notebook</th>
+          <th>University</th>
+          <th>Class</th>
+          <th>Professor</th>
         </tr>
-        <% end %>
-    </tbody>
-</table>
+      </thead>
+
+      <tbody class="notes">
+          <% @notes.each do |note| %>
+          <tr>
+              <td><%= link_to note.title, note, :style => "color:#00B87A"  %></td>
+              <td><%= note.notebook %></td>
+              <td></td>
+              <td></td>
+              <td></td> 
+          </tr>
+          <% end %>
+      </tbody>
+  </table>
 
 
-<!-- <ul class="notes">
-  <% @notes.each do |note| %>
-    <li>
-      <%= link_to note.title, note %>
-    </li>
-  <% end %>
-</ul> -->
+  <!-- <ul class="notes">
+    <% @notes.each do |note| %>
+      <li>
+        <%= link_to note.title, note %>
+      </li>
+    <% end %>
+  </ul> -->
 
-<%= will_paginate %>
+  <%= will_paginate %>
+</div>
