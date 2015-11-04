@@ -1,24 +1,51 @@
 <div class="container">
   <% provide(:title, "All Notes") %>
   <div class="panel panel-default">
-    <div class="panel-body"><</div>
+    <div class="panel-body"></div>
   </div>
   <br/>
   <br/>
-      <% flash.each do |message_type, message| %>
-          <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
-  <% if @notes.count > 0 %>  
-  <h1>All notes in notebook <span style="color:green"><%= @notebook.title %></span></h1>
+  <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
 
-  <ul class="notes">
-    <% @notes.each do |note| %>
-      <li>
-        <%= link_to note.title, note %>
-      </li>
-    <% end %>
-  </ul>
+  
+
+  
+
+  <% if @notes.count > 0 %>  
+    <h1>All notes in notebook <span style="color:green"><%= @notebook.title %></span></h1>
+
+    <ul class="notes">
+      <% @notes.each do |note| %>
+        <li>
+          <%= link_to note.title, note %>
+        </li>
+      <% end %>
+    </ul>
+
   <%else%>
-  	<span style="color:green"><%= @notebook.title %></span> has no notes.
+  	<h3><span style="color:green"><%= @notebook.title %></span> has no notes.</h3>
   <%end%>
+
+<br>
+<br>
+  <button type="button" class="btn btn-success">
+      <i class="glyphicon glyphicon-list-alt"></i>
+      <%= link_to "New Note", '/notes/new', :style => "color:white" %>
+    </button>
+
+    <button type="button" class="btn btn-info">
+      <i class="glyphicon glyphicon-list-alt"></i>
+      <%= link_to "Share Notebook", '/notes/new', :style => "color:white" %>
+    </button>
+
+    <button type="button" class="btn btn-danger">
+      <i class="glyphicon glyphicon-list-alt"></i>
+      <%= link_to "Delete Notebook", '/notes/new', :style => "color:white" %>
+    </button>
+
+    <br>
+    <br>
+
 </div>
