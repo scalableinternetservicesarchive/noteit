@@ -18,43 +18,73 @@
         <%= javascript_include_tag "vote" %>
     </head>
     <body> <!-- ng-controller="MainCtrl">-->
+        <div class="container">
 
-        <div class="page-header" style="left: 5%" >
-            <h1 style="color:grey"><%= @note.title%></h1>
-            <div id="tags"><%=@note.university %>  <%=@note.class_subject %>  <%=@note.professor %></div>
-        
-        </div>
+            <br>
+            <br>
+            <br>
+            <br>
 
-        <div class="panel panel-default" style="top: 25%; left:5%; background-color:transparent; width:70%">
-            <div class="panel-body" >   
-                <%=@note.content.html_safe%>
-                    
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3><%= @note.title%></h3>
+                    <span class="text-primary"><%=@note.university %>  <%=@note.class_subject %>  <%=@note.professor %></span>
+                </div>
+                <div class="panel-body"><%=@note.content.html_safe%> 
+                </div>
             </div>
-        </div>
-        <%if @note.avatar_file_name %>
-        <% if @note.avatar_content_type =~ /image*/ %>
-            <div>
-                    <%= link_to "View original image", @note.avatar.url%> 
-                    <br/>   
-                    <%= image_tag @note.avatar.url(:medium) %>
-                    
-            </div>
-        <%else%>
-            <div>
-                <%= link_to "View uploaded file", @note.avatar.url%>
-            </div>
-        <%end%>
-        <%end%>
-        <section class="panel panel-default" style="position:fixed; bottom: 5%; left:5%">
-        
-            <% if(user_signed_in? && current_user.id != @note_owner) %>
-                <%= render 'partials/vote' %>
+
+            
+            <%if @note.avatar_file_name %>
+            <% if @note.avatar_content_type =~ /image*/ %>
+                <div>
+                        <%= link_to "View original image", @note.avatar.url%> 
+                        <br/>   
+                        <%= image_tag @note.avatar.url(:medium) %>
+                        
+                </div>
             <%else%>
-                <%= render 'partials/view_vote' %>
+                <div>
+                    <%= link_to "View uploaded file", @note.avatar.url%>
+                </div>
             <%end%>
-        </section>
+            <%end%>
+            <section class="panel panel-default" style="position:fixed; bottom: 5%; left:5%">
+            
+                <% if(user_signed_in? && current_user.id != @note_owner) %>
+                    <%= render 'partials/vote' %>
+                <%else%>
+                    <%= render 'partials/view_vote' %>
+                <%end%>
+            </section>
+
+            <br>
+            <br>
+            <hr>
+            <!-- Comments Form -->
+            <div class="well">
+                <h4>Leave a Comment:</h4>
+                <form role="form">
+                    <div class="form-group">
+                        <textarea id="comment" class="form-control" rows="3"></textarea>
+                    </div>
+                    <button id="comment-submit" onclick="myFunction()" type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <!-- End comments form -->
+
+        </div>
+        <!-- End container -->
 
     </body>
+
+    <script>
+    function myFunction() {
+        var comment = document.getElementById("comment").value;
+        window.alert("Comment: " + comment);
+
+    }
+    </script>
 
 </html>
 
