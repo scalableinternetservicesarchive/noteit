@@ -21,79 +21,85 @@
     </head>
 
     <body>
-        <div id="note_save_msg" style="display: none;"></div>
-        <div id="ng-app" ng-app="textAngularDemo" ng-controller="demoController" class="ng-scope">
-            <br>
-            <br>
-            <br>
-            <br>
-            
+        <div class="container">
+            <div id="note_save_msg" style="display: none;"></div>
+            <div id="ng-app" ng-app="textAngularDemo" ng-controller="demoController" class="ng-scope">
+                <br>
+                <br>
+                <br>
+                <br>
+                
 
-            <br>
-            <!--note title-->
-            <div class="form-group">
-                <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold; font-size:17px">Title:</label>
-                <input class="form-control" type="text" ng-model="title" style="width: 500px">
+                <br>
+                <!--note title-->
+                <div class="form-group">
+                    <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold; font-size:17px">Title:</label>
+                    <input class="form-control" type="text" ng-model="title" style="width: 500px">
+                </div>
+                <br>
+
+                <!--note uni-->
+                <div class="form-group">
+                    <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold; font-size:17px">University:</label>
+                    <input class="form-control" type="text" ng-model="university" style="width: 250px">
+                </div>
+
+                <!--note class-->
+                <div class="form-group">
+                    <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold; font-size:17px">Class:</label>
+                    <input class="form-control" type="text" ng-model="notes_class" style="width: 250px">
+                </div>
+
+                <!--note prof-->
+                <div class="form-group">
+                    <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold; font-size:17px">Professor:</label>
+                    <input class="form-control" type="text" ng-model="professor" style="width: 250px">
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold; font-size:17px">Notebook: </label>
+                    <select class="form-control" id="notebook_id" style="width:200px">
+                        <%@notebooks.each do |option|%>
+                        <option value="#{option.id}"><%=option.title%></option>
+                        <%end%>
+                    </select>  
+                </div>
+                <br/>
+                <!--note tags-->
+                <!--<p class="col-sm-1 control-label" style="margin-left:50px; font-weight: bold;">Tags: </p>
+                <div id="tags" style="margin-left: 150px; width: 500px"></div>
+    <!--             <div class="form-group">
+                    <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold;">Tags:</label>
+                    <input class="form-control" type="text" ng-model="tags" style="width: 500px">
+                </div> -->
+
+                <br>
+
+                <!--Angular Text Editor-->
+                <div class="container lighter">
+                    <div text-angular ng-model="htmlContent" name="demo-editor" ta-text-editor-class="border-around container" ta-html-editor-class="border-around"></div>
+                </div>
+                <br>
+
+                <!--<p ng-bind="htmlContent" class="text-left text-med text-gray"></p>-->
+
+
+                <!--Save Button-->
+                <button class="btn btn-success" ng-click="save()"
+                        style=" background-color: white; border-color: black; width: 120px; color:black; font-weight: bold;
+                        margin-top: 20px; float: right; margin-right: 50px">
+                    <!-- <span class="glyphicon glyphicon-save"></span>&nbsp&nbsp Save &nbsp&nbsp -->
+                    <span>Save</span>
+                </button>
+                <br>
+                <br>
             </div>
-            <br>
-
-            <!--note uni-->
-            <div class="form-group">
-                <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold; font-size:17px">University:</label>
-                <input class="form-control" type="text" ng-model="university" style="width: 250px">
-            </div>
-
-            <!--note class-->
-            <div class="form-group">
-                <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold; font-size:17px">Class:</label>
-                <input class="form-control" type="text" ng-model="notes_class" style="width: 250px">
-            </div>
-
-            <!--note prof-->
-            <div class="form-group">
-                <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold; font-size:17px">Professor:</label>
-                <input class="form-control" type="text" ng-model="professor" style="width: 250px">
-            </div>
-            
-            <div class="form-group">
-                <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold; font-size:17px">Notebook: </label>
-                <select class="form-control" id="notebook_id" style="width:200px">
-                    <%@notebooks.each do |option|%>
-                    <option value="#{option.id}"><%=option.title%></option>
-                    <%end%>
-                </select>  
-            </div>
-            <br/>
-            <!--note tags-->
-            <!--<p class="col-sm-1 control-label" style="margin-left:50px; font-weight: bold;">Tags: </p>
-            <div id="tags" style="margin-left: 150px; width: 500px"></div>
-<!--             <div class="form-group">
-                <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold;">Tags:</label>
-                <input class="form-control" type="text" ng-model="tags" style="width: 500px">
-            </div> -->
-
-            <br>
-
-            <!--Angular Text Editor-->
-            <div class="container lighter">
-                <div text-angular ng-model="htmlContent" name="demo-editor" ta-text-editor-class="border-around container" ta-html-editor-class="border-around"></div>
-            </div>
-            <br>
-
-            <!--<p ng-bind="htmlContent" class="text-left text-med text-gray"></p>-->
-
-
-            <!--Save Button-->
-            <button class="btn btn-success" ng-click="save()"
-                    style=" background-color: white; border-color: black; width: 120px; color:black; font-weight: bold;
-                    margin-top: 20px; float: right; margin-right: 50px">
-                <!-- <span class="glyphicon glyphicon-save"></span>&nbsp&nbsp Save &nbsp&nbsp -->
-                <span>Save</span>
-            </button>
-            <br>
-            <br>
         </div>
-        <script type="text/javascript">
+        <!-- End Container -->
+
+    </body>
+
+    <script type="text/javascript">
             //$(function(){
               //  $("#tags").tags({
                 //  suggestions: ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india"],
@@ -139,9 +145,6 @@
 
                     });
         </script>
-
-
-    </body>
 </html>
 
 

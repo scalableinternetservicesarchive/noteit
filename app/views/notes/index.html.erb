@@ -5,7 +5,8 @@
 -->
 <div class="container">
   <br/>
-  <br/>  
+  <br/> 
+  <br/> 
       <% flash.each do |message_type, message| %>
           <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
@@ -28,8 +29,8 @@
       <tbody class="notes">
           <% @notes.each do |note| %>
           <tr>
-              <td><%= link_to note.title, note, :style => "color:brown"  %></td>
-              <td></td>
+              <td><%= link_to note.title, note, :style => "color:#00B87A"  %></td>
+              <td><%= note.notebook %></td>
               <td></td>
               <td></td>
               <td></td> 

@@ -1,19 +1,21 @@
-<% provide(:title, "Search Results") %>
-<div class="panel panel-default">
-  <div class="panel-body"></div>
-</div>
-<br/>
-<br/>
-<%if @notes.count == 0%>
-  	  Sorry, there's nothing for <span style="color:blue"><%=@keyword %></span>
-<%else%>
-<h1>Here's what we found <span style="color:blue"><%=@keyword %></span></h1>
+<div class="container">	
+	<% provide(:title, "Search Results") %>
+	<div class="panel panel-default">
+	  <div class="panel-body"></div>
+	</div>
+	<br/>
+	<br/>
+	<%if @notes.count == 0%>
+	  	  Sorry, there's nothing for <span style="color:blue"><%=@keyword %></span>
+	<%else%>
+	<h1>Here's what we found <span style="color:blue"><%=@keyword %></span></h1>
 
-<ul class="notes">
-  <% @notes.each do |note| %>
-    <li>
-      <%= link_to note.title, note %>
-    </li>
-  <% end %>
-  <%end%>
-</ul>
+	<ul class="notes">
+	  <% @notes.each do |note| %>
+	    <li>
+	      <%= link_to note.title, note %>
+	    </li>
+	  <% end %>
+	  <%end%>
+	</ul>
+</div>

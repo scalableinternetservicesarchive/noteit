@@ -4082,6 +4082,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     float: left;
   }
 }
+.navbar .divider-vertical {
+  height: 40px;
+  margin: 0 9px;
+  border-left: 1px solid #f2f2f2;
+  border-right: 1px solid #ffffff;
+}
 .navbar-collapse {
   padding-right: 15px;
   padding-left: 15px;
