@@ -104,18 +104,19 @@
                         </div>
 
                         <br/>
-
+                        <br>
                         <p> Your Notebooks </p>
+
                         
-                        <div id="notebook-row" class="row">
-                            <ul class="notebooks">
-                            <% @notebooks.each do |notebook| %>
-                            <li>
-                                <%= link_to notebook.title, notebook %>
-                            </li>
-                            <% end %>
-                            </ul>
-                        </div>
+                        <table id="notebook-row" class="table table-striped">
+                            <tbody class="notebooks">
+                                <% @notebooks.each do |notebook| %>
+                                <tr>
+                                    <td ><%= link_to notebook.title, notebook %></td>
+                                </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
                         <!-- End notebook row -->
 
                         <hr>
