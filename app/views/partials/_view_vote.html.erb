@@ -1,23 +1,19 @@
-
-<div class="box" style="width:35px;">
-	<div id = "upvote_form" style="margin-left:13px">
-		<div id="upvote_count"><%=@note.get_upvotes.size%></div>
-		<div id = "upvote_form_form">
-	  			<i class="fa fa-arrow-up"></i>
-		</div>
+<div id = "upvote_form">
+	<div id="upvote_count"><%=@note.get_upvotes.size%></div>
+	<div id = "upvote_form_form">
+  			Upvotes
 	</div>
+</div>
 
-	<div id = "downvote_form" style="margin-left:13px">
-		<div id = "downvote_form_form">
-				<i class="fa fa-arrow-down"></i>
-		</div>
-		<div id = "downvote_count">
-
-			<%if(@note.get_downvotes.size != 0)%>
-				<%=-@note.get_downvotes.size%>
-			<%else%>
-				0
-			<%end%>
-		</div>
+<div id = "downvote_form">
+	<div id = "downvote_form_form">
+			Downvotes
 	</div>
-<div>
+	<div id = "downvote_count">
+		<%if(@note.get_downvotes.size != 0)%>
+			<%=-@note.get_downvotes.size%>
+		<%else%>
+			0
+		<%end%>
+	</div>
+</div>

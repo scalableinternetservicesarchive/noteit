@@ -9,51 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-<style>
 
-.notebookstyle
-{
-height:250px;
-width:200px;
-border:transparent;
-margin:10px;
-background:url(<%= asset_path('notebook.png') %>);
-background-size:100% 100%;
-text-transform:uppercase;
-color:white;
-}
-
-.notebookstyle:hover
-{
-
-height:250px;
-width:200px;
-border:5 black;
-margin:10px;
-background:url(<%= asset_path('notebook7.jpg') %>);
-background-size:100% 100%;
-text-transform:uppercase;
-
-
-}
-
-</style>
-<script type="text/javascript">
-
-    //var imgCount = 3;
-      //  var dir = 'images/';
-        //var randomCount = Math.round(Math.random() * (imgCount - 1)) + 1;
-        //var images = new Array
-                //images[1] = "notebook0.jpg",
-                //images[2] = "notebook1.jpg",
-                //images[3] = "notebook2.jpg",
-//document.getElementByClassName("notebookstyle").style.backgroundColor="lightblue";
-        //document.getElementById("notecolor").style.backgroundImage = "url(<%= asset_path('notebook.png') %>)"; 
-//var x=document.getELementById("notecolor");
-//x.style.backgroundColor="lightblue"; 
-//x.style.color="red"; 
-
-</script>
 </head>
 
 <body>
@@ -77,9 +33,15 @@ text-transform:uppercase;
                     <li>
                         <a href="#" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-book"></i> Notebooks <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
- <% @notebooks.each do |notebook| %>
-<li><%= link_to notebook.title, notebook, :style=>"text-transform:capitalize" %></li><% end %>
-                            
+                            <li>
+                                    <a href="#">CS290B</a>
+                                </li>
+                                <li>
+                                    <a href="#">TMP</a>
+                                </li>
+                                <li>
+                                    <a href="#">Add New...</a>
+                                </li>
                         </ul>
                     </li>
                     <li>
@@ -129,49 +91,31 @@ text-transform:uppercase;
                         <% end %>
                         
                         <div class="btn-group">
-                          <button type="button" class="btn btn-info">
-                            <i class="glyphicon glyphicon-list-alt"></i>
-                            <%= link_to "New Note", '/notes/new', :style => "color:white" %>
-                          </button>
-                        </div>
-                        
+                          <%= link_to "New Note", '/notes/new', :class => "btn btn-info" %>
+                          </div>
+                          <div class="btn-group">
+                          <button type="button" class="btn btn-info" onClick="$('#newNotebookModal').modal()" data-target="#newNotebookModal">New Notebook</button>
+                          </div>
                         <div class="btn-group">
-                          <button type="button" class="btn btn-info" onClick="$('#newNotebookModal').modal()" data-target="#newNotebookModal">
-                            <i class="glyphicon glyphicon-book"></i>
-                            New Notebook
-                          </button>
+                          <%= link_to "View Notes", notes_path, :class => "btn btn-info" %>
                         </div>
-                        
                         <div class="btn-group">
-                          <button type="button" class="btn btn-info">
-                            <i class="glyphicon glyphicon-th-list"></i>
-                            <%= link_to "Note Index", notes_path, :style => "color:white"  %>
-                          </button> 
-                        </div>
-
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-info" onClick="$('#myUploadModal').modal()" data-target="#myUploadModal">
-                            <i class="glyphicon glyphicon-file"></i>
-                            Upload Note
-                          </button>
+                          <button type="button" class="btn btn-info" onClick="$('#myUploadModal').modal()" data-target="#myUploadModal">Upload Note</button>
                         </div>
 
                         <br/>
-                        <br>
+
                         <p> Your Notebooks </p>
-
                         
-                        <table id="notebook-row" class="table table-striped">
-                            <tbody class="notebooks">
-                                <% @notebooks.each do |notebook| %>
-
-
-                               <%= button_to notebook.title, notebook, :class=>"notebookstyle",:method=>:get%>
-
-                                <% end %>
-                            </tbody>
-
-                        </table>
+                        <div id="notebook-row" class="row">
+                            <ul class="notebooks">
+                            <% @notebooks.each do |notebook| %>
+                            <li>
+                                <%= link_to notebook.title, notebook %>
+                            </li>
+                            <% end %>
+                            </ul>
+                        </div>
                         <!-- End notebook row -->
 
                         <hr>
