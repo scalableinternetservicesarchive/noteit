@@ -91,16 +91,31 @@
                         <% end %>
                         
                         <div class="btn-group">
-                          <%= link_to "New Note", '/notes/new', :class => "btn btn-info" %>
-                          </div>
-                          <div class="btn-group">
-                          <button type="button" class="btn btn-info" onClick="$('#newNotebookModal').modal()" data-target="#newNotebookModal">New Notebook</button>
-                          </div>
-                        <div class="btn-group">
-                          <%= link_to "View Notes", notes_path, :class => "btn btn-info" %>
+                          <button type="button" class="btn btn-info">
+                            <i class="glyphicon glyphicon-list-alt"></i>
+                            <%= link_to "New Note", '/notes/new', :style => "color:white" %>
+                          </button>
                         </div>
+                        
                         <div class="btn-group">
-                          <button type="button" class="btn btn-info" onClick="$('#myUploadModal').modal()" data-target="#myUploadModal">Upload Note</button>
+                          <button type="button" class="btn btn-info" onClick="$('#newNotebookModal').modal()" data-target="#newNotebookModal">
+                            <i class="glyphicon glyphicon-book"></i>
+                            New Notebook
+                          </button>
+                        </div>
+                        
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-info">
+                            <i class="glyphicon glyphicon-th-list"></i>
+                            <%= link_to "Note Index", notes_path, :style => "color:white"  %>
+                          </button> 
+                        </div>
+
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-info" onClick="$('#myUploadModal').modal()" data-target="#myUploadModal">
+                            <i class="glyphicon glyphicon-file"></i>
+                            Upload Note
+                          </button>
                         </div>
 
                         <br/>
@@ -112,7 +127,7 @@
                             <tbody class="notebooks">
                                 <% @notebooks.each do |notebook| %>
                                 <tr>
-                                    <td ><%= link_to notebook.title, notebook %></td>
+                                    <td style="color:black"><%= link_to notebook.title, notebook, :style => "color:brown"  %></td>
                                 </tr>
                                 <% end %>
                             </tbody>
