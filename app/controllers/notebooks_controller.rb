@@ -20,7 +20,7 @@ class NotebooksController < ApplicationController
 		if @notebook.save
 			flash[:success] = "Notebook created"
 		else
-			flash[:alert] = "Sorry, we experienced an error"
+			flash[:alert] = "Please make sure of the Notebook title."
 		end
 		redirect_to static_pages_home_path
 	end
