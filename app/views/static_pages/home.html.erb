@@ -28,7 +28,7 @@
 .notebookstyle:hover
 {
     height:200px;
-    width:165px;
+    width:160px;
    
     margin:10px;
     background:url(<%= asset_path('notebook7.jpg') %>);
@@ -170,7 +170,7 @@
                             <tbody class="notebooks">
                                 <% @notebooks.each do |notebook| %>
 
-
+                                
                                <%= button_to notebook.title, notebook, :class=>"notebookstyle",:method=>:get%>
 
                                 <% end %>
