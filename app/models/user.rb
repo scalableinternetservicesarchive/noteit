@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   
   has_many :notes
   has_many :notebooks
-  has_many :comments, :through => :notes
+  has_many :comments
 
 
   def self.from_omniauth(auth)
