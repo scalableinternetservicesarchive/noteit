@@ -1,8 +1,9 @@
 <div class="container">
+  <br>
+  <br>
+  <br>
   <% provide(:title, "All Notes") %>
-  <div class="panel panel-default">
-    <div class="panel-body"></div>
-  </div>
+  
 
   <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
@@ -36,7 +37,9 @@
       <i class="glyphicon glyphicon-list-alt"></i>
       <%= link_to "New Note", '/notes/new', :style => "color:white" %>
     </button>
-
+    <!-- 
+     <%= button_to "<i class=\"icon-book icon-white\">New Note</i>".html_safe, '/notes/new', :class => 'btn btn-success', :style => "color:white"  %>
+ -->
     <button type="button" class="btn btn-info">
       <i class="glyphicon glyphicon-list-alt"></i>
       <%= link_to "Share Notebook", '#', :style => "color:white" %>
