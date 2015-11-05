@@ -14,7 +14,7 @@
 .notebookstyle
 {
     height:200px;
-    width:150px;
+    width:160px;
     border:transparent;
     margin:10px;
     background:url(<%= asset_path('notebook.png') %>);
@@ -29,7 +29,7 @@
 {
     height:200px;
     width:160px;
-    border:5 black;
+   
     margin:10px;
     background:url(<%= asset_path('notebook7.jpg') %>);
     background-size:100% 100%;
@@ -89,7 +89,7 @@
                         <a href="#" data-toggle="collapse" data-target="#demo2"><i class="fa fa-bolt fa-fw"></i> Note Shortcuts <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo2" class="collapse">
                                 <li>
-                                    <a href="#">CS290B Lecture 1</a>
+                                    <a href="#">Shortcuts appear here</a>
                                 </li>
                         </ul>
                     </li>
@@ -225,7 +225,7 @@
                             <h4 class="modal-title">Upload Note</h4>
                         </div>
                         <div class="modal-body">
-                            <p>woo!</p>
+                            <p>Select a note to upload (pdf/jpeg)</p>
                             <%= render 'partials/upload_note' %>
                         </div>
                         <div class="modal-footer">
@@ -247,7 +247,7 @@
                             <h4 class="modal-title">New Notebook</h4>
                         </div>
                         <div class="modal-body">
-                            <p>yay!</p>
+                            <p>Choose a title for your new notebook</p>
                             <%= render 'partials/new_notebook' %>
                         </div>
                         <div class="modal-footer">

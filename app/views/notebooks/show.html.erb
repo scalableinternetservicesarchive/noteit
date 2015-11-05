@@ -3,26 +3,28 @@
   <div class="panel panel-default">
     <div class="panel-body"></div>
   </div>
-  <br/>
-  <br/>
+
   <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>
 
-  
-
-  
-
   <% if @notes.count > 0 %>  
-    <h1>All notes in notebook <span style="color:green"><%= @notebook.title %></span></h1>
 
-    <ul class="notes">
-      <% @notes.each do |note| %>
-        <li>
-          <%= link_to note.title, note %>
-        </li>
-      <% end %>
-    </ul>
+    <h3 style="margin-top: 4%; margin-left: 2%">All notes in notebook 
+      <span style="color:green"><%= @notebook.title %></span>
+    </h3>
+
+    <table class="table table-striped" style="margin-left:2%; width: 95%; margin-top:3%">
+
+      <tbody class="notes">
+          <% @notes.each do |note| %>
+          <tr>
+              <td><%= link_to note.title, note, :style => "color:#00B87A"  %></td>
+          </tr>
+          <% end %>
+      </tbody>
+  </table>
+
 
   <%else%>
   	<h3><span style="color:green"><%= @notebook.title %></span> has no notes.</h3>
@@ -37,13 +39,13 @@
 
     <button type="button" class="btn btn-info">
       <i class="glyphicon glyphicon-list-alt"></i>
-      <%= link_to "Share Notebook", '/notes/new', :style => "color:white" %>
+      <%= link_to "Share Notebook", '#', :style => "color:white" %>
     </button>
 
     <button type="button" class="btn btn-danger">
-      <i class="glyphicon glyphicon-list-alt"></i> <!--
-      # <%= link_to "Delete Notebook", '/notes/new', :style => "color:white" %> -->
-      <%= link_to 'Delete Notebook',url_for(action: :delete,id: @notebook.id),method: :delete, data: {confirm: "Are you sure?"} %>
+
+      <i class="glyphicon glyphicon-list-alt"></i>
+      <%= link_to "Delete Notebook", '#', :style => "color:white" %>
     </button>
 
     <% if flash[:success] %>

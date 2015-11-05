@@ -13,27 +13,27 @@
 
 .notebookstyle
 {
-height:250px;
-width:200px;
-border:transparent;
-margin:10px;
-background:url(<%= asset_path('notebook.png') %>);
-background-size:100% 100%;
-text-transform:uppercase;
-color:white;
+    height:200px;
+    width:160px;
+   
+    margin:10px;
+    background:url(<%= asset_path('notebook.png') %>);
+    background-size:100% 100%;
+    text-transform:uppercase;
+    color:white;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
 }
 
 .notebookstyle:hover
 {
-
-height:250px;
-width:200px;
-border:5 black;
-margin:10px;
-background:url(<%= asset_path('notebook7.jpg') %>);
-background-size:100% 100%;
-text-transform:uppercase;
-
+    height:200px;
+    width:160px;
+   
+    margin:10px;
+    background:url(<%= asset_path('notebook7.jpg') %>);
+    background-size:100% 100%;
+    text-transform:uppercase;
 
 }
 
@@ -77,8 +77,11 @@ text-transform:uppercase;
                     <li>
                         <a href="#" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-book"></i> Notebooks <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
- <% @notebooks.each do |notebook| %>
-<li><%= link_to notebook.title, notebook, :style=>"text-transform:capitalize" %></li><% end %>
+                            <% @notebooks.each do |notebook| %>
+                                <li>
+                                    <%= link_to notebook.title, notebook, :style=>"text-transform:capitalize" %>
+                                </li>
+                            <% end %>
                             
                         </ul>
                     </li>
@@ -86,7 +89,7 @@ text-transform:uppercase;
                         <a href="#" data-toggle="collapse" data-target="#demo2"><i class="fa fa-bolt fa-fw"></i> Note Shortcuts <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo2" class="collapse">
                                 <li>
-                                    <a href="#">CS290B Lecture 1</a>
+                                    <a href="#">Shortcuts appear here</a>
                                 </li>
                         </ul>
                     </li>
@@ -114,6 +117,7 @@ text-transform:uppercase;
             <!-- /.navbar-collapse -->
      <!--    </nav> -->
 
+     <br>
         <div id="page-wrapper">
 
             <div class="container-fluid">
@@ -157,6 +161,7 @@ text-transform:uppercase;
                         </div>
 
                         <br/>
+                        <hr>
                         <br>
                         <p> Your Notebooks </p>
 
@@ -200,26 +205,6 @@ text-transform:uppercase;
 
                                     document.getElementById('notebook-row').appendChild(notebook);
 
-
-
-
-                                    // var notebook = document.createElement("button");
-                                    // var t = document.createTextNode("CS290B!");  
-                                    // var div = document.createElement("div");
-                                    // var br = document.createElement("br");
-
-                                    // notebook.className = "btn btn-success";
-                                    // notebook.text = "CS290B!";
-                                    // notebook.appendChild(t)
-                                    // notebook.appendChild(br);
-                                    // notebook.appendChild(div);
-
-                                    // document.getElementById('notebooks').appendChild(notebook);
-                                    // document.getElementById('notebooks').appendChild(div);
-
-                                    // var element = document.getElementById("div1");
-                                    // var child = document.getElementById("p1");
-                                    // element.insertBefore(para,child);
                                 }
                             </script>-->
                         
@@ -240,7 +225,7 @@ text-transform:uppercase;
                             <h4 class="modal-title">Upload Note</h4>
                         </div>
                         <div class="modal-body">
-                            <p>woo!</p>
+                            <p>Select a note to upload (pdf/jpeg)</p>
                             <%= render 'partials/upload_note' %>
                         </div>
                         <div class="modal-footer">
@@ -262,7 +247,7 @@ text-transform:uppercase;
                             <h4 class="modal-title">New Notebook</h4>
                         </div>
                         <div class="modal-body">
-                            <p>yay!</p>
+                            <p>Choose a title for your new notebook</p>
                             <%= render 'partials/new_notebook' %>
                         </div>
                         <div class="modal-footer">
