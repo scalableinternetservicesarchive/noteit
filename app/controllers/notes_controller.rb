@@ -84,6 +84,16 @@ class NotesController < ApplicationController
 
   end
 
+  def create_comment
+    @note = Note.find_by_id(params[:id])
+    @comment = @note.build(:comment)  
+    if @comment.save
+      flash[:success] = "Comment created"
+    else
+      flash[:error] = "Error creating comment"
+    end
+        redirect_to @note
+  end
 
   private
 

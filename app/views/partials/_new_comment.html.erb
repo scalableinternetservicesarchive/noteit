@@ -1,0 +1,13 @@
+<div>
+  <!-- Comments Form -->
+    <div class="well">
+        <h4>Leave a Comment:</h4>
+      <%= form_for @note, :url => create_comment_path do |form| %>
+      <%= form.hidden_field :note_id, value: @note.id %>
+          <%= form.hidden_field :user_id, value: @note.user_id %>
+          <%= form.text_field :content%>
+          <%= form.submit "Post" %>
+        <% end %>
+    </div>
+  <!-- End comments form -->
+</div>

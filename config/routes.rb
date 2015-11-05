@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :notebooks
   resources :comments
 
+  post 'create-comment' => 'notes#create_comment'
   post 'search' => 'notes#search'
   post 'upload-note' => 'notes#upload_note'
 
