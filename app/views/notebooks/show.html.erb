@@ -3,26 +3,28 @@
   <div class="panel panel-default">
     <div class="panel-body"></div>
   </div>
-  <br/>
-  <br/>
+
   <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>
 
-  
-
-  
-
   <% if @notes.count > 0 %>  
-    <h1>All notes in notebook <span style="color:green"><%= @notebook.title %></span></h1>
 
-    <ul class="notes">
-      <% @notes.each do |note| %>
-        <li>
-          <%= link_to note.title, note %>
-        </li>
-      <% end %>
-    </ul>
+    <h3 style="margin-top: 4%; margin-left: 2%">All notes in notebook 
+      <span style="color:green"><%= @notebook.title %></span>
+    </h3>
+
+    <table class="table table-striped" style="margin-left:2%; width: 95%; margin-top:3%">
+
+      <tbody class="notes">
+          <% @notes.each do |note| %>
+          <tr>
+              <td><%= link_to note.title, note, :style => "color:#00B87A"  %></td>
+          </tr>
+          <% end %>
+      </tbody>
+  </table>
+
 
   <%else%>
   	<h3><span style="color:green"><%= @notebook.title %></span> has no notes.</h3>
