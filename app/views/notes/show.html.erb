@@ -62,6 +62,7 @@
             <br>
             <hr>
             <!-- Comments Form -->
+            <% if user_signed_in? %>
             <% flash.each do |message_type, message| %>
                 <div class="alert alert-<%= message_type %>"><%= message %></div>
             <% end %>
@@ -70,7 +71,9 @@
                 <%= render 'partials/leave_a_comment' %>
             </div>
             <!-- End comments form -->
-
+            <%else%>
+                <div class="well col-lg-8 col-centered">You must be signed in to post comments.</div>
+            <%end%>
             <!-- Comments -->
              <%= render 'partials/show_comments'%>  
             <!-- End Comments -->
