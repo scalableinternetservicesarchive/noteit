@@ -1,0 +1,4 @@
+No caching or other performance optimizations being done.
+Can handle upto 2 users per second only.
+
+/ -> /users/sign_up/ -> /notes/new -> / 
