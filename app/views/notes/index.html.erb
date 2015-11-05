@@ -30,7 +30,7 @@
           <% @notes.each do |note| %>
           <tr>
               <td><%= link_to note.title, note, :style => "color:#00B87A"  %></td>
-              <td><%= note.notebook %></td>
+              <td><%= link_to note.notebook.title, note.notebook if !note.notebook.nil? %></td>
               <td></td>
               <td></td>
               <td></td> 
