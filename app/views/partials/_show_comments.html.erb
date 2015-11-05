@@ -1,0 +1,25 @@
+<div>
+	
+	<ul class="comments">
+  		<% @comments.each do |comment| %>
+    	<li>
+   	   		<div class="media col-lg-8 col-centered">
+    	
+      			<a class="pull-left" href="#">
+        	 		<img class="media-object" src="http://placehold.it/64x64" alt="">
+      			</a>
+      			<div class="media-body">
+      				Posted by user id <%= comment.user_id %>
+      				
+      				<h4 class="media-heading">
+      					<small>Posted at <%= comment.created_at %><br/></small>
+      					<%= comment.content %>
+      				</h4>
+      			</div>
+      		</div>
+      		<br/>
+      		<br/>
+    	</li>
+  		<% end %>
+	</ul>
+<dhiv>
