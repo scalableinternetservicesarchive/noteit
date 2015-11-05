@@ -18,6 +18,11 @@ class NotesController < ApplicationController
     @notebooks = current_user.notebooks
   end
 
+  def delete
+    
+  end
+
+
   def create
   	 @note = current_user.notes.build(note_params)
     if @note.save

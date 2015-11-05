@@ -10,6 +10,11 @@ class NotebooksController < ApplicationController
     	end
 	end
 
+	def delete
+		flash[:success] = "Notebook deleted :O"
+	end
+
+
 	def create
 		@notebook = current_user.notebooks.build(notebook_params)
 		if @notebook.save

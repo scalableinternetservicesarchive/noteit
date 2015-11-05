@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151103060058) do
+ActiveRecord::Schema.define(version: 20151105032624) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
@@ -71,10 +71,14 @@ ActiveRecord::Schema.define(version: 20151103060058) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["provider"], name: "index_users_on_provider"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["uid"], name: "index_users_on_uid"
 
   create_table "votes", force: :cascade do |t|
     t.integer  "votable_id"

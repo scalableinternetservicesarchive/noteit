@@ -1,7 +1,9 @@
-<ul class="notebooks">
-  <% @notebooks.each do |notebook| %>
-    <li>
-      <%= link_to notebook.title, notebook %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+	<ul class="notebooks">
+	  <% @notebooks.each do |notebook| %>
+	    <li>
+	      <%= link_to notebook.title, notebook %>
+	    </li>
+	  <% end %>
+	</ul>
+</div>
