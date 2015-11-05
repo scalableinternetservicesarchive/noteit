@@ -12,11 +12,12 @@ Rails.application.routes.draw do
 
   get 'comments/new'
 
-  resources :notes
+  resources :notes do
+    resources :comments, :only => [:create]
+  end
   resources :notebooks
-  resources :comments
 
-  post 'create-comment' => 'notes#create_comment'
+#  post 'create-comment' => 'notes#create_comment'
   post 'search' => 'notes#search'
   post 'upload-note' => 'notes#upload_note'
 

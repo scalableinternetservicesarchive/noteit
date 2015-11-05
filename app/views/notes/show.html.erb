@@ -64,52 +64,17 @@
             <!-- Comments Form -->
           
           <%= render 'partials/new_comment' %>
-<!--    
-            <div class="well" ng-app="commentAngular" ng-controller="commentController">
-                <h4>Leave a Comment:</h4>
-                <form role="form">
-                    <div class="form-group">
-                        <textarea id="comment" ng-model="content" class="form-control" rows="3"></textarea>
-                    </div>
-                    <button id="comment-submit" ng-click="saveComment()" type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
--->
             <!-- End comments form -->
-
+          <h2>
+            Comments  
+          </h2>
+          <div id="comments">
+            <%= render 'partials/show_comments' %>
+          </div>
         </div>
         <!-- End container -->
 
     </body>
-
-    <script>
-      
-//      angular.module("commentAngular", ['textAngular'])
-//                    .controller("commentController", function commentController($scope, $http, $window) {
-//
-//                        $scope.saveComment = function(){
-//                            var commentObj = {
-//                                content: $scope.content,
-//                                user_id: @user.id,
-//                                note_id: 
-//                            }
-//                            //confirm(noteObj.content);
-//                            $http.post('/comments', commentObj).success(function(data, status){
-//                                    confirm(status);
-//                                    $window.location.href = '/notes';
-//                                }).error(function(data, status){
-//                                    confirm(status);    
-//                                });
-//                        }
-//
-//                    });
-//    function myFunction() {
-//        var comment = document.getElementById("comment").value;
-//        window.alert("Comment: " + comment);
-//
-//    }
-    </script>
-
 </html>
 
 
