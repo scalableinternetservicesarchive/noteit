@@ -41,9 +41,14 @@
     </button>
 
     <button type="button" class="btn btn-danger">
-      <i class="glyphicon glyphicon-list-alt"></i>
-      <%= link_to "Delete Notebook", '/notes/new', :style => "color:white" %>
+      <i class="glyphicon glyphicon-list-alt"></i> <!--
+      # <%= link_to "Delete Notebook", '/notes/new', :style => "color:white" %> -->
+      <%= link_to 'Delete Notebook',url_for(action: :delete,id: @notebook.id),method: :delete, data: {confirm: "Are you sure?"} %>
     </button>
+
+    <% if flash[:success] %>
+    <div class="success"><%= flash[:success] %></div>
+  <% end %>
 
     <br>
     <br>

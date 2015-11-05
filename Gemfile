@@ -28,6 +28,7 @@ gem 'autoprefixer-rails'
 
 #for user authentication 
 gem 'devise'
+gem 'omniauth-facebook'
 
 #Angular
 gem 'angularjs-rails', '~> 1.4.7'
