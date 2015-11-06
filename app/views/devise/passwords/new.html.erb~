@@ -23,22 +23,23 @@
 	background: url(<%= asset_path 'bg2.jpg' %>);
       background-size: cover;
     color:white;">
-<h2 class="font">Forgot your password?</h2>
+<h2 class="form-signin-heading">Forgot your password?</h2>
+
 <div >
-<table>
+
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
-
+<table style="position:relative;text-align:center; left:40%;">
   <div class="field">
     <tr><td><%= f.label :email %></td><td>
     <%= f.email_field :email, autofocus: true, :class => 'signupbutton' %></td></tr>
   </div>
-
+<br>
   <div class="actions">
-    <tr><td colspan="2"><%= f.submit "Send me reset password instructions", :class => 'signupbutton' %></td></tr>
+    <tr><td colspan="2"><br><%= f.submit "Send me reset password instructions", :class => 'btn btn-lg btn-primary btn-block' %></td></tr>
   </div>
 <% end %>
-<tr><td colspan="2">
+<tr><td colspan="2"><br>
 <%= render "devise/shared/links" %></td></tr></table>
 </div>
 </div>
