@@ -15,7 +15,7 @@
 {
     height:200px;
     width:160px;
-   
+    border:transparent;
     margin:10px;
     background:url(<%= asset_path('notebook.png') %>);
     background-size:100% 100%;

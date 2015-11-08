@@ -69,7 +69,7 @@ class NotesController < ApplicationController
 
   def show
     @note = Note.find(params[:id])
-
+    @comments = @note.comments
     if(user_signed_in?)
       @note_owner = @note.user_id
     else
@@ -89,9 +89,23 @@ class NotesController < ApplicationController
 
   end
 
+  def create_comment
+    @note = Note.find(params[:id])
+    @comment = current_user.comments.build(create_comment_params)
+    if @comment.save
+      @comment.update_attribute(:note_id, '#{@note.id}')
+      flash[:success] = "Comment posted successfully!" 
+      redirect_to @note
+    else
+      flash[:alert] = "Sorry, something went wrong. Please try again." 
+      redirect_to @note
+    end
+  end
 
   private
-
+    def create_comment_params
+      params.require(:note).permit(:content)
+    end
     def upload_note_params
       params.require(:note).permit(:title, :content, :notebook_id, :avatar)
     end

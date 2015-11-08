@@ -51,7 +51,8 @@
         </div>
         <br>
         <br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 20%; margin-left: 40%">Sign in</button>
+<tr><td colspan="2"><%= render "devise/shared/links" %></td></tr>
+        <br><button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 20%; margin-left: 40%">Sign in</button>
       <% end %>
 
     </div>
