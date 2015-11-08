@@ -7,21 +7,47 @@
   <%= csrf_meta_tags %>
 
   
-  <!-- Bootstrap -->
+  <!-- Bootstrap 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.1/ui-bootstrap-tpls.js"></script>
     <!-- Font awesome -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">   
-	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+	 <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-  <!--FontAwesome-->
+  <!--FontAwesome
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    
+    -->
 </head>
-<body>
+<body tyle="padding-top: 50px; padding-bottom: 50px;
+    text-align: center;
+    background: url(<%= asset_path 'intro-bg.jpg' %>);
+
+    background-size: 100%;
+    color: #F1F3FA;
+    ">
 
   <%= render 'partials/navbar' %>
-  <%= yield %>
+
+
+  
+  <% if user_signed_in?  %>
+      <br>
+      <br>
+        <div style="margin: 0px 20px">
+          <div class="row profile">
+            <%= render 'partials/sidebar' %>
+            <div class="col-md-9">
+              <div class="profile-content">
+                <%= yield %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  <% else %>
+    <%= yield %>
+  <% end %>
+  
   <br/>
   <!--<div >
      <%= debug(params) if Rails.env.development? %>
@@ -30,7 +56,7 @@
 </body>
 
    <!-- Get angular.js 
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.js"></script>-->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.js"></script>
      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js" type="text/javascript"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-route.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-animate.js"></script>
@@ -39,9 +65,9 @@
 
   <!-- TextAngular -->
     <!--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,300">
-    <link rel="stylesheet" href="http://textangular.com/css/style.css" type="text/css">-->
+    <link rel="stylesheet" href="http://textangular.com/css/style.css" type="text/css">-
     <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js" type="text/javascript"></script>
     <script src="http://resources.infolinks.com/js/infolinks_main.js" type="text/javascript"></script>
-
+-->
  
 </html>

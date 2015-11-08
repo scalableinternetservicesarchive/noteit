@@ -1,6 +1,7 @@
 class NotebooksController < ApplicationController
 	before_action :authenticate_user!
 	def show
+		@notebooks = current_user.notebooks
 		@notebook = Notebook.find(params[:id])
 		@notes = @notebook.notes
     	if(user_signed_in?)
@@ -16,6 +17,7 @@ class NotebooksController < ApplicationController
 
 
 	def create
+		@notebooks = current_user.notebooks
 		@notebook = current_user.notebooks.build(notebook_params)
 		if @notebook.save
 			flash[:success] = "Notebook created"

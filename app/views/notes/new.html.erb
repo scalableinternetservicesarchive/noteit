@@ -16,18 +16,15 @@
 
         <%= javascript_include_tag "textAngular-rangy.min", "textAngular-sanitize.min", "textAngular.min", "bootstrap-tags" %>
         <%= stylesheet_link_tag "bootstrap-tags" %>
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,300">
+        <!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,300"> -->
     <link rel="stylesheet" href="http://textangular.com/css/style.css" type="text/css">
     </head>
 
     <body>
-        <div class="container">
             <div id="note_save_msg" style="display: none;"></div>
             <div id="ng-app" ng-app="textAngularDemo" ng-controller="demoController" class="ng-scope">
                 <br>
-                <br>
-                <br>
-                <br>
+                
                 
 
                 <br>
@@ -78,9 +75,7 @@
                 <br>
 
                 <!--Angular Text Editor-->
-                <div class="container lighter">
-                    <div text-angular ng-model="htmlContent" name="demo-editor" ta-text-editor-class="border-around container" ta-html-editor-class="border-around"></div>
-                </div>
+                    <div text-angular ng-model="htmlContent" name="demo-editor" ta-text-editor-class="border-around" ta-html-editor-class="border-around"></div>
                 <br>
 
                 <!--<p ng-bind="htmlContent" class="text-left text-med text-gray"></p>-->
@@ -96,7 +91,6 @@
                 <br>
                 <br>
             </div>
-        </div>
         <!-- End Container -->
 
     </body>

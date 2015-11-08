@@ -11,6 +11,7 @@ class NotesController < ApplicationController
   end
 
   def index
+    @notebooks = current_user.notebooks
     @notes = current_user.notes.paginate(page: params[:page])
   end
 
