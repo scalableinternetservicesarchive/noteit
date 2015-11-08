@@ -1,12 +1,12 @@
 <% provide(:title, "Note") %>
-<!DOCTYPE html>
 
+<!-- 
 <html lang="en" ng-app="noteIt">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+        <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>  -->
         <script>
             document.write('<base href="' + document.location + '" />');
         </script>
@@ -16,13 +16,8 @@
         <%= stylesheet_link_tag "vote" %>
         <%= javascript_include_tag "bootstrap-tags" %>
         <%= javascript_include_tag "vote" %>
-    </head>
-    <body> <!-- ng-controller="MainCtrl">-->
-        <div class="container">
+    <!-- </head> -->
 
-            <br>
-            <br>
-            <br>
             <br>
 
             <div class="panel panel-default">
@@ -59,30 +54,29 @@
             </section>
 
             <br>
-            <br>
             <hr>
-            <!-- Comments Form -->
-            <% if user_signed_in? %>
-            <% flash.each do |message_type, message| %>
-                <div class="alert alert-<%= message_type %>"><%= message %></div>
-            <% end %>
-            <div class="well col-lg-8 col-centered">
-                <h4>Leave a Comment:</h4>
-                <%= render 'partials/leave_a_comment' %>
+            <div>
+                <h2>Comments</h2>
+                <!-- Comments Form -->
+                <% if user_signed_in? %>
+                <% flash.each do |message_type, message| %>
+                    <div class="alert alert-<%= message_type %>"><%= message %></div>
+                <% end %>
+                <div class="well col-lg-8 col-centered">
+                    <h4>Leave a Comment:</h4>
+                    <%= render 'partials/leave_a_comment' %>
+                </div>
+                <!-- End comments form -->
+                <%else%>
+                    <div class="well col-lg-8 col-centered">You must be signed in to post comments.</div>
+                <%end%>
+                <!-- Comments -->
+                 <%= render 'partials/show_comments'%>  
+                <!-- End Comments -->
             </div>
-            <!-- End comments form -->
-            <%else%>
-                <div class="well col-lg-8 col-centered">You must be signed in to post comments.</div>
-            <%end%>
-            <!-- Comments -->
-             <%= render 'partials/show_comments'%>  
-            <!-- End Comments -->
-        </div>
-        <!-- End container -->
+    <!-- </body> -->
 
-    </body>
-
-</html>
+<!-- </html> -->
 
 
 

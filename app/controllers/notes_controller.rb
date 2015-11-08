@@ -2,7 +2,10 @@ class NotesController < ApplicationController
   before_action :authenticate_user!, :except => [:show, :search]
   #respond_to :html, :js
 
+
   def search
+    
+    @notebooks = current_user.notebooks
     @query = Note.search do
         fulltext params[:search]
     end
@@ -69,6 +72,7 @@ class NotesController < ApplicationController
   end
 
   def show
+    @notebooks = current_user.notebooks
     @note = Note.find(params[:id])
     @comments = @note.comments
     if(user_signed_in?)

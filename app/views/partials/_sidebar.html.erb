@@ -2,7 +2,9 @@
     <div class="profile-sidebar">
         <!-- SIDEBAR USERPIC -->
         <div class="profile-userpic">
-            <img src="https://scontent.fsan1-1.fna.fbcdn.net/hphotos-xfa1/t31.0-8/10533264_10152822875527806_8467779151490887964_o.jpg" class="img-responsive" alt="">
+            <!-- <img src="https://scontent.fsan1-1.fna.fbcdn.net/hphotos-xfa1/t31.0-8/10533264_10152822875527806_8467779151490887964_o.jpg" class="img-responsive" alt=""> -->
+            <%= image_tag(current_user.avatar.url(:thumb) , class: "img-responsive") %>
+            
         </div>
         <!-- END SIDEBAR USERPIC -->
         <!-- SIDEBAR USER TITLE -->
@@ -24,18 +26,7 @@
         <!-- SIDEBAR MENU -->
         <div class="profile-usermenu">
             <ul class="nav">
-                <li class="active">
-
-                    <a href="#" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-book"></i> Notebooks <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo1" class="collapse">
-                            <% @notebooks.each do |notebook| %>
-                                <li>
-                                    <%= link_to notebook.title, notebook, :style=>"text-transform:capitalize" %>
-                                </li>
-                            <% end %>
-                            
-                        </ul>
-                </li>
+                
                 <li>
                     <a href="#">
                     <i class="fa fa-bolt fa-fw"></i>
