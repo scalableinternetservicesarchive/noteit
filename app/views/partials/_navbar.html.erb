@@ -1,5 +1,5 @@
 <!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
 
     
@@ -37,7 +37,7 @@
         
             <li>
                 <% if user_signed_in? %>
-                <%= link_to "Signed in as #{current_user.email}", "#"%>
+                <%= link_to "Signed in as #{current_user.name}", "#"%>
                 <%end%>
             </li>
 

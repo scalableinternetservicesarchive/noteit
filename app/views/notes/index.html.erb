@@ -3,10 +3,6 @@
   <div class="panel-body"></div>
 </div>
 -->
-<div class="container">
-  <br/>
-  <br/> 
-  <br/> 
       <% flash.each do |message_type, message| %>
           <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
@@ -60,4 +56,4 @@
   </ul> -->
 
   <%= will_paginate %>
-</div>
+
