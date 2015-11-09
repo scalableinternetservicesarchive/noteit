@@ -27,12 +27,12 @@
     ">
 
   <%= render 'partials/navbar' %>
-
+    <br>
+    <br>
 
   
   <% if user_signed_in? && !(request.env['PATH_INFO'] == edit_user_registration_path) && !(request.env['PATH_INFO'] == edit_user_password_path) %>
-      <br>
-      <br>
+      
         <div style="margin: 0px 20px">
           <div class="row profile">
             <%= render 'partials/sidebar' %>
