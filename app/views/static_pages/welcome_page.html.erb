@@ -1,5 +1,4 @@
 <% provide(:title, "Welcome") %>
-<%if !user_signed_in? %>
 
  <!DOCTYPE html>
 <html lang="en">
@@ -12,13 +11,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS 
+    <link href="css/bootstrap.min.css" rel="stylesheet">-->
 
-    <!-- Custom CSS -->
+    <!-- Custom CSS 
     <link href="css/landing-page.css" rel="stylesheet">
-    <link href="css/signup.css" rel="stylesheet">
-    <!-- Custom Fonts -->
+    <link href="css/signup.css" rel="stylesheet">-->
+    <!-- Custom Fonts 
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -94,173 +93,6 @@
     <!-- /.intro-header -->
 
    <!-- Page Content -->
-
-    <a  name="services"></a>
-    <div class="content-section-a">
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">NoteIt from anywhere<br></h2>
-                    <p class="lead">One stop for all your notes. Make your own notes from anywhere you are!</p>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <%= image_tag("ipad.png", class: "img-responsive")  %>
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-a -->
-
-    <div class="content-section-b">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Share Notes</h2>
-                    <p class="lead">Share your notes among your friends, collegues and the world!</p>
-                </div>
-                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <%= image_tag("1.jpg", class: "img-responsive")  %>
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-b -->
-
-    <div class="content-section-a">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Search Notes</h2>
-                    <p class="lead">Search notes from all around the world!</p>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <%= image_tag("3.jpg", class: "img-responsive")  %>
-                    
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    
-    </footer>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
 </body>
-
+    
 </html>
-
-<%else%>
-
-<!DOCTYPE html>
-<html lang="en" ng-app="noteIt">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Homepage</title>
-        <%= javascript_include_tag "homeController" %>
-    </head>
-
-
-
-    <body ng-controller="homeController">
-        <!-- Fixed Top Navigation Bar -->
-<!--         <nav class="navbar-fixed-top" role="navigation">
-            <div class="navbar-brand">
-                <a class="glyphicon glyphicon-home" style="color:grey; margin-left: 20px"> Home  </a>
-                <a class="glyphicon glyphicon-file" style="color:grey;margin-left: 20px" href="newNote.html"> Notes</a>
-                <a class="glyphicon glyphicon-log-out" style="color:grey;position:fixed; right: 4%; margin-top: 10px"> Logout</a>
-            </div>
-        </nav> -->
-
-        <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
-        <div class="container topnav">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand topnav" href="#">NoteIt</a>
-
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><%= link_to "Home", root_path %></li>
-                    <li><%= link_to "Notes", '/notes/new' %></li>
-                    <li><%= link_to "About", '#' %></li>
-                    <li><%= link_to "Contact", '#' %></li>
-                    
-                    <li><%= link_to "Logout", destroy_user_session_path, method: "delete" %></li>
-                    <!--
-                    <li>
-                        <a href="#about">Services</a>
-                    </li>
-                    <li>
-                        <a href="#services">Login</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Sign Up</a>
-                    </li>
-                -->
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-
-        <div class="search-bar" style="position: fixed; top: 30%; left: 35%; margin-top: -50px; margin-left: -100px;">
-            <div class="col-lg-8">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for notes...">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                </div>
-            </div>
-        </div>
-
-        <h4 style="position: fixed; top: 34%; left: 21%; color:grey">History</h4>
-        <div class="panel panel-default" style="position: fixed; top: 40%; left: 20%;">
-            <ul class="list-group" style="width: 800px">
-                <li class="list-group-item"><span class="badge">5</span>CS130B Lecture01</li>
-                <li class="list-group-item"><span class="badge">2</span>CS176A Lecture01</li>
-                <li class="list-group-item"><span class="badge">14</span>CS290B Sprint1</li>
-                <li class="list-group-item"><span class="badge">1</span>CS178 Lecture05</li>
-            </ul>
-        </div>
-
-    </body>
-</html>
-
-<%end%>
