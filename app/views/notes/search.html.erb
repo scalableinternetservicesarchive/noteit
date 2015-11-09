@@ -9,7 +9,7 @@
 	  	  Sorry, there's nothing for <span style="color:blue"><%=@keyword %></span>
 	<%else%>
 	<h1>Here's what we found <span style="color:blue"><%=@keyword %></span></h1>
-
+	<h2><%= @notes.count%> notes found</h2>
 	<ul class="notes">
 	  <% @notes.each do |note| %>
 	    <li>
