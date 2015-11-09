@@ -19,7 +19,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   # def update
-  #   super
+  #   # super
+  #   @notebooks = current_user.notebooks
   # end
 
   # DELETE /resource

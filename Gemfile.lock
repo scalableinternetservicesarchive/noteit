@@ -269,7 +269,7 @@ DEPENDENCIES
   minitest-reporters (= 1.0.5)
   nokogiri
   omniauth-facebook
-  paperclip
+  paperclip (~> 4.1)
   rails (= 4.2.4)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
