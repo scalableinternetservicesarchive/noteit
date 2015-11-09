@@ -103,10 +103,10 @@
                             }
                             //confirm(noteObj.content);
                             $http.post('/notes', noteObj).success(function(data, status){
-                                    confirm(status);
+                                    // confirm(status);
                                     $window.location.href = '/notes';
                                 }).error(function(data, status){
-                                    confirm(status);    
+                                    // confirm(status);    
                                 });
 
 
@@ -127,6 +127,7 @@
 
                     });
         </script>
+        <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
 </html>
 
 

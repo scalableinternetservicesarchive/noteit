@@ -20,10 +20,7 @@
     text-align: center;
     background: url(<%= asset_path 'bg1.jpg' %>) ;
     background-size: cover;
-	color:white;
-
-"
-	>
+  color:white;" >
       <!-- <form class="form-signin"> -->
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-control") do |f| %>
         <h2 class="form-signin-heading">Sign in</h2>
@@ -37,67 +34,26 @@
           <%= f.label :password %>
           <%= f.password_field :password, autocomplete: "off", :class => 'signupbutton' %>
         </div>
-
-        <!-- <label for="inputEmail" class="sr-only" style:"margin-left:20%; color:white">Email</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" 
-            style="width: 30%; margin-left: 35%"> -->
-        <!-- <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""
-            style="width: 30%; margin-left: 35%"> -->
+        <% if devise_mapping.rememberable? %>
         <div class="checkbox">
           <label>
-            <input type="checkbox" value="remember-me"> Remember me
+            <%= f.check_box :remember_me, :class => 'signupbutton' %><%= f.label :remember_me %>
           </label>
         </div>
+        <% end %>
         <br>
-       
-<tr><td colspan="2"><%= render "devise/shared/links" %></td></tr>
-        <br><button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 20%; margin-left: 40%">Sign in</button>
+        <br>
+        <!--<button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 20%; margin-left: 40%">Sign in</button>-->
+        <%= f.submit "Log in", :class => 'btn btn-lg btn-primary btn-block', :style => 'width:20%; margin-left:40%' %>
+        <br>
+      <br>
+      <br>
       <% end %>
 
+      <tr><td colspan="2"><%= render "devise/shared/links" %></td></tr></table>
+
     </div>
 
-
-
-
-
-
-  <!-- <div class="loginback">
-    <h2 class="font">Log in</h2>
-    <div class="signupbox" style="text-align:center;">
-      <table>
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="field">
-            <tr>
-              <td><%= f.label :email %></td>
-              <td><%= f.email_field :email, autofocus: true, :class => 'signupbutton' %></td>
-            </tr>
-          </div>
-
-          <div class="field">
-            <tr>
-              <td><%= f.label :password %></td>
-              <td><%= f.password_field :password, autocomplete: "off", :class => 'signupbutton' %></td>
-            </tr>
-          </div>
-
-          <% if devise_mapping.rememberable? -%>
-            <div class="field">
-              <tr>
-                <td><%= f.check_box :remember_me, :class => 'signupbutton' %><%= f.label :remember_me %></td>
-              </tr>
-            </div>
-          <% end -%>
-
-          <div class="actions">
-            <tr><td colspan="2"><%= f.submit "Log in", :class => 'signupbutton' %></td></tr>
-          </div>
-        <% end %>
-
-        <tr><td colspan="2"><%= render "devise/shared/links" %></td></tr>
-      </table>
-    </div>
-  </div> -->
 
 </body>
 </html>

@@ -9,6 +9,9 @@
     <%= devise_error_messages! %>
 
     <div class="form-group">
+        <!-- <div class="profile-userpic" size="10">
+            <%= image_tag(current_user.avatar.url(:thumb) , :size => "10x10", class: "img-responsive") %>
+        </div>   -->
         <%= f.label :avatar, class: 'col-sm-2 control-label'  %>
         <div class="col-sm-6">
             <%= f.file_field :avatar %>

@@ -4,8 +4,9 @@ class NotesController < ApplicationController
 
 
   def search
-    
-    @notebooks = current_user.notebooks
+    if user_signed_in?
+      @notebooks = current_user.notebooks
+    end
     @query = Note.search do
         fulltext params[:search]
     end
