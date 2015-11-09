@@ -17,11 +17,11 @@ class User < ActiveRecord::Base
   has_many :comments
 
   def largeimage
-    "http://graph.facebook.com/#{self.uid}/picture?type=large"
+    "http://graph.facebook.com/#{self.uid}/picture?type=large/"
   end
 
   def normalimage
-    "http://graph.facebook.com/#{self.uid}/picture?type=normal"
+    "http://graph.facebook.com/#{self.uid}/picture?type=normal/"
   end
 
   def self.find_for_facebook_oauth(omniauth)
@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
     else # Create a user with a stub password. 
       User.create!(:email => omniauth.info.email,
                    :name => omniauth.info.name,
-                   :image => omniauth.info.image,
+                   :avatar => "https://graph.facebook.com/#{auth["uid"]}/picture?type=large",
                    :password => Devise.friendly_token[0,20])
     end
   end
@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     if user
-      user.avatar =  "https://graph.facebook.com/#{auth["uid"]}/picture?type=large"
+      # user.avatar =  "https://graph.facebook.com/#{auth["uid"]}/picture?type=large/"
       user.save
       return user
     else
@@ -70,10 +70,11 @@ class User < ActiveRecord::Base
         return registered_user
       else
 
-        user = User.create(name:auth.extra.raw_info.name,
+        user = User.create(
+          name:auth.extra.raw_info.name,
           # uid:auth.uid,
           email:auth.info.email,
-          avatar: "https://graph.facebook.com/#{auth["uid"]}/picture?type=large",
+          avatar: "https://graph.facebook.com/#{auth["uid"]}/picture?type=large/",
           password:Devise.friendly_token[0,20]
           )
       end    
@@ -95,7 +96,7 @@ class User < ActiveRecord::Base
       if omniauth = session["devise.facebook_data"]
         user.email = omniauth.info.email
         user.name = omniauth.info.name
-        user.image = omniauth.info.image
+        # user.avatar = omniauth.info.image
       end
     end
   end
