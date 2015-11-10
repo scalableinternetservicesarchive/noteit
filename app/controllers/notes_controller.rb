@@ -73,7 +73,7 @@ class NotesController < ApplicationController
   end
 
   def show
-    @notebooks = current_user.notebooks
+    @notebooks = current_user.notebooks if user_signed_in?
     @note = Note.find(params[:id])
     @comments = @note.comments
     if(user_signed_in?)
