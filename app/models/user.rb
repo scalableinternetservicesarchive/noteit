@@ -83,23 +83,24 @@ class User < ActiveRecord::Base
 
 
 
-  def self.new_with_session(params, session)
-    puts "yay!!5"
-    # super.tap do |user|
-    #   if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-    #     user.email = data["email"] if user.email.blank?
-    #     user.avatar = data.info.image
-    #   end
-    # end
 
-    super.tap do |user|
-      if omniauth = session["devise.facebook_data"]
-        user.email = omniauth.info.email
-        user.name = omniauth.info.name
-        # user.avatar = omniauth.info.image
-      end
-    end
-  end
+  # def self.new_with_session(params, session)
+  #   puts "yay!!5"
+  #   # super.tap do |user|
+  #   #   if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+  #   #     user.email = data["email"] if user.email.blank?
+  #   #     user.avatar = data.info.image
+  #   #   end
+  #   # end
+
+  #   super.tap do |user|
+  #     if omniauth = session["devise.facebook_data"]
+  #       user.email = omniauth.info.email
+  #       user.name = omniauth.info.name
+  #       # user.avatar = omniauth.info.image
+  #     end
+  #   end
+  # end
 
   has_attached_file :avatar, :styles => { :medium => "400x400>", :thumb => "400x400" }, :default_url => ActionController::Base.helpers.asset_path('missing.png')
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/

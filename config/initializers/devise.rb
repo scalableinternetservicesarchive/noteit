@@ -239,9 +239,9 @@ Devise.setup do |config|
   # config.omniauth :facebook, "1495604120735583", "4adef8998ba66e2643a8258f2c74a312", scope: 'email', info_fields: 'email, name'
 
   if Rails.env == "development" || Rails.env == "test"
-    config.omniauth :facebook, "1495604120735583", "4adef8998ba66e2643a8258f2c74a312", scope: 'email', info_fields: 'email, name'
+    config.omniauth :facebook, "1497028087259853", "f3b726b460022f65680a99200b88d13c", scope: 'email', info_fields: 'email, name'
   else
-    config.omniauth :facebook, "1495604120735583", "4adef8998ba66e2643a8258f2c74a312", scope: 'email', info_fields: 'email, name'
+    config.omniauth :facebook, "1497028087259853", "f3b726b460022f65680a99200b88d13c", scope: 'email', info_fields: 'email, name'
   end
 
   # ==> Warden configuration
