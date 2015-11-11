@@ -17,7 +17,7 @@ class NotebooksController < ApplicationController
 
 
 	def create
-		@notebooks = current_user.notebooks
+		@notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
 		@notebook = current_user.notebooks.build(notebook_params)
 		if @notebook.save
 			flash[:success] = "Notebook created"
