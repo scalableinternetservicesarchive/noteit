@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   #commenting out the following lines to remove 422 errors while testing
   #protect_from_forgery with: :exception
 
-  skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token
 
 
   # Prevent CSRF attacks by raising an exception.
