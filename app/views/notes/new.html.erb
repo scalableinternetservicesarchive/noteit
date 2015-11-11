@@ -26,10 +26,10 @@
                 <br>
                 
                 
-
+                <h4 style="margin-left:40%; font-weight:bold">New Note</h4>
                 <br>
                 <!--note title-->
-<table style="border-spacing:20px 20px;" cellspacing="30px">
+                <table style="border-spacing:20px 20px;" cellspacing="30px">
                 <div class="form-group">
                    <tr><td> <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold; font-size:17px">Title:</label></td><td> 
                     <input class="form-control" type="text" ng-model="title" style="width: 500px"></td></tr>
@@ -62,16 +62,8 @@
                         <%end%>
                     </select>  </td></tr>
                 </div>
-</table>
+                </table>
                 <br/>
-                <!--note tags-->
-                <!--<p class="col-sm-1 control-label" style="margin-left:50px; font-weight: bold;">Tags: </p>
-                <div id="tags" style="margin-left: 150px; width: 500px"></div>
-    <!--             <div class="form-group">
-                    <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold;">Tags:</label>
-                    <input class="form-control" type="text" ng-model="tags" style="width: 500px">
-                </div> -->
-
                 <br>
 
                 <!--Angular Text Editor-->
@@ -96,12 +88,6 @@
     </body>
 
     <script type="text/javascript">
-            //$(function(){
-              //  $("#tags").tags({
-                //  suggestions: ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india"],
-                  //tagData: ["network", "internet service"]
-                //});
-              //});
 
             angular.module("textAngularDemo", ['textAngular'])
                     .controller("demoController", function demoController($scope, $http, $window) {

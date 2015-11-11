@@ -22,7 +22,20 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3><%= @note.title%></h3>
+                    <h3><%= @note.title%> 
+                        <div class="btn-group" style="float:right">
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" 
+                                    aria-expanded="false" style="height:30px; width: 35px; border-color:darkred">
+                            <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu pull-right">
+                            <li><%= link_to 'Edit','/notes/new' %></li>
+                            <li><a href="#">Set as Private Note</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><%= link_to "Delete Note", notes_path %></li>
+                          </ul>
+                        </div>
+                    </h3>
                     <span class="text-primary"><%=@note.university %>  <%=@note.class_subject %>  <%=@note.professor %></span>
                 </div>
                 <div class="panel-body"><%=@note.content.html_safe%> 
