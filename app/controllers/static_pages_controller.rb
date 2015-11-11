@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
 
   def home
     #@notes = current_user.notes.paginate(page: params[:page])
-    @notebooks = current_user.notebooks
+    @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
   end
 
   def welcome_page

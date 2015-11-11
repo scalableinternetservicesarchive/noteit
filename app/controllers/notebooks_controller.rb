@@ -1,9 +1,9 @@
 class NotebooksController < ApplicationController
 	before_action :authenticate_user!
 	def show
-		@notebooks = current_user.notebooks
+		#@notebooks = current_user.notebooks 
 		@notebook = Notebook.find(params[:id])
-		@notes = @notebook.notes
+		@notes = @notebook.notes if stale?(@notebook.notes.all)
     	if(user_signed_in?)
      	 	@note_owner = @notebook.user_id
     	else

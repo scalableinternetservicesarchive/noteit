@@ -5,7 +5,7 @@ class NotesController < ApplicationController
 
   def search
     if user_signed_in?
-      @notebooks = current_user.notebooks
+      @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
     end
     @query = Note.search do
         fulltext params[:search]
@@ -20,7 +20,7 @@ class NotesController < ApplicationController
   end
 
   def new
-    @notebooks = current_user.notebooks
+    @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
   end
 
   def delete
@@ -73,9 +73,9 @@ class NotesController < ApplicationController
   end
 
   def show
-    @notebooks = current_user.notebooks if user_signed_in?
+    #@notebooks = current_user.notebooks if user_signed_in?
     @note = Note.find(params[:id])
-    @comments = @note.comments
+    @comments = @note.comments if stale?(@note.comments.all)
     if(user_signed_in?)
       @note_owner = @note.user_id
     else
