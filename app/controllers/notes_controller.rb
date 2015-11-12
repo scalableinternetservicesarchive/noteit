@@ -27,11 +27,9 @@ class NotesController < ApplicationController
 
 
 # delete notes
-  def delete
+  def delete_note
     @note = Note.find(params[:id])
     @note.destroy
-    flash[:success] = "Note deleted"
-    redirect_to static_pages_home_path
   end
 
 
