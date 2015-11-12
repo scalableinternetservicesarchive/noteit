@@ -122,11 +122,11 @@
             angular.module("textAngularDemo", ['textAngular'])
                     .controller("demoController", function demoController($scope, $http, $window) {
 
-                         $http.get('/notes', noteObj).success(function(response){
-                                    confirm(response);
-                                    $scope.title = response.title;
+                         $http.get('/notes').success(function(data){
+                                    confirm(data);
+                                    // $scope.title = data.title;
 
-                                }).error(function(response){
+                                }).error(function(data){
                                     // confirm(status);    
                                 });
 

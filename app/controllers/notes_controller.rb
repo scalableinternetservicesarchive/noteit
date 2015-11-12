@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!, :except => [:show, :search]
-  respond_to :html, :json
+  respond_to :json, :html
 
 
   def search
