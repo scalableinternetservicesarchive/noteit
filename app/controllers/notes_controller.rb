@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!, :except => [:show, :search]
-  #respond_to :html, :js
+  respond_to :json, :html
 
 
   def search
@@ -14,10 +14,12 @@ class NotesController < ApplicationController
     @notes = @query.results
   end
 
+
   def index
     @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
     @notes = current_user.notes.paginate(page: params[:page])
   end
+
 
   def new
     @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
@@ -52,9 +54,19 @@ class NotesController < ApplicationController
     end
   end
 
-  def update
-    
+  # edit notes
+  def edit
+    @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
     @note = Note.find(params[:id])
+
+    respond_with(@note)
+  end
+
+
+
+  def update
+    @note = Note.find(params[:id])
+
     if(params[:upvote])
       @note.upvote_by current_user
       @vote_type = :upvote
@@ -63,6 +75,7 @@ class NotesController < ApplicationController
         format.html { redirect_to @note }
         format.js
       end
+
     elsif(params[:downvote])
       @note.downvote_by current_user
       flash.now[:alert] = "Downvoted!"
@@ -72,7 +85,10 @@ class NotesController < ApplicationController
         format.js
       end
     end 
+
+
   end
+
 
   def show
     #@notebooks = current_user.notebooks if user_signed_in?
