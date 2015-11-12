@@ -1,4 +1,4 @@
-<% provide(:title, "New Note") %>
+<% provide(:title, "Edit Note") %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 
@@ -24,9 +24,6 @@
             <div id="note_save_msg" style="display: none;"></div>
             <div id="ng-app" ng-app="textAngularDemo" ng-controller="demoController" class="ng-scope">
                 <br>
-                
-                
-                <h4 style="margin-left:40%; font-weight:bold">New Note</h4>
                 <br>
                 <!--note title-->
                 <table style="border-spacing:20px 20px;" cellspacing="30px">
@@ -36,7 +33,8 @@
                                 <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold; font-size:17px">Title:</label>
                             </td>
                             <td> 
-                                <input class="form-control" type="text" ng-model="title" style="width: 500px">
+                                <input class="form-control" type="text" ng-model="title"
+                                        style="width: 500px">
                             </td>
                         </tr>
                     </div>
@@ -92,6 +90,8 @@
                             </td>
                         </tr>
                     </div>
+
+                    
                 </table>
                 <br/>
                 <br>
@@ -122,6 +122,15 @@
             angular.module("textAngularDemo", ['textAngular'])
                     .controller("demoController", function demoController($scope, $http, $window) {
 
+                         $http.get('/notes', noteObj).success(function(response){
+                                    confirm(response);
+                                    $scope.title = response.title;
+
+                                }).error(function(response){
+                                    // confirm(status);    
+                                });
+
+
                         $scope.save = function(){
                             var noteObj = {
                                 title: $scope.title,
@@ -144,10 +153,3 @@
         </script>
         <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
 </html>
-
-
-
-
-
-
-
