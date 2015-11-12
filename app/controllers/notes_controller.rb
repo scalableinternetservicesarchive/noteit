@@ -25,11 +25,10 @@ class NotesController < ApplicationController
     @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
   end
 
-
-# delete notes
-  def delete_note
-    @note = Note.find(params[:id])
-    @note.destroy
+  def destroy
+    Note.find(params[:id]).destroy
+    flash[:success] = "Note deleted"
+    redirect_to root_url
   end
 
 
