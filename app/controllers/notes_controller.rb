@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!, :except => [:show, :search]
-  #respond_to :html, :js
+  respond_to :json, :html
 
 
   def search
@@ -21,6 +21,13 @@ class NotesController < ApplicationController
 
   def new
     @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
+  end
+
+  def edit
+    @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
+    @note = Note.find(params[:id])
+
+    respond_with(@note)
   end
 
   def delete
@@ -71,6 +78,7 @@ class NotesController < ApplicationController
       end
     end 
   end
+
 
   def show
     #@notebooks = current_user.notebooks if user_signed_in?
