@@ -38,85 +38,13 @@
 }
 
 </style>
-<script type="text/javascript">
-
-    //var imgCount = 3;
-      //  var dir = 'images/';
-        //var randomCount = Math.round(Math.random() * (imgCount - 1)) + 1;
-        //var images = new Array
-                //images[1] = "notebook0.jpg",
-                //images[2] = "notebook1.jpg",
-                //images[3] = "notebook2.jpg",
-//document.getElementByClassName("notebookstyle").style.backgroundColor="lightblue";
-        //document.getElementById("notecolor").style.backgroundImage = "url(<%= asset_path('notebook.png') %>)"; 
-//var x=document.getELementById("notecolor");
-//x.style.backgroundColor="lightblue"; 
-//x.style.color="red"; 
-
-</script>
 </head>
 
 <body>
 
     <div id="wrapper">
 
-        <!-- Navigation -->
-<!--         <nav class="navbar navbar-inverse navbar-static-left" role="navigation"> -->
-            <!-- Brand and toggle get grouped for better mobile display -->
-            
-
-
-            
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -
-            
-                <ul class="nav navbar-nav side-nav">
-                    <li>
-                        <a href="/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
-
-                    <li>
-                        <a href="#" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-book"></i> Notebooks <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo1" class="collapse">
-                            <% @notebooks.each do |notebook| %>
-                                <li>
-                                    <%= link_to notebook.title, notebook, :style=>"text-transform:capitalize" %>
-                                </li>
-                            <% end %>
-                            
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" data-toggle="collapse" data-target="#demo2"><i class="fa fa-bolt fa-fw"></i> Note Shortcuts <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo2" class="collapse">
-                                <li>
-                                    <a href="#">Shortcuts appear here</a>
-                                </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" data-toggle="collapse" data-target="#demo3"><i class="fa fa-fw fa-wrench"></i> External Tools <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo3" class="collapse">
-                            <li>
-                                <a href="#">Wolfram Alpha</a>
-                            </li>
-                            <li>
-                                <a href="#">Wikipedia</a>
-                            </li>
-                            <li>
-                                <a href="#">Google</a>
-                            </li>
-                        </ul>
-                    </li>
-                    
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                    </li>
-                    
-                </ul>
-            
-            <!-- /.navbar-collapse -->
-     <!--    </nav> -->
-
+      
         <div id="page-wrapper">
 
             <div class="container-fluid">
@@ -127,9 +55,9 @@
                         <h1>
                             Dashboard
                         </h1>
-                        <% flash.each do |message_type, message| %>
+                        <!--<% flash.each do |message_type, message| %>
                             <div class="alert alert-<%= message_type %>"><%= message %></div>
-                        <% end %>
+                        <% end %>-->
                         
                         <hr>
                         <div class="btn-group">
@@ -165,18 +93,20 @@
                         <br>
                         <p> Your Notebooks </p>
 
-                        
+                        <% cache(cache_key_for_all_notebooks) do %>
                         <table id="notebook-row" class="table table-striped">
                             <tbody class="notebooks">
                                 <% @notebooks.each do |notebook| %>
 
+                                 <% cache(cache_key_for_notebook(notebook)) do %>
                                 
-                               <%= button_to notebook.title, notebook, :class=>"notebookstyle",:method=>:get%>
-
+                                    <%= button_to notebook.title, notebook, :class=>"notebookstyle",:method=>:get%>
+                                 <%end%>
                                 <% end %>
                             </tbody>
 
                         </table>
+                        <%end%>
                         <!-- End notebook row -->
 
 
