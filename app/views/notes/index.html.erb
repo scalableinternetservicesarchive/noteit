@@ -21,7 +21,7 @@
 
 
   <%= will_paginate %>
-
+  <%cache(cache_key_for_all_notes) do%>
   <table class="table table-striped" style="width: 95%; margin-left:2%;">
   	 <thead>
         <tr>
@@ -34,26 +34,20 @@
       </thead>
 
       <tbody class="notes">
+            
           <% @notes.each do |note| %>
+          <% cache(cache_key_for_note(note)) do%>
           <tr>
               <td><%= link_to note.title, note, :style => "color:#00B87A"  %></td>
               <td><%= link_to note.notebook.title, note.notebook.title if !note.notebook.nil? %></td>
-              <td></td>
-              <td></td>
-              <td></td> 
+              <td><%=  note.university %></td>
+              <td><%=  note.class_subject %></td>
+              <td><%=  note.professor %></td> 
           </tr>
-          <% end %>
+          <%end%>
+          <%end%>
       </tbody>
   </table>
-
-
-  <!-- <ul class="notes">
-    <% @notes.each do |note| %>
-      <li>
-        <%= link_to note.title, note %>
-      </li>
-    <% end %>
-  </ul> -->
-
+  <%end%>
   <%= will_paginate %>
 
