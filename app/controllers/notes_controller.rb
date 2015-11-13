@@ -56,11 +56,9 @@ class NotesController < ApplicationController
 
   # edit notes
   def edit
-    @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
+    #@notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
     @note = Note.find(params[:id])
-
-    respond_with(@note)
-  end
+end
 
 
 

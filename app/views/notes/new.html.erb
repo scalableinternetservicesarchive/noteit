@@ -84,9 +84,9 @@
                                 <label class="col-sm-1 control-label" style="margin-left: 50px; font-weight: bold; font-size:17px">Notebook: </label>
                             </td>
                             <td><br/> 
-                                <select class="form-control" id="notebook_id" style="width:200px">
+                                <select class="form-control" id="notebook_id" style="width:200px" ng-model="notebook">
                                     <%@notebooks.each do |option|%>
-                                    <option value="#{option.id}"><%=option.title%></option>
+                                    <option value="<%=option.id%>"><%=option.title%></option>
                                     <%end%>
                                 </select>  
                             </td>
@@ -123,20 +123,23 @@
                     .controller("demoController", function demoController($scope, $http, $window) {
 
                         $scope.save = function(){
+                            confirm($scope.notebook);
+
                             var noteObj = {
                                 title: $scope.title,
                                 content: $scope.htmlContent,
                                 university: $scope.university,
                                 class_subject: $scope.notes_class,
                                 professor: $scope.professor,
+                                notebook: $scope.notebook
                                 
                             }
                             //confirm(noteObj.content);
                             $http.post('/notes', noteObj).success(function(data, status){
-                                    // confirm(status);
+                                    confirm(status);
                                     $window.location.href = '/notes';
                                 }).error(function(data, status){
-                                    // confirm(status);    
+                                     confirm(status);    
                                 });
                         }
 
