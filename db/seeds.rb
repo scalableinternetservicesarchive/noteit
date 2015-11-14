@@ -27,7 +27,7 @@ user = User.find_by(name: 'Note It User')
 end
 
 1000.times do
-  content = Faker::Lorem.sentence(500)
+  content = Faker::Lorem.sentence(50)
   title = Faker::Lorem.sentence(1)
   notebook = Notebook.find_by(id: 1)
   user.notes.create!(title: title, content: content, notebook_id: notebook.id) 
