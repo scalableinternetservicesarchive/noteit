@@ -91,6 +91,11 @@
                         </tr>
                     </div>
 
+
+                    <div id="div-item-data" data-item-title="<%= @note.title %>" data-item-university="<%=@note.university %>"
+                    data-item-class="<%= @note.class_subject %>" data-item-prof="<%= @note.professor %>" 
+                    data-item-content="<%= @note.content.html_safe %>"></div>
+
                     
                 </table>
                 <br/>
@@ -122,14 +127,12 @@
             angular.module("textAngularDemo", ['textAngular'])
                     .controller("demoController", function demoController($scope, $http, $window) {
 
-                         $http.get('/notes').success(function(data){
-                                    confirm(data);
-                                    // $scope.title = data.title;
-
-                                }).error(function(data){
-                                    // confirm(status);    
-                                });
-
+                        var div = document.getElementById('div-item-data');
+                        $scope.title = div.getAttribute("data-item-title");
+                        $scope.university = div.getAttribute("data-item-university");
+                        $scope.notes_class = div.getAttribute("data-item-class");
+                        $scope.professor = div.getAttribute("data-item-prof");
+                        $scope.htmlContent = div.getAttribute("data-item-content");
 
                         $scope.save = function(){
                             var noteObj = {

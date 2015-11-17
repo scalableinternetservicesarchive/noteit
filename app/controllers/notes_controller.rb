@@ -33,6 +33,11 @@ class NotesController < ApplicationController
 
 
   def create
+    if Note.find(params[:id])
+      @note = Note.find(params[:id])
+      @note.title = param[:note][:title]
+
+
   	 @note = current_user.notes.build(note_params)
     if @note.save
       #flash.now[:success] = "Nice one!"
@@ -56,9 +61,9 @@ class NotesController < ApplicationController
 
   # edit notes
   def edit
-    #@notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
+    @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
     @note = Note.find(params[:id])
-end
+  end
 
 
 
