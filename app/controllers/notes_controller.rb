@@ -33,31 +33,40 @@ class NotesController < ApplicationController
 
 
   def create
+    # updated notes if the note id is already existed
     if Note.find(params[:id])
       @note = Note.find(params[:id])
       @note.title = param[:note][:title]
-    end
+      @note.content = param[:note][:content]
+      @note.university = param[:note][:university]
+      @note.notebook_id = param[:note][:notebook_id]
+      @note.class_subject = param[:note][:class_subject]
+      @note.professor = param[:note][:professor]
 
-  	 @note = current_user.notes.build(note_params)
-    if @note.save
-      #flash.now[:success] = "Nice one!"
-      #flash.keep(:success)
-      #redirect_to root_url
-      #render :js => "window.location = '#{note_path(@note)}"
-      respond_to do |format|
-        format.html {render nothing: true, status: 200} 
-        format.json {render nothing: true, status: 200} 
-      end
-    
     else
-      #flash.now[:alert] = "Oops! Say something before submitting."
-      #flash.keep(:alert)
-      respond_to do |format|
-        format.html {render nothing: false, status: 400} 
-        format.json {render nothing: false, status: 400}
+    	 @note = current_user.notes.build(note_params)
+      if @note.save
+        #flash.now[:success] = "Nice one!"
+        #flash.keep(:success)
+        #redirect_to root_url
+        #render :js => "window.location = '#{note_path(@note)}"
+        respond_to do |format|
+          format.html {render nothing: true, status: 200} 
+          format.json {render nothing: true, status: 200} 
+        end
+      
+      else
+        #flash.now[:alert] = "Oops! Say something before submitting."
+        #flash.keep(:alert)
+        respond_to do |format|
+          format.html {render nothing: false, status: 400} 
+          format.json {render nothing: false, status: 400}
+        end
       end
     end
   end
+  
+
 
   # edit notes
   def edit
