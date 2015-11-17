@@ -21,7 +21,7 @@ r = Random.new
 end
 
 1000.times do
-  user = User.find(r.rand(10000))  
+  user = User.find(r.rand(1..10000))  
   50.times do 
     title = Faker::Lorem.sentence(1)
     user.notebooks.create!(title: title) if user
