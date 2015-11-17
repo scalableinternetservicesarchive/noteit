@@ -17,14 +17,14 @@ user = User.find_by(name: 'Note It User')
 r = Random.new
 50.times do
   title = Faker::Lorem.sentence(1)
-  user.notebooks.create!(title: title) 
+  user.notebooks.create!(title: title) if user
 end
 
 1000.times do
   user = User.find(r.rand(10000))  
   50.times do 
     title = Faker::Lorem.sentence(1)
-    user.notebooks.create!(title: title) 
+    user.notebooks.create!(title: title) if user
   end
 end
 
@@ -33,6 +33,6 @@ user = User.find_by(name: 'Note It User')
   content = Faker::Lorem.sentence(5)
   title = Faker::Lorem.sentence(1)
   notebook = Notebook.find_by(id: 1)
-  user.notes.create!(title: title, content: content, notebook_id: notebook.id) 
+  user.notes.create!(title: title, content: content, notebook_id: notebook.id) if user
 end
 
