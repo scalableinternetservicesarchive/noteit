@@ -21,15 +21,6 @@ r = Random.new
 end
 
 1000.times do
-  user = User.find(r.rand(1..10000))  
-  50.times do 
-    title = Faker::Lorem.sentence(1)
-    user.notebooks.create!(title: title) if user
-  end
-end
-
-user = User.find_by(name: 'Note It User')
-1000.times do
   content = Faker::Lorem.sentence(5)
   title = Faker::Lorem.sentence(1)
   notebook = Notebook.find_by(id: 1)
