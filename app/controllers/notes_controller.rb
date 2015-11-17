@@ -36,7 +36,7 @@ class NotesController < ApplicationController
     if Note.find(params[:id])
       @note = Note.find(params[:id])
       @note.title = param[:note][:title]
-
+    end
 
   	 @note = current_user.notes.build(note_params)
     if @note.save
