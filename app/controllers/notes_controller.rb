@@ -33,15 +33,22 @@ class NotesController < ApplicationController
 
 
   def create
-    # updated notes if the note id is already existed
-    if Note.find(params[:id])
+    #updated notes if the note id is already existed
+    if params[:id]
       @note = Note.find(params[:id])
-      @note.title = param[:note][:title]
-      @note.content = param[:note][:content]
-      @note.university = param[:note][:university]
-      @note.notebook_id = param[:note][:notebook_id]
-      @note.class_subject = param[:note][:class_subject]
-      @note.professor = param[:note][:professor]
+      # @note.title = param[:note][:title]
+      # @note.content = param[:note][:content]
+      # @note.university = param[:note][:university]
+      # @note.notebook_id = param[:note][:notebook_id]
+      # @note.class_subject = param[:note][:class_subject]
+      # @note.professor = param[:note][:professor]
+
+      @note.update(title: param[:note][:title])
+      @note.update(content: param[:note][:content])
+      @note.update(university: param[:note][:university])
+      @note.update(notebook_id: param[:note][:notebook_id])
+      @note.update(class_subject: param[:note][:class_subject])
+      @note.update(professor: param[:note][:professor])
 
     else
     	 @note = current_user.notes.build(note_params)
@@ -63,8 +70,8 @@ class NotesController < ApplicationController
           format.json {render nothing: false, status: 400}
         end
       end
-    end
-  end
+     end
+   end
   
 
 
