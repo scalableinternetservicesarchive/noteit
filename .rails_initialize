@@ -1,2 +1,3 @@
 bundle exec rake sunspot:solr:start
+rake db:seed
 bundle exec rake sunspot:solr:reindex

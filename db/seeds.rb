@@ -3,7 +3,7 @@ User.create!(name:  "Note It User",
              password: "12345678",
              )
 
-9999.times do |n|
+99.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"   
@@ -19,7 +19,7 @@ user = User.find_by(name: 'Note It User')
   user.notebooks.create!(title: title) 
 end
 
-1000.times do
+10.times do
   content = Faker::Lorem.sentence(5)
   title = Faker::Lorem.sentence(1)
   notebook = Notebook.find_by(id: 1)
