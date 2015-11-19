@@ -33,14 +33,9 @@ class NotesController < ApplicationController
       flash[:success] = "Sorry, couldn't delete"
       redirect_to @note
     end
-<<<<<<< HEAD
 
-  end
+ end
 
-=======
-  end
-
->>>>>>> fb9ae3fdaa56b1ba7356bbdd9bb2780d2be4dee1
   def create
   	 @note = current_user.notes.build(note_params)
     if @note.save
@@ -65,8 +60,7 @@ class NotesController < ApplicationController
 
   # edit notes
   def edit
-    #@notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
-    @note = Note.find(params[:id])
+  
 end
 
 
