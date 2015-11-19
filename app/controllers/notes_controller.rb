@@ -16,7 +16,6 @@ class NotesController < ApplicationController
 
 
   def index
-    @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
     @notes = current_user.notes.paginate(page: params[:page])
   end
 
@@ -34,9 +33,14 @@ class NotesController < ApplicationController
       flash[:success] = "Sorry, couldn't delete"
       redirect_to @note
     end
+<<<<<<< HEAD
 
   end
 
+=======
+  end
+
+>>>>>>> fb9ae3fdaa56b1ba7356bbdd9bb2780d2be4dee1
   def create
   	 @note = current_user.notes.build(note_params)
     if @note.save

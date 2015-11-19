@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+<<<<<<< HEAD
     
     <style>
         .notebookstyle
@@ -37,10 +38,46 @@
 
         }
     </style>
+=======
+<style>
+
+.notebookstyle
+{
+    height:200px;
+    width:160px;
+    border:transparent;
+    margin:10px;
+    background:url(<%= asset_path('notebook.png') %>);
+    background-size:100% 100%;
+    text-transform:uppercase;
+    color:white;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}
+
+.notebookstyle:hover
+{
+    height:200px;
+    width:160px;
+   
+    margin:10px;
+    background:url(<%= asset_path('notebook7.jpg') %>);
+    background-size:100% 100%;
+    text-transform:uppercase;
+
+}
+
+</style>
+>>>>>>> fb9ae3fdaa56b1ba7356bbdd9bb2780d2be4dee1
 </head>
 
 <body>
     <div id="wrapper">
+<<<<<<< HEAD
+=======
+
+      
+>>>>>>> fb9ae3fdaa56b1ba7356bbdd9bb2780d2be4dee1
         <div id="page-wrapper">
             <div class="container-fluid">
                 <!-- Page Heading -->
@@ -90,7 +127,10 @@
                         <p> Your Notebooks </p>
 
                         <% cache(cache_key_for_all_notebooks) do %>
+<<<<<<< HEAD
 
+=======
+>>>>>>> fb9ae3fdaa56b1ba7356bbdd9bb2780d2be4dee1
                         <table id="notebook-row" class="table table-striped">
                             <tbody class="notebooks">
                                 <% @notebooks.each do |notebook| %>
@@ -103,9 +143,12 @@
                             </tbody>
 
                         </table>
+<<<<<<< HEAD
 
                     </div> <!-- End notebook row -->
                 </div><!-- /.row -->
+=======
+>>>>>>> fb9ae3fdaa56b1ba7356bbdd9bb2780d2be4dee1
                         <%end%>
                         <!-- End notebook row -->
 
