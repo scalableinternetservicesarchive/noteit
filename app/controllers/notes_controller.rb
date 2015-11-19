@@ -15,7 +15,6 @@ class NotesController < ApplicationController
   end
 
   def index
-    @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
     @notes = current_user.notes.paginate(page: params[:page])
   end
 
