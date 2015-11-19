@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
 
   get 'comments/new'
-  get 'notebooks/delete'
 
   resources :notes
   resources :notebooks

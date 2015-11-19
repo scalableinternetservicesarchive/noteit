@@ -16,7 +16,6 @@ class NotesController < ApplicationController
 
 
   def index
-    @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
     @notes = current_user.notes.paginate(page: params[:page])
   end
 
@@ -26,11 +25,16 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    Note.find(params[:id]).destroy
-    flash[:success] = "Note deleted"
-    redirect_to root_url
-  end
+    @note = Note.find(params[:id])
+    if Note.find(params[:id]).destroy
+      flash[:success] = "Note deleted"
+      redirect_to root_url
+    else
+      flash[:success] = "Sorry, couldn't delete"
+      redirect_to @note
+    end
 
+ end
 
   def create
   	 @note = current_user.notes.build(note_params)
@@ -56,8 +60,7 @@ class NotesController < ApplicationController
 
   # edit notes
   def edit
-    #@notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
-    @note = Note.find(params[:id])
+  
 end
 
 

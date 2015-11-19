@@ -66,6 +66,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    dalli (2.7.4)
     debug_inspector (0.0.2)
     devise (3.5.2)
       bcrypt (~> 3.0)
@@ -260,6 +261,7 @@ DEPENDENCIES
   bootstrap-will_paginate (= 0.0.10)
   byebug
   coffee-rails (~> 4.1.0)
+  dalli
   devise
   faker (= 1.4.2)
   guard-minitest (= 2.3.1)

@@ -12,7 +12,7 @@ class NotebooksController < ApplicationController
 	end
 
 	def delete
-		flash[:success] = "Notebook deleted :O"
+		flash[:success] = "Notebook deleted"
 	end
 
 

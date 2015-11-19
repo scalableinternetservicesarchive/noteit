@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+
     
     <style>
         .notebookstyle
@@ -50,9 +51,9 @@
                         <h1>
                             Dashboard
                         </h1>
-                        <% flash.each do |message_type, message| %>
+                        <!--<% flash.each do |message_type, message| %>
                             <div class="alert alert-<%= message_type %>"><%= message %></div>
-                        <% end %>
+                        <% end %>-->
                         
                         <hr>
                         <div class="btn-group">
@@ -87,21 +88,61 @@
                         <hr>
                         <br>
 
+
                         <p> Your Notebooks </p>
+
+                        <% cache(cache_key_for_all_notebooks) do %>
                         <table id="notebook-row" class="table table-striped">
                             <tbody class="notebooks">
                                 <% @notebooks.each do |notebook| %>
 
+                                 <% cache(cache_key_for_notebook(notebook)) do %>
                                 
-                               <%= button_to notebook.title, notebook, :class=>"notebookstyle",:method=>:get%>
-
+                                    <%= button_to notebook.title, notebook, :class=>"notebookstyle",:method=>:get%>
+                                 <%end%>
                                 <% end %>
                             </tbody>
 
                         </table>
+
+
                     </div> <!-- End notebook row -->
                 </div><!-- /.row -->
-                
+                        <%end%>
+                        <!-- End notebook row -->
+
+
+            </div>
+
+                      <!--      <script>
+                                var classes = ["TMP 241", "CS 290B", "CS 270", "Homework"];
+
+                                for (i = 0; i < classes.length; i++) { 
+
+                                    var notebook = document.createElement("div");
+                                    var a = document.createElement("a");
+                                    var p = document.createElement("p");
+                                    var img = document.createElement("img");
+
+                                    notebook.className = "col-sm-4 col-md-2";
+                                    a.className = "thumbnail";
+                                    img.src = "<%= asset_path('notebook.png') %>";
+                                    p.setAttribute('style','text-align:center;');
+                                    p.innerHTML = classes[i];
+
+                                    a.appendChild(img);
+                                    a.appendChild(p);
+                                    notebook.appendChild(a);
+
+                                    document.getElementById('notebook-row').appendChild(notebook);
+
+                                }
+                            </script>-->
+                        
+                        
+
+             </div>
+            </div>
 
                 <!-- Upload Note Modal -->
                 <div id="myUploadModal" class="modal fade" role="dialog">
