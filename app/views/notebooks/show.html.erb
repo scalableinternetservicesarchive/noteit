@@ -46,7 +46,7 @@
     <button type="button" class="btn btn-danger">
 
       <i class="glyphicon glyphicon-list-alt"></i>
-      <%= link_to "Delete Notebook", '#', :style => "color:white" %>
+      <%= link_to "Delete Notebook", @notebook, :style => "color:white", :method => :delete, :data => { :confirm => "You sure you want to delete this notebook? This will also delete all of the notes inside. "} %>
     </button>
 
     <% if flash[:success] %>
