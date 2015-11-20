@@ -7,11 +7,8 @@ class NotesController < ApplicationController
     if user_signed_in?
       @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
     end
-    @query = Note.search do
-        fulltext params[:search]
-    end
     @keyword = params[:search]
-    @notes = @query.results
+    @notes = Note.where("(title LIKE '#{@keyword}%') OR (content LIKE '#{@keyword}%') OR (university LIKE '#{@keyword}%') OR (professor LIKE '#{@keyword}%') OR (class_subject LIKE '#{@keyword}%')")
   end
 
 
