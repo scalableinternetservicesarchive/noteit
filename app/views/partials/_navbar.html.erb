@@ -33,6 +33,19 @@
 
             <% if user_signed_in? %>
 
+                <% if !(request.env['PATH_INFO'] == static_pages_home_path) %>
+                <li>
+                    <%= link_to "Find users", users_path %>
+                </li>
+
+                <li>
+                    <%= link_to "Your notes", notes_path  %>
+                </li>
+                <li>
+                    <%= link_to "View feed", feed_path %>
+                </li>
+
+                <%end%>
                 <li>
                     <%= link_to "Create Note", '/notes/new' %>
                 </li>

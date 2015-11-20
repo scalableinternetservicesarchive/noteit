@@ -23,5 +23,8 @@ def followers
     render 'users/show_follow'
 end
 
+def feed
+    @feed_items = current_user.feed.paginate(page: params[:page])
+end
 
 end
