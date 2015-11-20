@@ -21,5 +21,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'feed' => 'users#feed'
+
   
 end

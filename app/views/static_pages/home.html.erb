@@ -73,6 +73,13 @@
                         </div>
 
                         <div class="btn-group">
+                          <button type="button" class="btn btn-info">
+                            <i class="glyphicon glyphicon-th-list"></i>
+                            <%= link_to "View feed", feed_path, :style => "color:white"  %>
+                          </button> 
+                        </div>
+
+                        <div class="btn-group">
                           <button type="button" class="btn btn-info" onClick="$('#myUploadModal').modal()" data-target="#myUploadModal">
                             <i class="glyphicon glyphicon-file"></i>
                             Upload Note
