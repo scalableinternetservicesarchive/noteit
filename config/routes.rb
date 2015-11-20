@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   
   post 'search' => 'notes#search'
   post 'upload-note' => 'notes#upload_note'
+  post 'edit_notes' => 'notes#edit_notes'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", sessions: "users/sessions" }
 
