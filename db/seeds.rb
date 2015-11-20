@@ -5,7 +5,7 @@ User.create!(name:  "Note It User",
 
 99.times do |n|
   name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
+  email = "example-#{n+1}@cs290b.org"
   password = "password"   
   User.create!(name:  name,
                email: email,
@@ -25,3 +25,12 @@ end
   notebook = Notebook.find_by(id: 1)
   user.notes.create!(title: title, content: content, notebook_id: notebook.id) 
 end
+
+
+# Following relationships
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) } 
