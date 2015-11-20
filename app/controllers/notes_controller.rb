@@ -60,8 +60,46 @@ class NotesController < ApplicationController
 
   # edit notes
   def edit
-  
-end
+    @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
+    @note = Note.find(params[:id])
+  end
+
+  def edit_notes
+    #updated notes if the note id is already existed
+      @note = Note.find(params[:id])
+      # @note.title = param[:note][:title]
+      # @note.content = param[:note][:content]
+      # @note.university = param[:note][:university]
+      # @note.notebook_id = param[:note][:notebook_id]
+      # @note.class_subject = param[:note][:class_subject]
+      # @note.professor = param[:note][:professor]
+
+      @note.update(title: params[:note][:title])
+      @note.update(content: params[:note][:content])
+      @note.update(university: params[:note][:university])
+      @note.update(notebook_id: params[:note][:notebook_id])
+      @note.update(class_subject: params[:note][:class_subject])
+      @note.update(professor: params[:note][:professor])
+
+      if @note.save
+      #flash.now[:success] = "Nice one!"
+      #flash.keep(:success)
+      #redirect_to root_url
+      #render :js => "window.location = '#{note_path(@note)}"
+      respond_to do |format|
+        format.html {render nothing: true, status: 200} 
+        format.json {render nothing: true, status: 200} 
+      end
+    
+    else
+      #flash.now[:alert] = "Oops! Say something before submitting."
+      #flash.keep(:alert)
+      respond_to do |format|
+        format.html {render nothing: false, status: 400} 
+        format.json {render nothing: false, status: 400}
+      end
+    end
+  end
 
 
 

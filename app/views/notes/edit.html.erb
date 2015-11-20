@@ -91,6 +91,12 @@
                         </tr>
                     </div>
 
+
+                    <div id="div-item-data" data-item-title="<%= @note.title %>" data-item-university="<%=@note.university %>"
+                    data-item-class="<%= @note.class_subject %>" data-item-prof="<%= @note.professor %>" 
+                    data-item-content="<%= @note.content.html_safe %>" 
+                    data-item-id="<%= @note.id %>"></div>
+
                     
                 </table>
                 <br/>
@@ -118,37 +124,33 @@
     </body>
 
     <script type="text/javascript">
-
             angular.module("textAngularDemo", ['textAngular'])
                     .controller("demoController", function demoController($scope, $http, $window) {
-
-                         $http.get('/notes').success(function(data){
-                                    confirm(data);
-                                    // $scope.title = data.title;
-
-                                }).error(function(data){
-                                    // confirm(status);    
-                                });
-
+                        var div = document.getElementById('div-item-data');
+                        $scope.title = div.getAttribute("data-item-title");
+                        $scope.university = div.getAttribute("data-item-university");
+                        $scope.notes_class = div.getAttribute("data-item-class");
+                        $scope.professor = div.getAttribute("data-item-prof");
+                        $scope.htmlContent = div.getAttribute("data-item-content");
+                        $scope.noteid = div.getAttribute("data-item-id");
 
                         $scope.save = function(){
                             var noteObj = {
+                                id: $scope.noteid,
                                 title: $scope.title,
                                 content: $scope.htmlContent,
                                 university: $scope.university,
                                 class_subject: $scope.notes_class,
-                                professor: $scope.professor,
-                                
+                                professor: $scope.professor
                             }
                             //confirm(noteObj.content);
-                            $http.post('/notes', noteObj).success(function(data, status){
+                            $http.post('/edit_notes', noteObj).success(function(data, status){
                                     // confirm(status);
                                     $window.location.href = '/notes';
                                 }).error(function(data, status){
                                     // confirm(status);    
                                 });
                         }
-
                     });
         </script>
         <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
