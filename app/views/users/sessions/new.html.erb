@@ -1,26 +1,11 @@
 <% provide(:title, "Onwards") %>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    
-
-
-</head>
 <body>
   <div style="padding-top: 100px; 
     height: 100%;
     text-align: center;
-    background: url(<%= asset_path 'bg1.jpg' %>) ;
-    background-size: cover;
-  color:white;" >
+    
+  color:black;" >
       <!-- <form class="form-signin"> -->
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-control") do |f| %>
         <h2 class="form-signin-heading">Sign in</h2>
@@ -56,4 +41,3 @@
 
 
 </body>
-</html>
