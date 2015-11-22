@@ -1,4 +1,6 @@
 <div>
+  <h3 style="color:green">Showing all comments for <strong><%= @note.title %></strong>, posted by <i><%= User.find(@note.user_id).email %></i></h3>
+  <br/>
   <%cache(cache_key_for_all_comments @comments) do%>	
 	<ul class="comments">
   	
@@ -21,9 +23,7 @@
       		</div>
     	</li>
       <%end%>
-
-  		<% end %>
-  </ul>
-  <%end %>
+      <%end %>
+	</ul>
+  <%end%>
 </div>
-

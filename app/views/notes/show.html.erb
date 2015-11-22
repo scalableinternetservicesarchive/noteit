@@ -7,15 +7,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>  -->
-        <script>
-            document.write('<base href="' + document.location + '" />');
-        </script>
-        <script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.16"></script>
-
+        
         <%= stylesheet_link_tag "bootstrap-tags" %>
         <%= stylesheet_link_tag "vote" %>
-        <%= javascript_include_tag "bootstrap-tags" %>
-        <%= javascript_include_tag "vote" %>
+        
     <!-- </head> -->
 
             <br>
@@ -68,29 +63,50 @@
 
             <br>
             <hr>
-            <div>
-                <h2>Comments</h2>
-                <!-- Comments Form -->
+            <section>
+            <!-- Comments Form -->
                 <% if user_signed_in? %>
                 <% flash.each do |message_type, message| %>
                     <div class="alert alert-<%= message_type %>"><%= message %></div>
                 <% end %>
-                <div class="well col-lg-8 col-centered">
+                <div >
                     <h4>Leave a Comment:</h4>
                     <%= render 'partials/leave_a_comment' %>
                 </div>
                 <!-- End comments form -->
                 <%else%>
-                    <div class="well col-lg-8 col-centered">You must be signed in to post comments.</div>
+                    <div>You must be signed in to post comments.</div>
                 <%end%>
                 <!-- Comments -->
+
+            </section>
+            <br/>
+            <section>
+                <h3>Recent comments</h3>
+                <br/>
+                <small>
+                  <%= form_for(:comment, :url => comments_show_all_comments_path) do |f| %>
+                    <%= hidden_field_tag :note_id, @note.id %>
+                    <%= f.submit "View all comments"%>
+                  <% end %>
+                </small>
+                <br/>
                  <%= render 'partials/show_comments'%>  
-                <!-- End Comments -->
-            </div>
+            <!-- End Comments -->
+            </section>
+
+             
+                
     <!-- </body> -->
 
 <!-- </html> -->
+<script>
+            document.write('<base href="' + document.location + '" />');
+        </script>
+        <script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.16"></script>
 
+<%= javascript_include_tag "bootstrap-tags" %>
+        <%= javascript_include_tag "vote" %>
 
 
 
