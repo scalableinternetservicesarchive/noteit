@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :relationships,       only: [:create, :destroy]
   
   post 'search' => 'notes#search'
+  get 'search' => 'notes#search'
   post 'upload-note' => 'notes#upload_note'
   post 'edit_notes' => 'notes#edit_notes'
 

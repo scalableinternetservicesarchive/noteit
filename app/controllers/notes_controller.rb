@@ -8,7 +8,7 @@ class NotesController < ApplicationController
       @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
     end
     @keyword = params[:search]
-    @notes = Note.where("(title LIKE '#{@keyword}%') OR (content LIKE '#{@keyword}%') OR (university LIKE '#{@keyword}%') OR (professor LIKE '#{@keyword}%') OR (class_subject LIKE '#{@keyword}%')")
+    @notes = Note.where("(title LIKE '#{@keyword}%') OR (content LIKE '#{@keyword}%') OR (university LIKE '#{@keyword}%') OR (professor LIKE '#{@keyword}%') OR (class_subject LIKE '#{@keyword}%')").paginate(:page => params[:page], :per_page => 15)
   end
 
 
