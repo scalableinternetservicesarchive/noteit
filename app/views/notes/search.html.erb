@@ -8,6 +8,7 @@
 		<h2><span style="color:blue"><%=@keyword %></span></h2>
 	<%end%>
 	<%= will_paginate @notes%>
+	<%cache(cache_key_for_search(@keyword, @notes)) do%>
 	<ul class="notes">
 	  <% @notes.each do |note| %>
 	    <li>
@@ -16,4 +17,5 @@
 	  <% end %>
 	  <%end%>
 	</ul>
+	<%end%>
 	<%= will_paginate @notes%>
