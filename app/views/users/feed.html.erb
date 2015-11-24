@@ -5,7 +5,7 @@
 <% @feed_items.each do |item| %>
 <li>
 	<h3><strong><%= item.title %></strong><br/></h3>
-	<%= item.content.html_safe.truncate_words(10) %><br/>
+	<%= item.content.html_safe.truncate_words(10) %>
 	<small>Last modified <%= time_ago_in_words item.updated_at.to_s %> ago by <%= item.user.email %>.</small>
 	<%= link_to "View note", item %>	
 </li>

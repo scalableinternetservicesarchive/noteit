@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  def show_all_comments
+  def show
     @note = Note.find(params[:note_id])
     @comments = @note.comments
   end
