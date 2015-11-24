@@ -1,10 +1,13 @@
 	<% provide(:title, "Search Results") %>
-
 	<%if @notes.count == 0%>
 	  	  Sorry, there's nothing for <span style="color:blue"><%=@keyword %></span>
 	<%else%>
-	<h1>Here's what we found <span style="color:blue"><%=@keyword %></span></h1>
-
+	<%if !@keyword.nil? && @keyword.length < 1%>
+		<h2>Here are some notes</h2>
+	<%else%>
+		<h2><span style="color:blue"><%=@keyword %></span></h2>
+	<%end%>
+	<%= will_paginate @notes%>
 	<ul class="notes">
 	  <% @notes.each do |note| %>
 	    <li>
@@ -13,3 +16,4 @@
 	  <% end %>
 	  <%end%>
 	</ul>
+	<%= will_paginate @notes%>
