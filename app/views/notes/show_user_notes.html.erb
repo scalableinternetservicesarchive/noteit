@@ -1,0 +1,15 @@
+<% provide(:title, "All Notes for #{@user.email}") %>
+
+<h2>Notes created by <i><%= @user.email %></i></h2>
+<h4><%= pluralize(@notes.count, "note")%><h4>
+<ul>
+<% @notes.each do |note| %>
+ 	<li>
+ 		<h3><strong><%= note.title %></strong></h3> <br/>
+ 		<%= note.content.html_safe.truncate_words(10) %>
+		<small>Last modified <%= time_ago_in_words note.updated_at.to_s %> ago by <%= note.user.email %>.</small>
+		<%= link_to "View note", note %>	
+ 	</li>
+ 	<br/>
+ 	<%end%>
+ </ul>

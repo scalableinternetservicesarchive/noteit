@@ -11,6 +11,10 @@ class NotesController < ApplicationController
     @notes = Note.where("(title LIKE '#{@keyword}%') OR (content LIKE '#{@keyword}%') OR (university LIKE '#{@keyword}%') OR (professor LIKE '#{@keyword}%') OR (class_subject LIKE '#{@keyword}%')").paginate(:page => params[:page], :per_page => 15)
   end
 
+  def show_user_notes
+    @user = User.find(params[:user_id])
+    @notes = @user.notes.paginate(page: params[:page])
+  end
 
   def index
     @notes = current_user.notes.paginate(page: params[:page])

@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'static_pages/home'
 
   get 'comments/new'
-  post 'comments/show_all_comments'
+  post 'comments/show'
+  post 'notes/show_user_notes'
   resources :notes
   resources :notebooks
   resources :comments
