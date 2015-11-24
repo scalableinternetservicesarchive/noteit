@@ -1,5 +1,6 @@
 == NoteIt (formerly TweetMagic)
-<a href="https://github.com/aviral26/noteit-tsung"> Tsung Load Tests </a>
+
+(Tsung load tests results are at https://github.com/aviral26/noteit-tsung)
 
 The aim for this project is to create a system where classmates can share notes for their classes. Not only will users be able to see what other students in their school have posted, but they can search all other universities in the world to find similar courses that share the same or similar material. With this ability, they can get different perspectives on certain topics and develop a well rounded view of a certain topic.
 
