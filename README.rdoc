@@ -1,17 +1,12 @@
 == NoteIt (formerly TweetMagic)
 
-(Tsung load tests results are at https://github.com/aviral26/noteit-tsung)
-
-The aim for this project is to create a system where classmates can share notes for their classes. Not only will users be able to see what other students in their school have posted, but they can search all other universities in the world to find similar courses that share the same or similar material. With this ability, they can get different perspectives on certain topics and develop a well rounded view of a certain topic.
-
-To make sure the best notes percolate to the top, there will be a reddit style upvote/downvote capability for each set of notes. The best notes with the nost views and most upvotes will get pushed to the top and the "not as good ones" will get pushed to the bottom. Each of these notes can be commented on either to generate discussion and ask questions or to review the set of notes. We aim to perform sentiment analysis on the reviews so that we have another way to judge which notes are most useful by analyzing which reviews have the happiest sentiment and again, push those to the top. Something to look into is how to cleanly separate discussion comments from review comments.
-
-If we were to take this to market, we would incentivize students to publish their notes by awarding the most reputale authors who garner the most upvotes NoteIt Points. Based on the number of points you receive, you will be offered discounts to stores, restaurants, and outlets that we will partner with. This will not only encourage students to publish their notes and to keep using our service, but it will also encourage them to publish GOOD notes.
-
-Students can search by class title, university, professor, or even by their favorite author/note publisher. We hope to even let professors publish notes as well and would plan to offer them different types of incentives.
+Tsung load tests results are at https://github.com/aviral26/noteit-tsung
 
 Pivotal Tracker: https://www.pivotaltracker.com/n/projects/1445290
 
+NoteIt is a platform for people to share class notes. It integrates a social network which allows users to follow other users and quickly discover their notes through a "feed". Notes are organised by University, Professor, Subject etc. Users may also search for notes using any keyword. Each note may be individually upvoted or downvoted and commented upon by any user. Notes may also belong to a notebook.
+
+Looking forward, if we were to take this to market, we would incentivize students to publish their notes by awarding the most upvoted authors "NoteIt Points". Based on the number of points you receive, you will be offered discounts to stores, restaurants, and outlets that we will partner with. This will not only encourage students to publish their notes and to keep using our service, but it will also encourage them to publish GOOD notes.
 
 
 == Team Members
