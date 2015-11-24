@@ -1,14 +1,19 @@
 <h2>Your notes feed</h2>
 
 <%= will_paginate @feed_items%>
+<%cache(cache_key_for_feed(@feed_items)) do%>
 <ul>
 <% @feed_items.each do |item| %>
+<% cache(cache_key_for_feed_item(item)) do%>
 <li>
 	<h3><strong><%= item.title %></strong></h3><br/>
 	<%= item.content.html_safe.truncate_words(10) %><br/>
 	<small>Last modified <%= time_ago_in_words item.updated_at.to_s %> ago by <%= item.user.email %>.</small>
 	<%= link_to "View note", item %>	
 </li>
+<%end%>
+<%end%>
+</ul>
 <%end%>
 
 <%= will_paginate @feed_items%>
