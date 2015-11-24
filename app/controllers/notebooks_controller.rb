@@ -14,8 +14,7 @@ class NotebooksController < ApplicationController
   
     def destroy
       @notebook = Notebook.find(params[:id])
-      @notes = @notebook.notes if stale?(@notebook.notes.all)
-      @notes.destroy
+      @notebook.notes.clear
       @notebook.destroy
       flash[:success] = "Notebook deleted"
       redirect_to root_url
