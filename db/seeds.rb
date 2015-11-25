@@ -1,12 +1,3 @@
-User.create!(name:  "Note It User",
-             email: "niu@gmail.com",
-             password: "12345678",
-             )
-
-User.create!(name:  "Aviral",
-             email: "aviral@gmail.com",
-             password: "12345678",
-             )
 
 99.times do |n|
   name  = Faker::Name.name
@@ -17,6 +8,19 @@ User.create!(name:  "Aviral",
                password: password
                )
 end
+
+
+User.create!(name:  "Note It User",
+             email: "niu@gmail.com",
+             password: "12345678",
+             )
+
+User.create!(name:  "Aviral",
+             email: "aviral@gmail.com",
+             password: "12345678",
+             )
+
+
 user = User.find_by(name: 'Note It User')
 
 50.times do
