@@ -1,14 +1,26 @@
-<h2>Your notes feed</h2>
+<% provide(:title, "Your feed") %>
+<h2 style="color:brown">Activity feed</h2>
 
 <%= will_paginate @feed_items%>
-<ul>
+<%cache(cache_key_for_feed(@feed_items)) do%>
+<table border=1 frame=void rules=rows>
 <% @feed_items.each do |item| %>
-<li>
-	<h3><strong><%= item.title %></strong></h3><br/>
+<% cache(cache_key_for_feed_item(item)) do%>
+<tr style="border-bottom:1px solid black;">
+	<h4 ><strong><%= link_to(item.title, item, {:style=>'color:green;'}) %></strong></h4>
 	<%= item.content.html_safe.truncate_words(10) %><br/>
-	<small>Last modified <%= time_ago_in_words item.updated_at.to_s %> ago by <%= item.user.email %>.</small>
-	<%= link_to "View note", item %>	
-</li>
+	<%if item.avatar.exists?%>
+	<%= link_to(image_tag(item.avatar.url(:thumb)), item.avatar.url) if item.avatar.content_type != "application/pdf"%>
+	<%= link_to(item.avatar_file_name, item.avatar.url) if item.avatar.content_type == "application/pdf"%><br/>
+	<%end%>
+	<small style="color:grey">Last modified <%= time_ago_in_words item.updated_at.to_s %> ago by <%= item.user.email %>.</small>
+	
+	<br/>
+</tr>
+<br/>
+<%end%>
+<%end%>
+</table>
 <%end%>
 
 <%= will_paginate @feed_items%>

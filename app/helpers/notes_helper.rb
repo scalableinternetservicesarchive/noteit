@@ -13,4 +13,8 @@ module NotesHelper
   	def cache_key_for_comment(comment)
   		"comment/#{comment.id}/#{comment.updated_at}"	
   	end
+
+    def cache_key_for_search(keyword, notes)
+      "search/#{keyword}/#{notes.maximum(:updated_at)}"
+    end
 end

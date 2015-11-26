@@ -17,7 +17,7 @@ class NotesController < ApplicationController
   end
 
   def index
-    @notes = current_user.notes.paginate(page: params[:page])
+    @notes = current_user.notes.paginate(page: params[:page], :per_page => 15)
   end
 
 

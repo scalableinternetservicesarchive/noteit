@@ -1,5 +1,7 @@
 class NotebooksController < ApplicationController
 	before_action :authenticate_user!
+	
+
 	def show
 		#@notebooks = current_user.notebooks 
 		@notebook = Notebook.find(params[:id])
@@ -9,10 +11,6 @@ class NotebooksController < ApplicationController
     	else
       		@note_owner = -1
     	end
-	end
-
-	def delete
-		flash[:success] = "Notebook deleted"
 	end
 
 
