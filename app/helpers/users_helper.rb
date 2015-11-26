@@ -9,10 +9,10 @@ def cache_key_for_feed_item(item)
 end
 
 def cache_key_for_users(users)
-	"users/#{users.count}/#{user.maximum(:updated_at)}"
+	"users/#{users.count}/#{users.maximum(:updated_at)}"
 end
 
-def cache_key_for_note(user)
+def cache_key_for_user(user)
   	"user/#{user.id}/#{user.updated_at}"
 end
 

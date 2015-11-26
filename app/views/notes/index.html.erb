@@ -8,28 +8,18 @@
       <% end %>
     
   <h3 style="margin-top: 30px; color:black"><%=current_user.name %>'s Notes</h3>
-
-<br>
-  <button type="button" class="btn btn-success">
-      <i class="glyphicon glyphicon-list-alt"></i>
-      <%= link_to "New Note", '/notes/new', :style => "color:white" %>
-    </button>
-    
-    <br>
-    <br>
-    <br>
-
+  <span style="margin-top: 30px; color:black"><i><%= pluralize(@notes.count, 'note')%></i></span>
 
   <%= will_paginate %>
   <%cache(cache_key_for_all_notes) do%>
   <table class="table table-striped" style="width: 95%; margin-left:2%;">
   	 <thead>
         <tr>
-          <th>Title<i class="fa fa-fw fa-sort"></i></th>
-          <th>Notebook<i class="fa fa-fw fa-sort"></i></th>
-          <th>University<i class="fa fa-fw fa-sort"></i></th>
-          <th>Class<i class="fa fa-fw fa-sort"></i></th>
-          <th>Professor<i class="fa fa-fw fa-sort"></i></th>
+          <th>Title</th>
+          <th>Notebook</th>
+          <th>University</th>
+          <th>Class</th>
+          <th>Professor</th>
         </tr>
       </thead>
 
@@ -37,9 +27,9 @@
             
           <% @notes.each do |note| %>
           <% cache(cache_key_for_note(note)) do%>
-          <tr>
+          <tr style="color:grey">
               <td><%= link_to note.title, note, :style => "color:#00B87A"  %></td>
-              <td><%= link_to note.notebook.title, note.notebook.title if !note.notebook.nil? %></td>
+              <td><%= link_to note.notebook.title, note.notebook if !note.notebook.nil? %></td>
               <td><%=  note.university %></td>
               <td><%=  note.class_subject %></td>
               <td><%=  note.professor %></td> 

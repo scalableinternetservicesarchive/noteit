@@ -9,13 +9,16 @@
 
   <% if @notes.count > 0 %>  
 
-    <h3 style="margin-top: 4%; margin-left: 2%">All notes in notebook 
+    <h3 style="margin-top: 4%; margin-left: 2%">
       <span style="color:green"><%= @notebook.title %></span>
     </h3>
+    <h4 style="margin-top: 2%; margin-left: 2%"><%=pluralize(@notes.count, 'note')%></h4>
+
 
     <table class="table table-striped" style="margin-left:2%; width: 95%; margin-top:3%">
 
       <tbody class="notes">
+
           <% @notes.each do |note| %>
           <tr>
               <td><%= link_to note.title, note, :style => "color:#00B87A"  %></td>

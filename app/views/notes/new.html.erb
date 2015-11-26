@@ -114,10 +114,10 @@
                                 university: $scope.university,
                                 class_subject: $scope.notes_class,
                                 professor: $scope.professor,
-                                notebook: $scope.notebook
+                                notebook_id: $scope.notebook
                                 
                             }
-                            //confirm(noteObj.content);
+                            //confirm(noteObj.notebook);
                             $http.post('/notes', noteObj).success(function(data, status){
                                     $window.location.href = '/notes';
                                 }).error(function(data, status){
