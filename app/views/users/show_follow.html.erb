@@ -11,7 +11,7 @@
           <% @users.each do |user| %>
           <%cache(cache_key_for_user(user)) do%>
           <li>
-            <%= user.name %> <%= user.email %>
+            <span style="color:green"><%= user.name %></span> <%= user.email %>
             <%= link_to "View Profile", user %>
           </li>
           <%end%>

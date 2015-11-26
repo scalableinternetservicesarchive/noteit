@@ -38,4 +38,18 @@ Rails.application.configure do
   config.action_mailer.default_url_options
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # config.paperclip_defaults = {
+  #    :storage => :fog,
+  #    :fog_credentials => {
+  #      :provider => "AWS",
+  #      :aws_access_key_id => "AKIAI4ZHB3IKKIE3XQVQ",
+  #      :aws_secret_access_key => "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"
+  #    },
+  #    :fog_directory => "cs290bnoteit"
+  #  }
+
+
+
+
 end
