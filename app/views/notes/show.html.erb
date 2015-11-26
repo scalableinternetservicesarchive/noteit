@@ -17,18 +17,21 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3><%= @note.title%> 
+                    <h3><span style="color:green"><%= @note.title%> </span>
+                        <%if user_signed_in?%>
                         <div class="btn-group" style="float:right">
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" 
                                     aria-expanded="false" style="height:30px; width: 35px; border-color:darkred">
                             <span class="caret"></span>
                           </button>
+                          
                           <ul class="dropdown-menu pull-right">
                             <li><%= link_to 'Edit',edit_note_path %></li>
                             <li><a href="#">Set as Private Note</a></li>
                             <li role="separator" class="divider"></li>
                             <li><%= link_to "Delete", @note, :method => :delete, :data => {:confirm => "You sure you want to delete this note?" } %></li>
                           </ul>
+                          <%end%>
                         </div>
                     </h3>
                     <span class="text-primary"><%=@note.university %>  <%=@note.class_subject %>  <%=@note.professor %></span>
@@ -75,25 +78,31 @@
                 </div>
                 <!-- End comments form -->
                 <%else%>
-                    <div>You must be signed in to post comments.</div>
+                    <div><i>You must be signed in to post comments.</i></div>
                 <%end%>
                 <!-- Comments -->
 
             </section>
             <br/>
+            <% if @note.comments.all.count > 0 %>
             <section>
                 <h3>Recent comments</h3>
                 <br/>
+                <%if @note.comments.all.count > 5%>
                 <small>
                   <%= form_for(:comment, :url => comments_show_path) do |f| %>
                     <%= hidden_field_tag :note_id, @note.id %>
-                    <%= f.submit "View all comments"%>
+                    <%= f.submit "View all (#{pluralize(@note.comments.all.count, 'comment')})"%>
                   <% end %>
                 </small>
                 <br/>
+                <%end%>
                  <%= render 'partials/show_comments'%>  
             <!-- End Comments -->
             </section>
+            <%else%>
+                <% if user_signed_in? %><section><h3>Be the first to comment!</h3></section> <%end%>
+            <%end%>
 
              
                 
