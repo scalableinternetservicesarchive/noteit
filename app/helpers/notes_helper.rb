@@ -7,6 +7,11 @@ module NotesHelper
     	"note/#{note.id}/#{note.updated_at}"
   	end
 
+def cache_key_for_search_note(keyword, note)
+      "note/#{keyword}/#{note.id}/#{note.updated_at}"
+ end
+
+
   	def cache_key_for_all_comments(comments)
   		"all_comments/#{comments.maximum(:updated_at)}"
   	end

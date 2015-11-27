@@ -7,22 +7,25 @@
 	<%else%>
 		<h3>Showing search results for <span style="color:blue"><%=@keyword %></span></h3>
 	<%end%>
+	<%end%>
 	<%= will_paginate @notes%>
 	<%cache(cache_key_for_search(@keyword, @notes)) do%>
 	<table class="notes">
 	  <% @notes.each do |item| %>
+	    <%cache(cache_key_for_search_note(@keyword, item)) do%>
 	    <tr>
 	      <h4 ><strong><%= link_to(item.title, item, {:style=>'color:green;'}) %></strong></h4>
-	<%= item.content.html_safe.truncate_words(10) %>
-	<br/>
-	<%if item.avatar.exists?%>
-	<%= link_to(image_tag(item.avatar.url(:thumb)), item.avatar.url) if item.avatar.content_type != "application/pdf"%>
-	<%= link_to(item.avatar_file_name, item.avatar.url) if item.avatar.content_type == "application/pdf"%><br/>
-	<%end%>
-	<small style="color:grey">Last modified <%= time_ago_in_words item.updated_at.to_s %> ago by <%= item.user.email %>.</small>
+		  <%= item.content.html_safe.truncate_words(10) %>
+	   	<br/>
+		<%if item.avatar.exists?%>
+		<%= link_to(image_tag(item.avatar.url(:thumb)), item.avatar.url) if item.avatar.content_type != "application/pdf"%>
+		<%= link_to(item.avatar_file_name, item.avatar.url) if item.avatar.content_type == "application/pdf"%><br/>
+		<%end%>
+		<small style="color:grey">Last modified <%= time_ago_in_words item.updated_at.to_s %> ago by <%= item.user.email %>.</small>
 	
-	<br/>
+		<br/>
 	    </tr>
+
 	  <% end %>
 	  <%end%>
 	</table>
