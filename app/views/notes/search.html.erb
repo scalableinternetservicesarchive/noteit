@@ -10,10 +10,10 @@
 	<%end%>
 	<%end%>
 	<%= will_paginate @notes%>
-	<%cache(cache_key_for_search(@keyword, @notes)) do%>
+	<!--<%cache(cache_key_for_search(@keyword, @notes)) do%>-->
 	<table class="notes">
 	  <% @notes.each do |item| %>
-	    <%cache(cache_key_for_search_note(@keyword, item)) do%>
+	    <!--<%cache(cache_key_for_search_note(@keyword, item)) do%>-->
 	    <tr>
 	      <h4 ><strong><%= link_to(item.title, item, {:style=>'color:green;'}) %></strong></h4>
 		  <%= item.content.html_safe.truncate_words(10) %>
@@ -27,8 +27,8 @@
 		<br/>
 	    </tr>
 
-	  <% end %>
+	  <!--<% end %>-->
 	  <%end%>
 	</table>
-	<%end%>
+	<!--<%end%>-->
 	<%= will_paginate @notes%>

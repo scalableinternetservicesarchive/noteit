@@ -11,7 +11,7 @@
   <span style="margin-top: 30px; color:black"><i><%= pluralize(@notes.count, 'note')%></i></span>
 
   <%= will_paginate %>
-  <%cache(cache_key_for_all_notes) do%>
+ <!-- <%cache(cache_key_for_all_notes) do%>-->
   <table class="table table-striped" style="width: 95%; margin-left:2%;">
   	 <thead>
         <tr>
@@ -26,7 +26,7 @@
       <tbody class="notes">
             
           <% @notes.each do |note| %>
-          <% cache(cache_key_for_note(note)) do%>
+          <!--<% cache(cache_key_for_note(note)) do%>-->
           <tr style="color:grey">
               <td><%= link_to note.title, note, :style => "color:#00B87A"  %></td>
               <td><%= link_to note.notebook.title, note.notebook if !note.notebook.nil? %></td>
@@ -35,9 +35,9 @@
               <td><%=  note.professor %></td> 
           </tr>
           <%end%>
-          <%end%>
+          <!--<%end%>-->
       </tbody>
   </table>
-  <%end%>
+  <!--<%end%>-->
   <%= will_paginate %>
 

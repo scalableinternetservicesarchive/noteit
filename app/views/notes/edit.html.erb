@@ -2,19 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=8" />
-        <meta name="fragment" content="!">
-        <meta name="author" content="Austin Anderson">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="contact" content="austin@rarebreedstudios.com">
-        <meta name="copyright" content="Austin Anderson. All rights reserved">
-        <meta charset="utf-8">
-        <title>textAngular :: Lightweight Angular.js, Javascript Wysiwyg/Text-Editor</title>
         <link rel="shortcut icon" href="images/favicon.png">
-        <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
-
-        <%= javascript_include_tag "textAngular-rangy.min", "textAngular-sanitize.min", "textAngular.min", "bootstrap-tags" %>
         <%= stylesheet_link_tag "bootstrap-tags" %>
         <!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,300"> -->
     <link rel="stylesheet" href="http://textangular.com/css/style.css" type="text/css">
@@ -122,7 +110,10 @@
         <!-- End Container -->
 
     </body>
+    <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
 
+        <%= javascript_include_tag "textAngular-rangy.min", "textAngular-sanitize.min", "textAngular.min", "bootstrap-tags" %>
+    
     <script type="text/javascript">
             angular.module("textAngularDemo", ['textAngular'])
                     .controller("demoController", function demoController($scope, $http, $window) {

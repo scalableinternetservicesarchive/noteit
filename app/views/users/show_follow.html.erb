@@ -9,12 +9,12 @@
     <h4 style="color:grey"><%= @title %></h4>
     <% if @users.any? %>
       
-      <%cache(cache_key_for_users(@users)) do%>
+      <!--<%cache(cache_key_for_users(@users)) do%>-->
        <%= will_paginate %>
       
        <table>
         <% @users.each do |user| %>
-        <%cache(cache_key_for_user(user)) do%>
+       <!-- <%cache(cache_key_for_user(user)) do%>-->
         <br/>
         <tr>
           <span style="float:left"> <%= image_tag 'missing.png', size: '55'%></span>
@@ -25,11 +25,11 @@
         </tr>
         
         <br/>
-        <%end%>
+        <!--<%end%>-->
         <%end%>
       </table>
        <%= will_paginate %>
-      <%end%>
+      <!--<%end%>-->
 
     <%else%>
         Nobody here

@@ -1,7 +1,7 @@
 <% provide(:title, "All Users") %>
 <h2> NoteIt Users! You make us awesome </h2>
  <%= will_paginate %>
- <%cache(cache_key_for_users(@users)) do%>
+ <!--<%cache(cache_key_for_users(@users)) do%>-->
  <table>
  	<% @users.each do |user| %>
  	<br/>
@@ -16,7 +16,7 @@
 
  	<%end%>
  </table>
-<%end%>
+<!--<%end%>-->
 
  <%= will_paginate %>
  

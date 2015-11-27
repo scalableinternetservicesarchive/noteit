@@ -94,15 +94,15 @@
 
                         <p> Your Notebooks </p>
 
-                        <% cache(cache_key_for_all_notebooks) do %>
+                        <!--<% cache(cache_key_for_all_notebooks) do %>-->
                         <table id="notebook-row" class="table table-striped">
                             <tbody class="notebooks">
                                 <% @notebooks.each do |notebook| %>
 
-                                 <% cache(cache_key_for_notebook(notebook)) do %>
+                                 <!--<% cache(cache_key_for_notebook(notebook)) do %>-->
                                 
                                     <%= button_to notebook.title, notebook, :class=>"notebookstyle",:method=>:get%>
-                                 <%end%>
+                                 <!--<%end%>-->
                                 <% end %>
                             </tbody>
 
@@ -111,7 +111,7 @@
 
                     </div> <!-- End notebook row -->
                 </div><!-- /.row -->
-                        <%end%>
+                       <!-- <%end%>-->
                         <!-- End notebook row -->
 
 

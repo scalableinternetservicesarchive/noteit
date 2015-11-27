@@ -2,10 +2,10 @@
 <h2 style="color:brown">Activity feed</h2>
 
 <%= will_paginate @feed_items%>
-<%cache(cache_key_for_feed(@feed_items)) do%>
+<!--<%cache(cache_key_for_feed(@feed_items)) do%>-->
 <table border=1 frame=void rules=rows>
 <% @feed_items.each do |item| %>
-<% cache(cache_key_for_feed_item(item)) do%>
+<!--<% cache(cache_key_for_feed_item(item)) do%>-->
 <tr style="border-bottom:1px solid black;">
 	<h4 ><strong><%= link_to(item.title, item, {:style=>'color:green;'}) %></strong></h4>
 	<%= item.content.html_safe.truncate_words(10) %>
@@ -19,9 +19,9 @@
 	<br/>
 </tr>
 <br/>
-<%end%>
+<!--<%end%>-->
 <%end%>
 </table>
-<%end%>
+<!--<%end%>-->
 
 <%= will_paginate @feed_items%>
