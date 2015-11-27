@@ -1,13 +1,15 @@
 <div>
-  <h3 style="color:green">Showing all comments for <strong><%= @note.title %></strong>, posted by <i><%= User.find(@note.user_id).email %></i></h3>
+  <h3 style="color:green"><strong><%= @note.title %></strong></h3>
+  <span style=class"green">By <%= user_name User.find(@note.user_id) %></span> 
+  <h4>All comments</h4>
   <br/>
   <%cache(cache_key_for_all_comments @comments) do%>	
-	<ul class="comments">
+	<table class="comments">
   	
       <% @comments.each do |comment| %>
     	<%cache(cache_key_for_comment(comment)) do%>
      
-      <li>
+      <tr>
    	   		<div class="media col-lg-8 col-centered">
     	
       			<a class="pull-left" href="#">
@@ -21,9 +23,10 @@
       				</h4>
       			</div>
       		</div>
-    	</li>
+    	</tr>
+
       <%end%>
       <%end %>
-	</ul>
+	</table>
   <%end%>
 </div>
