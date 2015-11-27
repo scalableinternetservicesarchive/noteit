@@ -1,8 +1,10 @@
+connection = ActiveRecord::Base.connection
 
 9999.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+3}@cs290b.org"
-  password = "password"   
+  password = "password" 
+
   User.create!(name:  name,
                email: email,
                password: password
@@ -25,17 +27,21 @@ user = User.find_by(name: 'Note It User')
 
 15.times do
   title = Faker::Book.title
-  user.notebooks.create!(title: title) 
+  sql = "INSERT INTO `notebooks` (`title`, `user_id`, `created_at`, `updated_at`) VALUES ('#{title}', '#{user.id}', '2015-11-27 05:37:11', '2015-11-27 05:37:11')"
+  connection.execute(sql)
+  #user.notebooks.create!(title: title) 
 end
 
-150.times do
+100.times do
   content = Faker::Lorem.sentence(5)
   title = Faker::Hacker.adjective
   university = Faker::University.name 
   class_subject = Faker::Lorem.word
   professor = Faker::Name.name
   notebook = user.notebooks.last.id
-  user.notes.create!(title: title, content: content, notebook_id: notebook, university: university, class_subject: class_subject, professor: professor) 
+  sql = "INSERT INTO `notes` (`title`, `user_id`, `created_at`, `updated_at`, 'content', 'university', 'professor', 'class_subject','notebook_id') VALUES ('#{title}', '#{user.id}', '2015-11-27 05:37:11', '2015-11-27 05:37:11', '#{content}','#{university}','#{professor}','#{class_subject}','#{notebook}')"
+  connection.execute(sql)
+  #user.notes.create!(title: title, content: content, notebook_id: notebook, university: university, class_subject: class_subject, professor: professor) 
 
 end
 
@@ -46,28 +52,31 @@ user = User.find_by(name: 'Aviral')
   user.notebooks.create!(title: title) 
 end
 
-150.times do
+100.times do
   content = Faker::Lorem.sentence(5)
   title = Faker::Hacker.adjective
   university = Faker::University.name 
   class_subject = Faker::Lorem.word
   professor = Faker::Name.name
   notebook = user.notebooks.last.id
-  user.notes.create!(title: title, content: content, notebook_id: notebook, university: university, class_subject: class_subject, professor: professor) 
+  sql = "INSERT INTO `notes` (`title`, `user_id`, `created_at`, `updated_at`, 'content', 'university', 'professor', 'class_subject','notebook_id') VALUES ('#{title}', '#{user.id}', '2015-11-27 05:37:11', '2015-11-27 05:37:11', '#{content}','#{university}','#{professor}','#{class_subject}','#{notebook}')"
+  connection.execute(sql)
+  
+  #user.notes.create!(title: title, content: content, notebook_id: notebook, university: university, class_subject: class_subject, professor: professor) 
 end
 
 
 # Following relationships
 users = User.all
 user  = users.first
-following = users[2..500]
-followers = users[3..400]
+following = users[200..500]
+followers = users[300..400]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) } 
 
 user  = users.second
-following = users[6000..6500]
-followers = users[400..900]
+following = users[6..40]
+followers = users[4..90]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) } 
 
@@ -82,5 +91,8 @@ followers.each { |follower| follower.follow(user) }
   university = Faker::University.name 
   class_subject = Faker::Lorem.word
   professor = Faker::Name.name
-  user.notes.create!(title: title, content: content, university: university, class_subject: class_subject, professor: professor) 
+  sql = "INSERT INTO `notes` (`title`, `user_id`, `created_at`, `updated_at`, 'content', 'university', 'professor', 'class_subject') VALUES ('#{title}', '#{user.id}', '2015-11-27 05:37:11', '2015-11-27 05:37:11', '#{content}','#{university}','#{professor}','#{class_subject}')"
+  connection.execute(sql)
+  
+  #user.notes.create!(title: title, content: content, university: university, class_subject: class_subject, professor: professor) 
 end 
