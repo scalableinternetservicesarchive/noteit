@@ -1,11 +1,11 @@
 <div>
   <%cache(cache_key_for_all_comments @comments) do%>	
-	<ul class="comments">
+	<table class="comments">
   	
       <% @comments.each do |comment| %>
     	<%cache(cache_key_for_comment(comment)) do%>
      
-      <li>
+      <tr>
    	   		<div class="media col-lg-8 col-centered">
     	
       			<a class="pull-left" href="#">
@@ -19,11 +19,11 @@
       				</h4>
       			</div>
       		</div>
-    	</li>
+    	</tr>
       <%end%>
 
   		<% end %>
-  </ul>
+  </table>
   <%end %>
 </div>
 
