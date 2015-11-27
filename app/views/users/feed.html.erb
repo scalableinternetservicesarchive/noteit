@@ -8,7 +8,8 @@
 <% cache(cache_key_for_feed_item(item)) do%>
 <tr style="border-bottom:1px solid black;">
 	<h4 ><strong><%= link_to(item.title, item, {:style=>'color:green;'}) %></strong></h4>
-	<%= item.content.html_safe.truncate_words(10) %><br/>
+	<%= item.content.html_safe.truncate_words(10) %>
+	<br/>
 	<%if item.avatar.exists?%>
 	<%= link_to(image_tag(item.avatar.url(:thumb)), item.avatar.url) if item.avatar.content_type != "application/pdf"%>
 	<%= link_to(item.avatar_file_name, item.avatar.url) if item.avatar.content_type == "application/pdf"%><br/>

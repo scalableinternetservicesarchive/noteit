@@ -78,4 +78,20 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.cache_store = :dalli_store
+
+
+  # config.paperclip_defaults = {
+  #    :storage => :fog,
+  #    :fog_credentials => {
+  #      :provider => "AWS",
+  #      :aws_access_key_id => 'AKIAI4ZHB3IKKIE3XQVQ',
+  #      :aws_secret_access_key => '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'
+  #    },
+  #    :fog_directory => "cs290bnoteit"
+  #  }
+
+
+
+
+
 end

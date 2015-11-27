@@ -36,7 +36,7 @@ gem 'underscore-rails'
 gem 'angular_rails_csrf'
 
 #Faker to seed database
-gem 'faker',                '1.4.2'
+gem 'faker'
 
 #Pagination
 gem 'will_paginate',           '3.0.7'
@@ -62,6 +62,10 @@ gem 'paperclip', '~> 4.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+#use AWS S3 storage for file uploads
+gem 'aws'
+gem 'fog'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

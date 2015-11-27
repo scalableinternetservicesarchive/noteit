@@ -1,21 +1,34 @@
 	<% provide(:title, "Search Results") %>
 	<%if @notes.count == 0%>
-	  	  Sorry, there's nothing for <span style="color:blue"><%=@keyword %></span>
+	<br/>
+	  	  Sorry, there's nothing for <span style="color:brown"><%=@keyword %></span>
 	<%else%>
 	<%if !@keyword.nil? && @keyword.length < 1%>
-		<h2>Here are some notes</h2>
+		<h3>Search results</h3>
 	<%else%>
-		<h2><span style="color:blue"><%=@keyword %></span></h2>
+		<h3>Showing search results for <span style="color:blue"><%=@keyword %></span></h3>
+	<%end%>
 	<%end%>
 	<%= will_paginate @notes%>
 	<%cache(cache_key_for_search(@keyword, @notes)) do%>
-	<ul class="notes">
-	  <% @notes.each do |note| %>
-	    <li>
-	      <%= link_to note.title, note %>
-	    </li>
+	<table class="notes">
+	  <% @notes.each do |item| %>
+	    <%cache(cache_key_for_search_note(@keyword, item)) do%>
+	    <tr>
+	      <h4 ><strong><%= link_to(item.title, item, {:style=>'color:green;'}) %></strong></h4>
+		  <%= item.content.html_safe.truncate_words(10) %>
+	   	<br/>
+		<%if item.avatar.exists?%>
+		<%= link_to(image_tag(item.avatar.url(:thumb)), item.avatar.url) if item.avatar.content_type != "application/pdf"%>
+		<%= link_to(item.avatar_file_name, item.avatar.url) if item.avatar.content_type == "application/pdf"%><br/>
+		<%end%>
+		<small style="color:grey">Last modified <%= time_ago_in_words item.updated_at.to_s %> ago by <%= item.user.email %>.</small>
+	
+		<br/>
+	    </tr>
+
 	  <% end %>
 	  <%end%>
-	</ul>
+	</table>
 	<%end%>
 	<%= will_paginate @notes%>

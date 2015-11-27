@@ -1,23 +1,33 @@
 <% provide(:title, @title) %>
 <div class="row">
   <div class="col-md-8">
-    <h3> <%= link_to @user.email, @user %> : <%= @title %></h3>
+    <%if @user.name.nil?%>
+    <h3 style="color:green"> <%= link_to @user.email, @user %> </h3>
+    <%else%>
+    <h3 style="color:green"> <%= link_to @user.name, @user %> </h3>
+    <%end%>
+    <h4 style="color:grey"><%= @title %></h4>
     <% if @users.any? %>
       
       <%cache(cache_key_for_users(@users)) do%>
        <%= will_paginate %>
       
-       <ul class="users follow">
-          <% @users.each do |user| %>
-          <%cache(cache_key_for_user(user)) do%>
-          <li>
-            <%= user.name %> <%= user.email %>
-            <%= link_to "View Profile", user %>
-          </li>
-          <%end%>
-          <br/>
-          <% end %>
-       </ul>
+       <table>
+        <% @users.each do |user| %>
+        <%cache(cache_key_for_user(user)) do%>
+        <br/>
+        <tr>
+          <span style="float:left"> <%= image_tag 'missing.png', size: '55'%></span>
+          <span style="color:green"><%= user.name %></span> <br/>
+          <span style="color:grey"><%= user.email %></span><br/>
+          <%= link_to "View profile", user %>
+    
+        </tr>
+        
+        <br/>
+        <%end%>
+        <%end%>
+      </table>
        <%= will_paginate %>
       <%end%>
 
