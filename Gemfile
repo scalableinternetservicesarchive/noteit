@@ -36,7 +36,7 @@ gem 'underscore-rails'
 gem 'angular_rails_csrf'
 
 #Faker to seed database
-gem 'faker',                '1.4.2'
+gem 'faker'
 
 #Pagination
 gem 'will_paginate',           '3.0.7'

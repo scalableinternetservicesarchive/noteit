@@ -13,16 +13,16 @@ class Note < ActiveRecord::Base
 	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   	validates_attachment :avatar, content_type: { content_type: ["application/pdf", /\Aimage/] }
 
-  	validate  :picture_size
+  # 	validate  :picture_size
 
-  private
+  # private
 
-    # Validates the size of an uploaded picture.
-    def picture_size
-      if avatar.size > 5.megabytes
-        errors.add(:avatar, "should be less than 5MB")
-      end
-    end
+  #   # Validates the size of an uploaded picture.
+  #   def picture_size
+  #     if avatar.size > 5.megabytes
+  #       errors.add(:avatar, "should be less than 5MB")
+  #     end
+  #   end
 
 
 

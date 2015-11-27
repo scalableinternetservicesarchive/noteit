@@ -2,14 +2,20 @@
 <h2> NoteIt Users! You make us awesome </h2>
  <%= will_paginate %>
  <%cache(cache_key_for_users(@users)) do%>
- <ul>
+ <table>
  	<% @users.each do |user| %>
- 	<li>
- 		<span style="color:green"><%= user.name %></span> <%= user.email %> <%= link_to "View profile", user %>
- 	</li>
  	<br/>
+ 	<tr>
+ 		<span style="float:left"> <%= image_tag 'missing.png', size: '55'%></span>
+ 		<span style="color:green"><%= user.name %></span> <br/>
+ 		<span style="color:grey"><%= user.email %></span><br/>
+ 		<%= link_to "View profile", user %>
+ 		
+ 	</tr>
+ 	<br/>
+
  	<%end%>
- </ul>
+ </table>
 <%end%>
 
  <%= will_paginate %>

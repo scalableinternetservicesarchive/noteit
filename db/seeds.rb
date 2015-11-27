@@ -1,5 +1,5 @@
 
-9999.times do |n|
+99.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+3}@cs290b.org"
   password = "password"   
@@ -23,64 +23,64 @@ User.create!(name:  "Aviral",
 
 user = User.find_by(name: 'Note It User')
 
-50.times do
-  title = Faker::Lorem.sentence(1)
+15.times do
+  title = Faker::Book.title
   user.notebooks.create!(title: title) 
 end
 
 10.times do
   content = Faker::Lorem.sentence(5)
-  title = Faker::Lorem.sentence(1)
-  university = Faker::Lorem.sentence(2)
-  class_subject = Faker::Lorem.sentence(2)
-  professor = Faker::Lorem.sentence(2)
-  notebook = user.notebooks.first.id
-  user.notes.create!(title: title, content: content, notebook_id: notebook.id, university: university, class_subject: class_subject, professor: professor) 
+  title = Faker::Hacker.adjective
+  university = Faker::University.name 
+  class_subject = Faker::Lorem.word
+  professor = Faker::Name.name
+  notebook = user.notebooks.last.id
+  user.notes.create!(title: title, content: content, notebook_id: notebook, university: university, class_subject: class_subject, professor: professor) 
 
 end
 
 user = User.find_by(name: 'Aviral')
 
-50.times do
-  title = Faker::Lorem.sentence(1)
+15.times do
+  title = Faker::Book.title
   user.notebooks.create!(title: title) 
 end
 
 10.times do
   content = Faker::Lorem.sentence(50)
-  title = Faker::Lorem.sentence(2)
-  university = Faker::Lorem.sentence(2)
-  class_subject = Faker::Lorem.sentence(2)
-  professor = Faker::Lorem.sentence(2)
-  notebook = user.notebooks.first.id
-  user.notes.create!(title: title, content: content, notebook_id: notebook.id, university: university, class_subject: class_subject, professor: professor) 
+  title = Faker::Hacker.adjective
+  university = Faker::University.name 
+  class_subject = Faker::Lorem.word
+  professor = Faker::Name.name
+  notebook = user.notebooks.last.id
+  user.notes.create!(title: title, content: content, notebook_id: notebook, university: university, class_subject: class_subject, professor: professor) 
 end
 
 
 # Following relationships
 users = User.all
 user  = users.first
-following = users[2..500]
-followers = users[3..400]
+following = users[2..50]
+followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) } 
 
 user  = users.second
-following = users[3..500]
-followers = users[4..400]
+following = users[3..50]
+followers = users[4..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) } 
 
 
 #create notes
-100000.times do
-  user = User.find(rand(1..10000)) #find a random user
+100.times do
+  user = User.find(rand(1..100)) #find a random user
 
   #create note
   content = Faker::Lorem.sentence(50)
-  title = Faker::Lorem.sentence(2)
-  university = Faker::Lorem.sentence(2)
-  class_subject = Faker::Lorem.sentence(2)
-  professor = Faker::Lorem.sentence(2)
+  title = Faker::Hacker.adjective
+  university = Faker::University.name 
+  class_subject = Faker::Lorem.word
+  professor = Faker::Name.name
   user.notes.create!(title: title, content: content, university: university, class_subject: class_subject, professor: professor) 
 end 

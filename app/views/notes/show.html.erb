@@ -34,7 +34,7 @@
                           <%end%>
                         </div>
                     </h3>
-                    <span class="text-primary"><%=@note.university %>  <%=@note.class_subject %>  <%=@note.professor %></span>
+                    <span class="text-primary"><span style="color:red"><%=@note.university %></span><span style="color:violet">  <%=@note.class_subject %> </span> <span style="color:brown"><%=@note.professor %></span></span>
                 </div>
                 <div class="panel-body"><%=@note.content.html_safe%> 
                 </div>
