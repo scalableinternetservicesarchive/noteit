@@ -47,7 +47,7 @@ user = User.find_by(name: 'Aviral')
 end
 
 150.times do
-  content = Faker::Lorem.sentence(50)
+  content = Faker::Lorem.sentence(5)
   title = Faker::Hacker.adjective
   university = Faker::University.name 
   class_subject = Faker::Lorem.word
@@ -77,7 +77,7 @@ followers.each { |follower| follower.follow(user) }
   user = User.find(rand(1..10000)) #find a random user
 
   #create note
-  content = Faker::Lorem.sentence(50)
+  content = Faker::Lorem.sentence(5)
   title = Faker::Hacker.adjective
   university = Faker::University.name 
   class_subject = Faker::Lorem.word
