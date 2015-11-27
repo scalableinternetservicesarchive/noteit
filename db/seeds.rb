@@ -1,15 +1,3 @@
-
-9999.times do |n|
-  name  = Faker::Name.name
-  email = "example-#{n+3}@cs290b.org"
-  password = "password"   
-  User.create!(name:  name,
-               email: email,
-               password: password
-               )
-end
-
-
 User.create!(name:  "Note It User",
              email: "niu@gmail.com",
              password: "12345678",
@@ -20,6 +8,16 @@ User.create!(name:  "Aviral",
              password: "12345678",
              )
 
+
+9999.times do |n|
+  name  = Faker::Name.name
+  email = "example-#{n+3}@cs290b.org"
+  password = "password"   
+  User.create!(name:  name,
+               email: email,
+               password: password
+               )
+end
 
 user = User.find_by(name: 'Note It User')
 

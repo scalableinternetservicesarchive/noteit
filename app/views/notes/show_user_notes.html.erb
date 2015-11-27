@@ -1,17 +1,27 @@
-<% provide(:title, "All Notes for #{@user.email}") %>
+<% provide(:title, "All Notes") %>
 
-<h2>Notes created by <i><%= @user.email %></i></h2>
+<% if @user.name.nil?%>
+	<h3>Notes by <span style="color:brown"><%= @user.email %></span></h3>
+<%else%>
+	<h3>Notes by <span style="color:brown"><%= @user.name %></span></h3>
+	<%end%>
 <h4><%= pluralize(@notes.count, "note")%><h4>
-<ul>
-<% @notes.each do |note| %>
-	<!--<%cache(cache_key_for_note(note)) do%>-->
- 	<li>
- 		<h3><strong><%= note.title %></strong></h3> <br/>
- 		<%= note.content.html_safe.truncate_words(10) %><br/>
-		<small>Last modified <%= time_ago_in_words note.updated_at.to_s %> ago by <%= note.user.email %>.</small>
-		<%= link_to "View note", note %>	
- 	</li>
+<table>
+<% @notes.each do |item| %>
+	<!--<%cache(cache_key_for_note(item)) do%>-->
+ 	 <tr>
+	      <h4 ><strong><%= link_to(item.title, item, {:style=>'color:green;'}) %></strong></h4>
+		  <%= item.content.html_safe.truncate_words(10) %>
+	   	<br/>
+		<%if item.avatar.exists?%>
+		<%= link_to(image_tag(item.avatar.url(:thumb)), item.avatar.url) if item.avatar.content_type != "application/pdf"%>
+		<%= link_to(item.avatar_file_name, item.avatar.url) if item.avatar.content_type == "application/pdf"%><br/>
+		<%end%>
+		<small style="color:grey">Last modified <%= time_ago_in_words item.updated_at.to_s %> ago by <%= item.user.email %>.</small>
+	
+		<br/>
+	    </tr>
  	<!--<%end%>-->
  	<br/>
 <%end%>
- </ul>
+ </table>
