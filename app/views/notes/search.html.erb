@@ -1,5 +1,6 @@
 	<% provide(:title, "Search Results") %>
 	<%if @notes.count == 0%>
+	<br/>
 	  	  Sorry, there's nothing for <span style="color:brown"><%=@keyword %></span>
 	<%else%>
 	<%if !@keyword.nil? && @keyword.length < 1%>
