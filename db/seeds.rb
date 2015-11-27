@@ -1,5 +1,5 @@
 
-99.times do |n|
+9999.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+3}@cs290b.org"
   password = "password"   
@@ -28,7 +28,7 @@ user = User.find_by(name: 'Note It User')
   user.notebooks.create!(title: title) 
 end
 
-10.times do
+150.times do
   content = Faker::Lorem.sentence(5)
   title = Faker::Hacker.adjective
   university = Faker::University.name 
@@ -46,7 +46,7 @@ user = User.find_by(name: 'Aviral')
   user.notebooks.create!(title: title) 
 end
 
-10.times do
+150.times do
   content = Faker::Lorem.sentence(50)
   title = Faker::Hacker.adjective
   university = Faker::University.name 
@@ -60,21 +60,21 @@ end
 # Following relationships
 users = User.all
 user  = users.first
-following = users[2..50]
-followers = users[3..40]
+following = users[2..500]
+followers = users[3..400]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) } 
 
 user  = users.second
-following = users[3..50]
-followers = users[4..40]
+following = users[6000..6500]
+followers = users[400..900]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) } 
 
 
 #create notes
-100.times do
-  user = User.find(rand(1..100)) #find a random user
+10000.times do
+  user = User.find(rand(1..10000)) #find a random user
 
   #create note
   content = Faker::Lorem.sentence(50)
