@@ -6,7 +6,7 @@
 	<%if !@keyword.nil? && @keyword.length < 1%>
 		<h3>Search results</h3>
 	<%else%>
-		<h3>Showing search results for <span style="color:blue"><%=@keyword %></span></h3>
+		<h3>Search results <span style="color:blue"><%=@keyword %></span></h3>
 	<%end%>
 	<%end%>
 	<%= will_paginate @notes%>
