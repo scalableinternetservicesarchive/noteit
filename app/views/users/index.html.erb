@@ -6,11 +6,10 @@
  	<% @users.each do |user| %>
  	<br/>
  	<tr>
- 		<span style="float:left"> <%= image_tag 'missing.png', size: '55'%></span>
- 		<span style="color:green"><%= user.name %></span> <br/>
- 		<span style="color:grey"><%= user.email %></span><br/>
- 		<%= link_to "View profile", user %>
- 		
+ 		<span style="float:left">&nbsp <%= image_tag 'missing.png', size: '55'%></span>
+ 		<span style="color:green">&nbsp <%=link_to user.name, user %></span> <br/>
+ 		<span style="color:blue">&nbsp <%= user.notes.count %> notes</span> <br/>
+ 		<span style="color:grey">&nbsp <%= user.email %></span><br/>
  	</tr>
  	<br/>
 
