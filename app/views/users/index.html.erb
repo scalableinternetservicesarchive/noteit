@@ -7,7 +7,7 @@
  	<br/>
  	<tr>
  		<span style="float:left">&nbsp <%= image_tag 'missing.png', size: '55'%></span>
- 		<span style="color:green">&nbsp <%=link_to user.name, user %></span> <br/>
+ 		<span style="color:green">&nbsp <%=link_to user_name(user), user %></span> <br/>
  		<span style="color:blue">&nbsp <%= user.notes.count %> notes</span> <br/>
  		<span style="color:grey">&nbsp <%= user.email %></span><br/>
  	</tr>

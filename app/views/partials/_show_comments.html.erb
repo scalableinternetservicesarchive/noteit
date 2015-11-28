@@ -12,9 +12,9 @@
         	 		<img class="media-object" src="http://placehold.it/64x64" alt="">
       			</a>
       			<div class="media-body">
-      				Posted by <%=user_name User.find(comment.user_id) %>
-      				<h4 class="media-heading">
-      					<small>Posted at <%= comment.created_at %><br/></small>
+      				<span style="color:grey">Posted by <%=user_name User.find(comment.user_id)%> <%= time_ago_in_words comment.created_at%> ago.</span>
+              <br/>
+      				<h4 >
       					<%= comment.content %>
       				</h4>
       			</div>

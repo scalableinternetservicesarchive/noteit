@@ -1,0 +1,8 @@
+en:
+  faker:
+    test_name:
+      # Existing faker field, new data
+      first_name: [Charlotte, Ava, Chloe, Emily]
+      last_name: [Charl, vew, Chle, Emil]
+
+  
