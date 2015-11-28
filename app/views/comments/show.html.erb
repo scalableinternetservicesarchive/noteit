@@ -17,7 +17,7 @@
               <img class="media-object" src="http://placehold.it/64x64" alt="">
             </a>
             <div class="media-body">
-              Posted by user <%= comment.user_id %>
+              Posted by <%=user_name comment.user_id %>
               <h4 class="media-heading">
                 <small>Posted at <%= comment.created_at %><br/></small>
                 <%= comment.content %>
