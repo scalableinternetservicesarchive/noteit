@@ -12,6 +12,14 @@ class NotebooksController < ApplicationController
       		@note_owner = -1
     	end
 	end
+  
+    def destroy
+      @notebook = Notebook.find(params[:id])
+      @notebook.notes.destroy
+      @notebook.destroy
+      flash[:success] = "Notebook deleted"
+      redirect_to root_url
+	end
 
 
 	def create
