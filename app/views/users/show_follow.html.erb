@@ -1,0 +1,28 @@
+<% provide(:title, @title) %>
+<div class="row">
+  <div class="col-md-8">
+    <h3> <%= link_to @user.email, @user %> : <%= @title %></h3>
+    <% if @users.any? %>
+      
+      <%cache(cache_key_for_users(@users)) do%>
+       <%= will_paginate %>
+      
+       <ul class="users follow">
+          <% @users.each do |user| %>
+          <%cache(cache_key_for_user(user)) do%>
+          <li>
+            <%= user.name %> <%= user.email %>
+            <%= link_to "View Profile", user %>
+          </li>
+          <%end%>
+          <br/>
+          <% end %>
+       </ul>
+       <%= will_paginate %>
+      <%end%>
+
+    <%else%>
+        Nobody here
+    <% end %>
+  </div>
+</div>

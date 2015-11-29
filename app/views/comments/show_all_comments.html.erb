@@ -1,0 +1,29 @@
+<div>
+  <h3 style="color:green">Showing all comments for <strong><%= @note.title %></strong>, posted by <i><%= User.find(@note.user_id).email %></i></h3>
+  <br/>
+  <%cache(cache_key_for_all_comments @comments) do%>	
+	<ul class="comments">
+  	
+      <% @comments.each do |comment| %>
+    	<%cache(cache_key_for_comment(comment)) do%>
+     
+      <li>
+   	   		<div class="media col-lg-8 col-centered">
+    	
+      			<a class="pull-left" href="#">
+        	 		<img class="media-object" src="http://placehold.it/64x64" alt="">
+      			</a>
+      			<div class="media-body">
+      				Posted by user <%= comment.user_id %>
+      				<h4 class="media-heading">
+      					<small>Posted at <%= comment.created_at %><br/></small>
+      					<%= comment.content %>
+      				</h4>
+      			</div>
+      		</div>
+    	</li>
+      <%end%>
+      <%end %>
+	</ul>
+  <%end%>
+</div>

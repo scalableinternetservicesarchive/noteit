@@ -1,9 +1,10 @@
 <div>
   <%cache(cache_key_for_all_comments @comments) do%>	
 	<ul class="comments">
-  		
+  	
       <% @comments.each do |comment| %>
     	<%cache(cache_key_for_comment(comment)) do%>
+     
       <li>
    	   		<div class="media col-lg-8 col-centered">
     	
@@ -20,7 +21,9 @@
       		</div>
     	</li>
       <%end%>
+
   		<% end %>
-	</ul>
-  <%end%>
-<dhiv>
+  </ul>
+  <%end %>
+</div>
+

@@ -1,14 +1,4 @@
 <% provide(:title, "Home") %>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
     
     <style>
@@ -38,8 +28,6 @@
 
         }
     </style>
-
-</head>
 
 <body>
     <div id="wrapper">
@@ -73,7 +61,21 @@
                         <div class="btn-group">
                           <button type="button" class="btn btn-info">
                             <i class="glyphicon glyphicon-th-list"></i>
-                            <%= link_to "Note Index", notes_path, :style => "color:white"  %>
+                            <%= link_to "Your notes", notes_path, :style => "color:white"  %>
+                          </button> 
+                        </div>
+
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-info">
+                            <i class="glyphicon glyphicon-th-list"></i>
+                            <%= link_to "Find users", users_path, :style => "color:white"  %>
+                          </button> 
+                        </div>
+
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-info">
+                            <i class="glyphicon glyphicon-th-list"></i>
+                            <%= link_to "View feed", feed_path, :style => "color:white"  %>
                           </button> 
                         </div>
 
@@ -83,6 +85,7 @@
                             Upload Note
                           </button>
                         </div>
+
 
                         <br/>
                         <hr>
@@ -113,33 +116,6 @@
 
 
             </div>
-
-                      <!--      <script>
-                                var classes = ["TMP 241", "CS 290B", "CS 270", "Homework"];
-
-                                for (i = 0; i < classes.length; i++) { 
-
-                                    var notebook = document.createElement("div");
-                                    var a = document.createElement("a");
-                                    var p = document.createElement("p");
-                                    var img = document.createElement("img");
-
-                                    notebook.className = "col-sm-4 col-md-2";
-                                    a.className = "thumbnail";
-                                    img.src = "<%= asset_path('notebook.png') %>";
-                                    p.setAttribute('style','text-align:center;');
-                                    p.innerHTML = classes[i];
-
-                                    a.appendChild(img);
-                                    a.appendChild(p);
-                                    notebook.appendChild(a);
-
-                                    document.getElementById('notebook-row').appendChild(notebook);
-
-                                }
-                            </script>-->
-                        
-                        
 
              </div>
             </div>

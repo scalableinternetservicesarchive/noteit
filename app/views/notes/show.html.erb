@@ -7,33 +7,31 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>  -->
-        <script>
-            document.write('<base href="' + document.location + '" />');
-        </script>
-        <script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.16"></script>
-
+        
         <%= stylesheet_link_tag "bootstrap-tags" %>
         <%= stylesheet_link_tag "vote" %>
-        <%= javascript_include_tag "bootstrap-tags" %>
-        <%= javascript_include_tag "vote" %>
+        
     <!-- </head> -->
 
             <br>
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3><%= @note.title%> 
+                    <h3><span style="color:green"><%= @note.title%> </span>
+                        <%if user_signed_in?%>
                         <div class="btn-group" style="float:right">
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" 
                                     aria-expanded="false" style="height:30px; width: 35px; border-color:darkred">
                             <span class="caret"></span>
                           </button>
+                          
                           <ul class="dropdown-menu pull-right">
-                            <li><%= link_to 'Edit','#' %></li>
+                            <li><%= link_to 'Edit',edit_note_path %></li>
                             <li><a href="#">Set as Private Note</a></li>
                             <li role="separator" class="divider"></li>
                             <li><%= link_to "Delete", @note, :method => :delete, :data => {:confirm => "You sure you want to delete this note?" } %></li>
                           </ul>
+                          <%end%>
                         </div>
                     </h3>
                     <span class="text-primary"><%=@note.university %>  <%=@note.class_subject %>  <%=@note.professor %></span>
@@ -68,29 +66,56 @@
 
             <br>
             <hr>
-            <div>
-                <h2>Comments</h2>
-                <!-- Comments Form -->
+            <section>
+            <!-- Comments Form -->
                 <% if user_signed_in? %>
                 <% flash.each do |message_type, message| %>
                     <div class="alert alert-<%= message_type %>"><%= message %></div>
                 <% end %>
-                <div class="well col-lg-8 col-centered">
+                <div >
                     <h4>Leave a Comment:</h4>
                     <%= render 'partials/leave_a_comment' %>
                 </div>
                 <!-- End comments form -->
                 <%else%>
-                    <div class="well col-lg-8 col-centered">You must be signed in to post comments.</div>
+                    <div><i>You must be signed in to post comments.</i></div>
                 <%end%>
                 <!-- Comments -->
+
+            </section>
+            <br/>
+            <% if @note.comments.all.count > 0 %>
+            <section>
+                <h3>Recent comments</h3>
+                <br/>
+                <%if @note.comments.all.count > 5%>
+                <small>
+                  <%= form_for(:comment, :url => comments_show_path) do |f| %>
+                    <%= hidden_field_tag :note_id, @note.id %>
+                    <%= f.submit "View all (#{pluralize(@note.comments.all.count, 'comment')})"%>
+                  <% end %>
+                </small>
+                <br/>
+                <%end%>
                  <%= render 'partials/show_comments'%>  
-                <!-- End Comments -->
-            </div>
+            <!-- End Comments -->
+            </section>
+            <%else%>
+                <% if user_signed_in? %><section><h3>Be the first to comment!</h3></section> <%end%>
+            <%end%>
+
+             
+                
     <!-- </body> -->
 
 <!-- </html> -->
+<script>
+            document.write('<base href="' + document.location + '" />');
+        </script>
+        <script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.16"></script>
 
+<%= javascript_include_tag "bootstrap-tags" %>
+        <%= javascript_include_tag "vote" %>
 
 
 

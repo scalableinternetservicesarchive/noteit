@@ -15,6 +15,11 @@ class CommentsController < ApplicationController
       redirect_to Note.find(params[:note_id])
     end
   end
+
+  def show
+    @note = Note.find(params[:note_id])
+    @comments = @note.comments
+  end
  
  private
  	def create_comment_params

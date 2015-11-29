@@ -1,0 +1,10 @@
+You're viewing user <%= @user.id%>, who signed up as <%= @user.email %>
+
+<br/>
+<small>
+<%= form_for(:note, :url => notes_show_user_notes_path) do |f| %>
+  <%= hidden_field_tag :user_id, @user.id %>
+  <%= f.submit "View notes"%>
+<% end %>
+</small>
+<br/>

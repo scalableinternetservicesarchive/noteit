@@ -1,5 +1,7 @@
 class NotebooksController < ApplicationController
 	before_action :authenticate_user!
+	
+
 	def show
 		#@notebooks = current_user.notebooks 
 		@notebook = Notebook.find(params[:id])
@@ -10,11 +12,10 @@ class NotebooksController < ApplicationController
       		@note_owner = -1
     	end
 	end
-
   
     def destroy
       @notebook = Notebook.find(params[:id])
-      @notebook.notes.clear
+      @notebook.notes.destroy
       @notebook.destroy
       flash[:success] = "Notebook deleted"
       redirect_to root_url

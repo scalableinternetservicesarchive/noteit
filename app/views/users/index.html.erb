@@ -1,0 +1,16 @@
+<% provide(:title, "All Users") %>
+<h2> NoteIt Users! You make us awesome </h2>
+ <%= will_paginate %>
+ <%cache(cache_key_for_users(@users)) do%>
+ <ul>
+ 	<% @users.each do |user| %>
+ 	<li>
+ 		<%= user.name %> <%= user.email %> <%= link_to "View profile", user %>
+ 	</li>
+ 	<br/>
+ 	<%end%>
+ </ul>
+<%end%>
+
+ <%= will_paginate %>
+ 

@@ -7,16 +7,17 @@ class NotesController < ApplicationController
     if user_signed_in?
       @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
     end
-    @query = Note.search do
-        fulltext params[:search]
-    end
     @keyword = params[:search]
-    @notes = @query.results
+    @notes = Note.where("(title LIKE '#{@keyword}%') OR (content LIKE '#{@keyword}%') OR (university LIKE '#{@keyword}%') OR (professor LIKE '#{@keyword}%') OR (class_subject LIKE '#{@keyword}%')").paginate(:page => params[:page], :per_page => 15)
   end
 
+  def show_user_notes
+    @user = User.find(params[:user_id])
+    @notes = @user.notes.paginate(page: params[:page])
+  end
 
   def index
-    @notes = current_user.notes.paginate(page: params[:page])
+    @notes = current_user.notes.paginate(page: params[:page], :per_page => 15)
   end
 
 
@@ -60,8 +61,34 @@ class NotesController < ApplicationController
 
   # edit notes
   def edit
-  
-end
+    @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
+    @note = Note.find(params[:id])
+  end
+
+  def edit_notes
+    #updated notes if the note id is already existed
+      @note = Note.find(params[:id])
+      
+      @note.update(title: params[:note][:title])
+      @note.update(content: params[:note][:content])
+      @note.update(university: params[:note][:university])
+      @note.update(notebook_id: params[:note][:notebook_id])
+      @note.update(class_subject: params[:note][:class_subject])
+      @note.update(professor: params[:note][:professor])
+
+      if @note.save
+      respond_to do |format|
+        format.html {render nothing: true, status: 200} 
+        format.json {render nothing: true, status: 200} 
+      end
+    
+    else
+      respond_to do |format|
+        format.html {render nothing: false, status: 400} 
+        format.json {render nothing: false, status: 400}
+      end
+    end
+  end
 
 
 
@@ -94,7 +121,7 @@ end
   def show
     #@notebooks = current_user.notebooks if user_signed_in?
     @note = Note.find(params[:id])
-    @comments = @note.comments if stale?(@note.comments.all)
+    @comments = @note.comments.paginate(:page => params[:page], :per_page => 5) 
     if(user_signed_in?)
       @note_owner = @note.user_id
     else

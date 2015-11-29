@@ -6,25 +6,9 @@
   <%= javascript_include_tag 'application'%>
   <%= csrf_meta_tags %>
 
-  
-  <!-- Bootstrap 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.1/ui-bootstrap-tpls.js"></script>
-    <!-- Font awesome -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">   
-	 <!--<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">-->
-
-  <!--FontAwesome
-    <link rel="<span></span>tylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    -->
+   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">   
 </head>
-<body tyle="padding-top: 50px; padding-bottom: 50px;
-    text-align: center;
-    background: url(<%= asset_path 'intro-bg.jpg' %>);
-
-    background-size: 100%;
-    color: #F1F3FA;
-    ">
+<body>
 
   <%= render 'partials/navbar' %>
     <br>
@@ -36,6 +20,7 @@
         <div style="margin: 0px 20px">
           <div class="row profile">
             <%= render 'partials/sidebar' %>
+            
             <div class="col-md-9">
               <div class="profile-content">
                 <%= yield %>

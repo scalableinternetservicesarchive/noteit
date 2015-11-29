@@ -1,8 +1,9 @@
+<% @user ||= current_user %>
+
 <div class="col-md-3">
     <div class="profile-sidebar">
         <!-- SIDEBAR USERPIC -->
         <div class="profile-userpic">
-            <!-- <img src="https://scontent.fsan1-1.fna.fbcdn.net/hphotos-xfa1/t31.0-8/10533264_10152822875527806_8467779151490887964_o.jpg" class="img-responsive" alt=""> -->
             <%= image_tag(current_user.avatar.url(:thumb) , class: "img-responsive") %>
             
         </div>
@@ -10,93 +11,14 @@
         <!-- SIDEBAR USER TITLE -->
         <div class="profile-usertitle">
             <div class="profile-usertitle-name">
-                <%= current_user.name %>
+                <%= @user.name %>
             </div>
             <div class="profile-usertitle-job">
-                <%= current_user.email %>
+                <%= @user.email %>
             </div>
+           <%= render 'partials/stats' %>
+            
         </div>
-
-
-        <ul class="user_atten clearfix W_f18" 
-            style=" height: 40px; overflow: hidden; overflow-x: hidden; overflow-y: hidden; margin: 10px 0 0 0; 
-                    margin-top: 10px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;">
-          
-          <!--<li class="S_line1" style="float: left; width: 65px; text-align: center; border-right-width: 1px; 
-                                    border-right-style: solid;border-color: #d9d9d9;">
-            <a bpfilter="page_frame" class="S_txt1"
-                style="color: #333; text-decoration: none;">
-                <strong node-type="follow" style="display: block; font-weight: bold; 
-                line-height: 18px;width: 65px; overflow: hidden;">158</strong>
-                <span class="S_txt2" style="display: block;font-size: 12px; color: #808080; text-decoration: none;">Following</span>
-            </a>
-          </li>
-
-          <li class="S_line1" style="float: left; width: 65px; text-align: center; border-right-width: 1px; 
-                                    border-right-style: solid;border-color: #d9d9d9;">
-            <a bpfilter="page_frame" class="S_txt1"
-                style="color: #333; text-decoration: none;">
-                <strong node-type="fans" style="display: block; font-weight: bold; 
-                line-height: 18px;width: 65px; overflow: hidden;">1330</strong>
-                <span class="S_txt2" style="display: block;font-size: 12px; color: #808080; text-decoration: none;">Followers</span>
-            </a>
-          </li>
-
-          <li class="S_line1" style="float: left; width: 65px; text-align: center; border-right-width: 1px; 
-                                    border-right-style: solid;border-color: #d9d9d9;">
-            <a bpfilter="page_frame" class="S_txt1"
-                style="color: #333; text-decoration: none;">
-                <strong node-type="weibo" style="display: block; font-weight: bold; 
-                line-height: 18px;width: 65px; overflow: hidden;">10</strong>
-                <span class="S_txt2" style="display: block;font-size: 12px; color: #808080; text-decoration: none;">Notes</span>
-            </a>
-          </li>
-        </ul>-->
-
-
-
-        <!-- END SIDEBAR USER TITLE -->
-        <!-- SIDEBAR BUTTONS -->
-        <div class="profile-userbuttons">
-            <button type="button" class="btn btn-success btn-sm">Follow</button>
-            <button type="button" class="btn btn-danger btn-sm">Message</button>
-        </div>
-        <!-- END SIDEBAR BUTTONS -->
-        <!-- SIDEBAR MENU -->
-      <!--  <div class="profile-usermenu">
-            <ul class="nav">
-                
-                <li>
-                    <a href="#">
-                    <i class="fa fa-bolt fa-fw"></i>
-                    Note Shortcuts </a>
-                </li>
-                <li>
-                    <a href="#" data-toggle="collapse" data-target="#demo3"><i class="fa fa-fw fa-wrench"></i> External Tools <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo3" class="collapse">
-                            <li>
-                                <a href="#">Wolfram Alpha</a>
-                            </li>
-                            <li>
-                                <a href="#">Wikipedia</a>
-                            </li>
-                            <li>
-                                <a href="#">Google</a>
-                            </li>
-                        </ul>
-                </li>
-
-                
-                <li>
-                    <a href="#">
-                    <i class="fa fa-fw fa-gear"></i>
-                    Settings </a>
-                </li>
-
-                
-            </ul>
-        </div>
-        <!-- END MENU -->
     </div>
 </div>
 
