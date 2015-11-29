@@ -110,8 +110,8 @@ end
 
 #create comments
 num_comments.times do
-  note_id = rand((Note.first.id)..(Note.last.id))
-  user = rand((User.first.id)..(User.last.id))
+  note_id = rand(1..num_notes)
+  user = rand(1..num_users)
   inserts = []
   inserts << "'#{Faker::Lorem.sentence(1)}', '#{user}', '#{Faker::Date.between(3.days.ago, Date.today)}', '#{Faker::Date.between(2.days.ago, Date.today)}', '#{note_id}'"
   sql = "INSERT INTO comments (content, user_id, created_at, updated_at, note_id) VALUES (#{inserts.join(", ")})"

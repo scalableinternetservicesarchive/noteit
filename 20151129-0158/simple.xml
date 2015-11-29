@@ -1,0 +1,241 @@
+<?xml version="1.0"?><tsung loglevel="notice" version="1.0">
+  <clients>
+    <client host="localhost" use_controller_vm="true" maxusers="150000"/>
+  </clients>
+
+  <servers>
+    <server host="52.91.86.130" port="80" type="tcp"/>
+  </servers>
+
+
+  <load>
+    <arrivalphase phase="1" duration="30" unit="second">
+      <users arrivalrate="1" unit="second"/>
+    </arrivalphase>
+    <arrivalphase phase="2" duration="30" unit="second">
+      <users arrivalrate="2" unit="second"/>
+    </arrivalphase>
+    <arrivalphase phase="3" duration="30" unit="second">
+      <users arrivalrate="4" unit="second"/>
+    </arrivalphase>
+   <arrivalphase phase="4" duration="30" unit="second">
+     <users arrivalrate="8" unit="second"/>
+   </arrivalphase>
+   <arrivalphase phase="5" duration="30" unit="second">
+     <users arrivalrate="16" unit="second"/>
+   </arrivalphase>
+   <arrivalphase phase="6" duration="35" unit="second">
+     <users arrivalrate="20" unit="second"/>
+   </arrivalphase>
+   <arrivalphase phase="7" duration="35" unit="second">
+     <users arrivalrate="40" unit="second"/>
+   </arrivalphase>
+   <arrivalphase phase="8" duration="35" unit="second">
+     <users arrivalrate="50" unit="second"/>
+   </arrivalphase>
+   <arrivalphase phase="9" duration="35" unit="second">
+     <users arrivalrate="10" unit="second"/>
+   </arrivalphase>
+   <arrivalphase phase="10" duration="35" unit="second">
+     <users arrivalrate="10" unit="second"/>
+   </arrivalphase>
+   </load>
+
+  <options>
+    <option name="global_ack_timeout" value="2000"/>
+
+    <option type="ts_http" name="user_agent">
+      <user_agent probability="100">Mozilla/5.0 (Windows; U; Windows NT 5.2; fr-FR; rv:1.7.8) Gecko/20050511 Firefox/1.0.4</user_agent>
+    </option>
+  </options>
+
+  <sessions>
+    <session name="probable-note-creator-navigation" weight="1" type="ts_http">
+
+      <request>
+        <http url="/" version="1.1" method="GET"/>
+      </request>
+
+      <thinktime value="2" random="true"/>
+
+      <setdynvars sourcetype="random_number" start="1" end="500">
+        <var name="username"/>
+      </setdynvars>
+
+      <request>
+        
+        <http url="/users/sign_in" version="1.1" method="GET"/>
+      </request>
+
+      <thinktime value="2" random="true"/>
+
+      <request subst="true">
+        <http url="/users/sign_in" version="1.1" method="POST" contents="utf8=%E2%9C%93&amp;user%5Bemail%5D=niu%40gmail.com&amp;user%5Bpassword%5D=12345678&amp;user%5Bremember_me%5D=0&amp;commit=Log+in">
+        </http>
+      </request>
+
+      <thinktime value="2" random="true"/>
+
+      <request>
+        <http url="/notes/new" version="1.1" method="GET"/>
+      </request>
+      <setdynvars sourcetype="random_number" start="1" end="100">
+        <var name="random_title"/>
+        <var name="random_content"/>
+      </setdynvars>
+
+      <thinktime value="2" random="true"/>
+
+      <request>
+        <http url="/notes" version="1.1" method="GET"/>
+      </request>
+
+      <thinktime value="2" random="true"/>      
+      
+      <setdynvars sourcetype="random_number" start="1" end="8">
+        <var name="random_page_number"/>
+      </setdynvars>
+     
+     <request subst="true">
+          <http url="/search?page=%%_random_page_number%%" version="1.1" method="GET"/>
+      </request>
+
+      <setdynvars sourcetype="random_number" start="1" end="15">
+        <var name="random_note_number"/>
+      </setdynvars>
+
+      <request subst="true">
+        
+        <http url="/notes/%%_random_note_number%%" version="1.1" method="GET"/>
+      </request>
+      
+     <request subst="true">
+        <http url="/comments" version="1.1" method="POST" contents="utf8=%E2%9C%93&amp;note_id=%%_random_note_number%%&amp;comment%5Bcontent%5D=hello%%_random_page_number%%&amp;commit=Post+comment"/>
+       
+      </request>
+
+
+      <setdynvars sourcetype="random_number" start="1" end="100">
+        <var name="random_user_number"/>
+      </setdynvars>
+      
+       <request>
+        <http url="/feed" version="1.1" method="GET"/>
+      </request>
+
+      <request subst="true">
+        <http url="/users/%%_random_user_number%%" version="1.1" method="GET"/>
+      </request>
+
+      <thinktime value="2" random="true"/>      
+
+      
+    <request>
+          <http url="/users/sign_out" version="1.1" method="POST" contents="_method=delete&amp;"/>
+     </request> 
+
+
+    </session>
+   
+    <session name="probable-user-navigation-1" weight="2" type="ts_http">
+
+      <request>
+        <http url="/" version="1.1" method="GET"/>
+      </request>
+
+      <thinktime value="2" random="true"/>
+
+      <setdynvars sourcetype="random_number" start="1" end="8">
+        <var name="random_page_number"/>
+      </setdynvars>
+     
+     <request subst="true">
+          <http url="/search?page=%%_random_page_number%%" version="1.1" method="GET"/>
+      </request>
+
+      <setdynvars sourcetype="random_number" start="1" end="15">
+        <var name="random_note_number"/>
+      </setdynvars>
+
+      <request subst="true">  
+        <http url="/notes/%%_random_note_number%%" version="1.1" method="GET"/>
+      </request>
+
+      <thinktime value="5" random="true"/>      
+    
+    </session>
+
+    <session name="probable-user-navigation-2" weight="3" type="ts_http">
+      <request>
+        <http url="/" version="1.1" method="GET"/>
+      </request>
+      <thinktime value="2" random="true"/>
+      <request>
+        <http url="/users/sign_up" version="1.1" method="GET"/>
+      </request>
+      <setdynvars sourcetype="random_number" start="110" end="9999999">
+        <var name="random_user_name"/>
+      </setdynvars>
+
+      <thinktime value="3" random="true"/>
+      <request subst="true">
+         <http url="/users" version="1.1" method="POST" contents="utf8=%E2%9C%93&amp;user%5Bemail%5D=new_user%%_random_user_name%%%40cs290b.com&amp;user%5Bpassword%5D=11111111&amp;user%5Bpassword_confirmation%5D=11111111"/>
+      </request>
+      <thinktime value="2" random="true"/>
+      <request>
+        <http url="/users" version="1.1" method="GET"/>
+      </request>
+
+      <setdynvars sourcetype="random_number" start="1" end="102">
+        <var name="random_user_n"/>
+      </setdynvars>
+      
+
+      <request subst="true">
+        <http url="/users/%%_random_user_n%%" version="1.1" method="GET"/>
+      </request>
+
+      <thinktime value="2" random="true"/>      
+
+
+      <request subst="true">
+        <http url="/search" version="1.1" method="POST" contents="utf8=%E2%9C%93&amp;search=&amp;commit=Search"/>
+      </request>
+      <thinktime value="3" random="true"/>
+      
+      <setdynvars sourcetype="random_number" start="1" end="100">
+        <var name="random_note_number"/>
+      </setdynvars>
+      
+      <request subst="true">
+        <http url="/notes/%%_random_note_number%%" version="1.1" method="GET"/>
+      </request>
+      <thinktime value="1" random="true"/>
+      <request subst="true">
+        <http url="/comments" version="1.1" method="POST" contents="utf8=%E2%9C%93&amp;note_id=%%_random_note_number%%&amp;comment%5Bcontent%5D=that%27s+a+good+one%21&amp;commit=Post+comment"/>
+      </request>
+
+      <thinktime value="2" random="true"/>
+      
+      <setdynvars sourcetype="random_number" start="1" end="100">
+        <var name="notebook_random"/>
+      </setdynvars>
+      <request subst="true">
+        <http url="/notebooks" version="1.1" method="POST" contents="utf8=%E2%9C%93&amp;notebook%5Btitle%5D=my+first+note+book%21+%%_notebook_random%%&amp;commit=Create"/>
+      </request>
+
+      <thinktime value="2" random="true"/>
+      <request subst="true">        
+        <http url="/notes/new" version="1.1" method="GET"/>
+      </request>
+      
+      <thinktime value="5" random="true"/>
+      <request>
+        <http url="/users/sign_out" version="1.1" method="POST" contents="_method=delete&amp;"/>
+     </request> 
+
+
+    </session>
+
+  </sessions>
+</tsung>
