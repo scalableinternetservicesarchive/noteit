@@ -66,7 +66,7 @@ end
 
 num_user_notes.times do
   inserts = []
-  inserts << "'#{Faker::Hacker.adjective}', '#{user.id}', '#{Faker::Date.between(3.days.ago, Date.today)}', '#{Faker::Date.between(2.days.ago, Date.today)}', '#{Faker::Lorem.sentence(5)}', '#{(Faker::Team.state)}', '#{(Faker::Team.creature)}', '#{Faker::Lorem.word}', '#{user.notebooks.last.id}'"
+  inserts << "'#{Faker::Hacker.adjective}', '#{user.id}', '#{Faker::Date.between(3.days.ago, Date.today)}', '#{Faker::Date.between(2.days.ago, Date.today)}', '#{Faker::Lorem.sentence(5)}', '#{(Faker::Team.state)}', '#{(Faker::Team.creature)}', '#{Faker::Lorem.word}', '#{rand(1..num_notebooks)}'"
   sql = "INSERT INTO notes (title, user_id, created_at, updated_at, content, university, professor, class_subject, notebook_id) VALUES (#{inserts.join(", ")})"
   connection.execute(sql)
 end
@@ -88,7 +88,7 @@ end
 
 num_user_notes.times do
   inserts = []
-  inserts << "'#{Faker::Hacker.adjective}', '#{user.id}', '#{Faker::Date.between(3.days.ago, Date.today)}', '#{Faker::Date.between(2.days.ago, Date.today)}', '#{Faker::Lorem.sentence(5)}', '#{(Faker::Team.state)}', '#{(Faker::Team.creature)}', '#{Faker::Lorem.word}', '#{user.notebooks.last.id}'"
+  inserts << "'#{Faker::Hacker.adjective}', '#{user.id}', '#{Faker::Date.between(3.days.ago, Date.today)}', '#{Faker::Date.between(2.days.ago, Date.today)}', '#{Faker::Lorem.sentence(5)}', '#{(Faker::Team.state)}', '#{(Faker::Team.creature)}', '#{Faker::Lorem.word}', '#{rand(1..num_notebooks)}'"
   sql = "INSERT INTO notes (title, user_id, created_at, updated_at, content, university, professor, class_subject, notebook_id) VALUES (#{inserts.join(", ")})"
   connection.execute(sql)
 end
