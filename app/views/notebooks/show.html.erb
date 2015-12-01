@@ -14,18 +14,34 @@
     </h3>
     <h4 style="margin-top: 2%; margin-left: 2%"><%=pluralize(@notes.count, 'note')%></h4>
 
+<%= will_paginate @notes %>
 
-    <table class="table table-striped" style="margin-left:2%; width: 95%; margin-top:3%">
+    <table class="table table-striped" style="width: 60%;">
+     <thead>
+        <tr>
+          <th>Title</th>
+          <th>University</th>
+          <th>Class</th>
+          <th>Professor</th>
+        </tr>
+      </thead>
 
       <tbody class="notes">
-
+            
           <% @notes.each do |note| %>
-          <tr>
+          
+          <tr style="color:grey">
               <td><%= link_to note.title, note, :style => "color:#00B87A"  %></td>
+              <td><%=  note.university %></td>
+              <td><%=  note.class_subject %></td>
+              <td><%=  note.professor %></td> 
           </tr>
-          <% end %>
+          
+          <%end%>
       </tbody>
   </table>
+  
+  <%= will_paginate @notes%>
 
 
   <%else%>
