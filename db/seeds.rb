@@ -65,8 +65,9 @@ num_notebooks.times do
 end
 
 num_user_notes.times do
+  notebook_id = user.notebooks.sample(1)[0][:id]
   inserts = []
-  inserts << "'#{Faker::Hacker.adjective}', '#{user.id}', '#{Faker::Date.between(3.days.ago, Date.today)}', '#{Faker::Date.between(2.days.ago, Date.today)}', '#{Faker::Lorem.sentence(5)}', '#{(Faker::Team.state)}', '#{(Faker::Team.creature)}', '#{Faker::Lorem.word}', '#{rand(1..num_notebooks)}'"
+  inserts << "'#{Faker::Hacker.adjective}', '#{user.id}', '#{Faker::Date.between(3.days.ago, Date.today)}', '#{Faker::Date.between(2.days.ago, Date.today)}', '#{Faker::Lorem.sentence(5)}', '#{(Faker::Team.state)}', '#{(Faker::Team.creature)}', '#{Faker::Lorem.word}', '#{notebook_id}'"
   sql = "INSERT INTO notes (title, user_id, created_at, updated_at, content, university, professor, class_subject, notebook_id) VALUES (#{inserts.join(", ")})"
   connection.execute(sql)
 end
@@ -87,8 +88,9 @@ num_notebooks.times do
 end
 
 num_user_notes.times do
+  notebook_id = user.notebooks.sample(1)[0][:id]
   inserts = []
-  inserts << "'#{Faker::Hacker.adjective}', '#{user.id}', '#{Faker::Date.between(3.days.ago, Date.today)}', '#{Faker::Date.between(2.days.ago, Date.today)}', '#{Faker::Lorem.sentence(5)}', '#{(Faker::Team.state)}', '#{(Faker::Team.creature)}', '#{Faker::Lorem.word}', '#{rand(1..num_notebooks)}'"
+  inserts << "'#{Faker::Hacker.adjective}', '#{user.id}', '#{Faker::Date.between(3.days.ago, Date.today)}', '#{Faker::Date.between(2.days.ago, Date.today)}', '#{Faker::Lorem.sentence(5)}', '#{(Faker::Team.state)}', '#{(Faker::Team.creature)}', '#{Faker::Lorem.word}', '#{notebook_id}'"
   sql = "INSERT INTO notes (title, user_id, created_at, updated_at, content, university, professor, class_subject, notebook_id) VALUES (#{inserts.join(", ")})"
   connection.execute(sql)
 end
@@ -111,9 +113,11 @@ num_notes.times do
 end 
 
 #create comments
+notes = Note.all
+users = User.all
 num_comments.times do
-  note_id = rand(1..num_notes)
-  user = rand(1..num_users)
+  note_id = notes.sample(1)[0][:id]
+  user = users.sample(1)[0][:id]
   inserts = []
   inserts << "'#{Faker::Lorem.sentence(1)}', '#{user}', '#{Faker::Date.between(3.days.ago, Date.today)}', '#{Faker::Date.between(2.days.ago, Date.today)}', '#{note_id}'"
   sql = "INSERT INTO comments (content, user_id, created_at, updated_at, note_id) VALUES (#{inserts.join(", ")})"
