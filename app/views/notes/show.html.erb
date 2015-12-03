@@ -18,6 +18,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3><span style="color:green"><%= @note.title%> </span>
+                    <%user = User.find(@note.user_id)%>
+                    <br/><h4 style="color:brown"> By <%= link_to (user_name user), user%></h4>
                         <%if user_signed_in?%>
                         <div class="btn-group" style="float:right">
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" 
@@ -34,8 +36,10 @@
                           <%end%>
                         </div>
                     </h3>
-                    <span class="text-primary"><span style="color:red"><%=@note.university %></span><span style="color:violet">  <%=@note.class_subject %> </span> <span style="color:brown"><%=@note.professor %></span></span>
+                    <span class="text-primary"><span style="color:red">University: <%=@note.university %></span><br/><span style="color:violet">Class: <%=@note.class_subject %> </span><br/><span style="color:brown">Professor: <%=@note.professor %></span></span>
+                    
                 </div>
+
                 <div class="panel-body"><%=@note.content.html_safe%> 
                 </div>
             </div>

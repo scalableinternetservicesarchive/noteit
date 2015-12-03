@@ -1,26 +1,36 @@
 <% provide(:title, "All Notes") %>
 
-<% if @user.name.nil?%>
-	<h3>Notes by <span style="color:brown"><%= @user.email %></span></h3>
-<%else%>
-	<h3>Notes by <span style="color:brown"><%= @user.name %></span></h3>
-	<%end%>
+<h3> Notes by <%=link_to(user_name(@user), @user)%></h3>
 <h4><%= pluralize(@notes.count, "note")%><h4>
 <table>
 <% @notes.each do |item| %>
 	<!--<%cache(cache_key_for_note(item)) do%>-->
- 	 <tr>
-	      <h4 ><strong><%= link_to(item.title, item, {:style=>'color:green;'}) %></strong></h4>
-		  <%= item.content.html_safe.truncate_words(10) %>
-	   	<br/>
-		<%if item.avatar.exists?%>
-		<%= link_to(image_tag(item.avatar.url(:thumb)), item.avatar.url) if item.avatar.content_type != "application/pdf"%>
-		<%= link_to(item.avatar_file_name, item.avatar.url) if item.avatar.content_type == "application/pdf"%><br/>
-		<%end%>
-		<small style="color:grey">Last modified <%= time_ago_in_words item.updated_at.to_s %> ago by <%= user_name item.user %>.</small>
+ 	<tr style="border-bottom:1px solid black;">
+<span style="float:center">_________________________________________________________________</span>
+
+	<h4 ><strong><%= link_to(item.title, item, {:style=>'color:green;'}) %></strong></h4>
+	<div style="float:right">
+	<span style="color:green"><%=item.get_upvotes.size%>  </span>  <br/>
+	<i class="fa fa-arrow-up"></i><br/>
+	<i class="fa fa-arrow-down"></i><br/>
+	<span style="color:red"><%=item.get_downvotes.size%>  </span>
+	</div>
+	<h5><span class="text-primary"><% if !item.university.nil?%><span style="color:red">University: <%=item.university %></span><%end%><%if !item.class_subject.nil?%><span style="color:violet"> Class: <%=item.class_subject %> </span><%end%><%if !item.professor.nil?%><span style="color:brown"> Professor: <%=item.professor %></span><%end%></span></h5>
+	<%= item.content.html_safe.truncate_words(7) %>
+	<br/>
+	<span style="color:blue"><%=pluralize(item.comments.count, 'comment')%></span>
 	
-		<br/>
-	    </tr>
+	<br/>
+
+	<%if item.avatar.exists?%>
+	<%= link_to(image_tag(item.avatar.url(:thumb)), item.avatar.url) if item.avatar.content_type != "application/pdf"%>
+	<%= link_to(item.avatar_file_name, item.avatar.url) if item.avatar.content_type == "application/pdf"%><br/>
+	<%end%>
+	<small style="color:grey">Last modified <%= time_ago_in_words item.updated_at.to_s %> ago by <%= user_name item.user %>.</small>
+	
+	<br/>
+</tr>
+
  	<!--<%end%>-->
  	<br/>
 <%end%>

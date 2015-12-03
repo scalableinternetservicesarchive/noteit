@@ -2,11 +2,14 @@
 <h2 style="color:brown">Activity feed</h2>
 
 <%= will_paginate @feed_items%>
+<br/>
 <%cache(cache_key_for_feed(@feed_items)) do%>
-<table border=1 frame=void rules=rows>
+<table >
 <% @feed_items.each do |item| %>
 <% cache(cache_key_for_feed_item(item)) do%>
-<tr style="border-bottom:1px solid black;">
+<tr >
+	<span style="float:center">_________________________________________________________________</span>
+
 	<h4 ><strong><%= link_to(item.title, item, {:style=>'color:green;'}) %></strong></h4>
 	<div style="float:right">
 	<span style="color:green"><%=item.get_upvotes.size%>  </span>  <br/>
@@ -14,7 +17,8 @@
 	<i class="fa fa-arrow-down"></i><br/>
 	<span style="color:red"><%=item.get_downvotes.size%>  </span>
 	</div>
-	<%= item.content.html_safe.truncate_words(10) %>
+	<h5><span class="text-primary"><% if !item.university.nil?%><span style="color:red">University: <%=item.university %></span><%end%><%if !item.class_subject.nil?%><span style="color:violet"> Class: <%=item.class_subject %> </span><%end%><%if !item.professor.nil?%><span style="color:brown"> Professor: <%=item.professor %></span><%end%></span></h5>
+	<%= item.content.html_safe.truncate_words(7) %>
 	<br/>
 	<span style="color:blue"><%=pluralize(item.comments.count, 'comment')%></span>
 	
@@ -27,6 +31,7 @@
 	<small style="color:grey">Last modified <%= time_ago_in_words item.updated_at.to_s %> ago by <%= user_name item.user %>.</small>
 	
 	<br/>
+	
 </tr>
 <br/>
 <%end%>

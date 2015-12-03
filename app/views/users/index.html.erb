@@ -1,18 +1,17 @@
 <% provide(:title, "All Users") %>
 <h3 style="color:brown"> NoteIt users </h3>
- <%= will_paginate %>
+ <%= will_paginate %><br/>
  <%cache(cache_key_for_users(@users)) do%>
  <table>
  	<% @users.each do |user| %>
- 	<br/>
+ 	
  	<tr>
+ 	<span style="float:center">_________________________________________________________________</span><br/>
  		<span style="float:left">&nbsp <%= image_tag 'missing.png', size: '55'%></span>
  		<span style="color:green">&nbsp <%=link_to user_name(user), user %></span> <br/>
- 		<span style="color:blue">&nbsp <%= user.notes.count %> notes</span> <br/>
+ 		<span style="color:blue">&nbsp <%= pluralize(user.notes.count,'note')%></span> <br/>
  		<span style="color:grey">&nbsp <%= user.email %></span><br/>
  	</tr>
- 	<br/>
-
  	<%end%>
  </table>
 <%end%>
