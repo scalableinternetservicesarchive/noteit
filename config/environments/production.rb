@@ -80,15 +80,16 @@ Rails.application.configure do
   config.cache_store = :dalli_store
 
 
-  # config.paperclip_defaults = {
-  #    :storage => :fog,
-  #    :fog_credentials => {
-  #      :provider => "AWS",
-  #      :aws_access_key_id => 'AKIAI4ZHB3IKKIE3XQVQ',
-  #      :aws_secret_access_key => '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'
-  #    },
-  #    :fog_directory => "cs290bnoteit"
-  #  }
+  config.paperclip_defaults = {
+     :storage => :fog,
+     :fog_credentials => {
+       :use_iam_profile => true,
+       :provider => 'AWS',
+       :region => 'us-east-1'
+     },
+     :fog_directory => 'cs290b',
+     :path => 'noteit/'
+   }
 
 
 

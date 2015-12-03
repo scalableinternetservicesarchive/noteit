@@ -7,7 +7,7 @@
           <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
     
-  <h3 style="margin-top: 30px; color:black"><%=current_user.name %>'s Notes</h3>
+  <h3 style="margin-top: 30px; color:black">Notes by <span style="color:green"><%=user_name current_user %></span></h3>
   <span style="margin-top: 30px; color:black"><i><%= pluralize(@notes.count, 'note')%></i></span>
 
   <%= will_paginate %>
