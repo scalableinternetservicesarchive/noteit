@@ -15,15 +15,15 @@
        <table>
         <% @users.each do |user| %>
         <%cache(cache_key_for_user(user)) do%>
-        <br/>
+        
         <tr>
-          <span style="float:left">&nbsp <%= image_tag 'missing.png', size: '55'%></span>
+        <span style="float:center">_________________________________________________________________</span><br/>
+    <span style="float:left">&nbsp <%= image_tag 'missing.png', size: '55'%></span>
     <span style="color:green">&nbsp <%=link_to user_name(user), user %></span> <br/>
-    <span style="color:blue">&nbsp <%= user.notes.count %> notes</span> <br/>
+    <span style="color:blue">&nbsp <%= pluralize(user.notes.count,'note')%></span> <br/>
     <span style="color:grey">&nbsp <%= user.email %></span><br/>
         </tr>
         
-        <br/>
         <%end%>
         <%end%>
       </table>

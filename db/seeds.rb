@@ -10,18 +10,21 @@ num_notes = 0
 num_notebooks = 0
 num_comments = 0
 num_user_notes = 0
+num_votes = 0
 if Rails.env == 'production'
   num_users = 10000
   num_notes = 10000
   num_notebooks = 15
   num_user_notes = 150
   num_comments = 10000
+  num_votes = 10000
 else
   num_users = 100
   num_notes = 50
   num_comments = 60
   num_notebooks = 5
   num_user_notes = 15
+  num_votes = 100
 end
 
 connection = ActiveRecord::Base.connection
@@ -100,11 +103,10 @@ followers = users[(num_users/5)..(num_users/4)]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) } 
 
-
+notes = Note.all
 #create notes
 num_notes.times do
-  user = rand((User.first.id)..(User.last.id)) #find a random user
-
+  user = users.sample(1)[0][:id]
   #create note
   inserts = []
   inserts << "'#{Faker::Hacker.adjective}', '#{user}', '#{Faker::Date.between(3.days.ago, Date.today)}', '#{Faker::Date.between(2.days.ago, Date.today)}', '#{Faker::Lorem.sentence(5)}', '#{(Faker::Team.state)}', '#{(Faker::Team.creature)}', '#{Faker::Lorem.word}'"
@@ -113,8 +115,7 @@ num_notes.times do
 end 
 
 #create comments
-notes = Note.all
-users = User.all
+
 num_comments.times do
   note_id = notes.sample(1)[0][:id]
   user = users.sample(1)[0][:id]
@@ -123,3 +124,19 @@ num_comments.times do
   sql = "INSERT INTO comments (content, user_id, created_at, updated_at, note_id) VALUES (#{inserts.join(", ")})"
   connection.execute(sql)
 end
+
+#create votes
+count = 0
+num_votes.times do 
+  if count % 2 == 0
+    type = 1
+  else
+    type = 0
+  end
+  count = count + 1
+  user = users.sample(1)[0]
+  note = notes.sample(1)[0]
+  note.liked_by user if type == 1
+  note.disliked_by user if type == 0
+end
+
