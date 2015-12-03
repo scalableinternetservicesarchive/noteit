@@ -89,10 +89,10 @@
 
                         <br/>
                         <hr>
-                        <br>
+                        
 
 
-                        <p> Your Notebooks </p>
+                        <h3 style="color:grey"> <%=pluralize(current_user.notebooks.count, 'notebook')%> </h3>
 
                         <% cache(cache_key_for_all_notebooks) do %>
                         <table id="notebook-row" class="table table-striped">
