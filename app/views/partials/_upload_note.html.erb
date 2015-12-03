@@ -1,13 +1,20 @@
 <div>
 	<%= form_for :note, url: upload_note_path, html: { multipart: true } do |form| %>
-  		<%= form.label :title %>
-  		<%= form.text_field :title%>
-  		<%= form.label :keywords%>
-  		<%= form.text_field :content %>
+  		<table>
+      <tr><td><%= form.label :title %></td>
+  		<td><%= form.text_field :title%></td></tr>
+  		<tr><td><%= form.label :keywords%></td>
+  		<td><%= form.text_field :content %></td></tr>
+      <tr><td><%= form.label :university%></td>
+      <td><%= form.text_field :university %></td></tr>
+      <tr><td><%= form.label :professor%></td>
+      <td><%= form.text_field :professor %></td></tr>
+      <tr><td><%= form.label :class%></td>
+      <td><%= form.text_field :class_subject %></td></tr>
   		<% options = options_from_collection_for_select(@notebooks, 'id', 'title') %>
-		<%= form.label :Notebook%>
-		<%= form.select :notebook_id,  options %>
-  		<%= form.file_field :avatar %>
-  		<%= form.submit "Upload" %>
+		<tr><td><%= form.label :Notebook%></td>
+		<td><%= form.select :notebook_id,  options %></td></tr>
+  		<tr><td><%= form.file_field :avatar %></td>
+  		<td><%= form.submit "Upload" %></td></tr>
 	<% end %>
 </div>

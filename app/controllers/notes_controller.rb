@@ -159,7 +159,7 @@ class NotesController < ApplicationController
       params.require(:note).permit(:content)
     end
     def upload_note_params
-      params.require(:note).permit(:title, :content, :notebook_id, :avatar)
+      params.require(:note).permit(:title, :content, :notebook_id, :avatar, :professor, :university, :class_subject)
     end
 
     def note_params
