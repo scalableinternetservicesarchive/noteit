@@ -40,15 +40,14 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # config.paperclip_defaults = {
-  #    :storage => :fog,
-  #    :fog_credentials => {
-  #      :provider => "AWS",
-  #      :aws_access_key_id => "AKIAI4ZHB3IKKIE3XQVQ",
-  #      :aws_secret_access_key => "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"
-  #    },
-  #    :fog_directory => "cs290bnoteit"
-  #  }
-
+  #   :storage => :s3,
+  #   :s3_credentials => {
+  #     :bucket => 'scalableinternetservices/noteit/',
+  #     :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+  #     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  #   },
+  #   :s3_host_name => 's3-us-west-2.amazonaws.com'
+  # }
 
 
 
