@@ -1,7 +1,7 @@
 <h2 style="color:black"><%= user_name @user%></h2>
 <div style="color:black">
 	<h3><span style="color:blue"><%=(pluralize(@user.notes.count, 'note')) %></span><br/>
-	
+	<% if @user.notes.count != 0 %>
 	<small>
 	<%= form_for(:note, :url => notes_show_user_notes_path) do |f| %>
   	<%= hidden_field_tag :user_id, @user.id %>
@@ -9,6 +9,7 @@
 	<% end %>
 	</small>
 	<br/>
+	<%end%>
 	<span style="color:grey"><%= pluralize(@user.notebooks.count, 'notebook') %></span><br/>
 	<br/><br/>
 	<h4>Aggregate note statistics of <span style="color:grey"><%= user_name @user %></span></<br/><br/>
