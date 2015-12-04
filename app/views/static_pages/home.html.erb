@@ -51,9 +51,16 @@
                           </button>
                         </div>
                         
-                        <div class="btn-group">
+                        <!-- <div class="btn-group">
                           <button type="button" class="btn btn-info" onClick="$('#newNotebookModal').modal()" data-target="#newNotebookModal">
                             <i class="glyphicon glyphicon-book"></i>
+                            New Notebook
+                          </button>
+                        </div> -->
+
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-info" onClick="$('#newNotebookModal').modal()" data-target="#newNotebookModal">
+                            <i class="glyphicon glyphicon-file"></i>
                             New Notebook
                           </button>
                         </div>
@@ -86,6 +93,50 @@
                           </button>
                         </div>
 
+
+
+                <!-- New notebook Modal -->
+                <div id="newNotebookModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">New Notebook</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Choose a title for your new notebook</p>
+                                <%= render 'partials/new_notebook' %>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+<!-- Upload Note Modal -->
+                <div id="myUploadModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Upload Note</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Select a note to upload (pdf/jpeg)</p>
+                                <%= render 'partials/upload_note' %>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End upload note modal -->
 
                         <br/>
                         <hr>
@@ -120,33 +171,14 @@
              </div>
             </div>
 
-                <!-- Upload Note Modal -->
-                <div id="myUploadModal" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
-
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Upload Note</h4>
-                            </div>
-                            <div class="modal-body">
-                                <p>Select a note to upload (pdf/jpeg)</p>
-                                <%= render 'partials/upload_note' %>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End upload note modal -->
+                
+                <!-- End new notebook modal -->
 
                 <!-- New Notebook Modal -->
-                <div id="newNotebookModal" class="modal fade" role="dialog">
+                <!-- <div id="newNotebookModal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
 
-                        <!-- New Notebook Modal content-->
+                        <!-- New Notebook Modal content
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -161,7 +193,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- End new notebook note modal -->
             </div>
             <!-- /.container-fluid -->
@@ -170,4 +202,6 @@
     </div>
     <!-- /#wrapper -->
 </body>
+
+
 </html>
