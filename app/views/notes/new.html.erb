@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="http://textangular.com/css/style.css" type="text/css">
 
     <body>
+      <% cache(cache_key_for_user(current_user)) do %>
             <div id="note_save_msg" style="display: none;"></div>
             <div id="ng-app" ng-app="textAngularDemo" ng-controller="demoController" class="ng-scope">
                 <br>
@@ -98,7 +99,7 @@
                 <br>
             </div>
         <!-- End Container -->
-
+      <% end %>
     </body>
     <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
     <script type="text/javascript">
