@@ -39,6 +39,7 @@ class NotesController < ApplicationController
 
   def create
   	 @note = current_user.notes.build(note_params)
+    
     if @note.save
       #flash.now[:success] = "Nice one!"
       #flash.keep(:success)
