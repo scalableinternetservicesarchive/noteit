@@ -12,12 +12,12 @@ num_comments = 0
 num_user_notes = 0
 num_votes = 0
 if Rails.env == 'production'
-  num_users = 10000
-  num_notes = 10000
+  num_users = 100000
+  num_notes = 200000
   num_notebooks = 15
   num_user_notes = 150
-  num_comments = 10000
-  num_votes = 10000
+  num_comments = 300000
+  num_votes = 300000
 else
   num_users = 100
   num_notes = 50
