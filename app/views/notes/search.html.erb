@@ -3,18 +3,16 @@
 	<br/>
 	  	  Sorry, there's nothing for <span style="color:brown"><%=@keyword %></span>
 	<%else%>
-	<%if !@keyword.nil? && @keyword.length < 1%>
+	<%if Rails.application.config.old.length < 1%>
 		<h3>Search results</h3>
 	<%else%>
-		<h3>Matched <%=pluralize(@notes.count, "note")%> for <span style="color:blue"><%=@keyword %></span></h3>
+		<h3>Matched <%=pluralize(@notes.count, "note")%> for <span style="color:blue"><%=Rails.application.config.old %></span></h3>
 	<%end%>
 	<%end%>
 	<%= will_paginate @notes%>
 	<br/>
-	<%cache(cache_key_for_search(@keyword, @notes)) do%>
 	<table >
 	  <% @notes.each do |item| %>
-	    <%cache(cache_key_for_search_note(@keyword, item)) do%>
 
 	    <tr style="border-bottom:1px solid black;">
 	<span style="float:center">_________________________________________________________________</span>
@@ -44,8 +42,8 @@
 </tr>
 
 
-	  <% end %>
+
 	  <%end%>
 	</table>
-	<%end%>
+
 	<%= will_paginate @notes%>

@@ -1,5 +1,7 @@
 module ApplicationHelper
 	# Returns the full title on a per-page basis.
+  
+  Rails.application.config.old = ''
   def full_title(page_title = '')
     base_title = "NoteIt"
     if page_title.empty?

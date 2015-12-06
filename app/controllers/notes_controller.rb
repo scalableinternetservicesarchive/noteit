@@ -2,13 +2,17 @@ class NotesController < ApplicationController
   before_action :authenticate_user!, :except => [:show, :search]
   respond_to :json, :html
 
-
   def search
     if user_signed_in?
       @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
     end
-    @keyword = params[:search]
-    @notes = Note.where("(title LIKE '#{@keyword}%') OR (content LIKE '#{@keyword}%') OR (university LIKE '#{@keyword}%') OR (professor LIKE '#{@keyword}%') OR (class_subject LIKE '#{@keyword}%')").paginate(:page => params[:page], :per_page => 15)
+    if request.post?
+      @keyword = params[:search]
+      Rails.application.config.old = @keyword
+      @notes = Note.where("(title LIKE '#{@keyword}%') OR (content LIKE '#{@keyword}%') OR (university LIKE '#{@keyword}%') OR (professor LIKE '#{@keyword}%') OR (class_subject LIKE '#{@keyword}%')").paginate(:page => params[:page], :per_page => 15)
+      return
+    end
+    @notes = Note.where("(title LIKE '#{Rails.application.config.old}%') OR (content LIKE '#{Rails.application.config.old}%') OR (university LIKE '#{Rails.application.config.old}%') OR (professor LIKE '#{Rails.application.config.old}%') OR (class_subject LIKE '#{Rails.application.config.old}%')").paginate(:page => params[:page], :per_page => 15)
   end
 
   def show_user_notes
