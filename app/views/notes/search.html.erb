@@ -11,8 +11,10 @@
 	<%end%>
 	<%= will_paginate @notes%>
 	<br/>
+	<%cache(cache_key_for_search(Rails.application.config.old, @notes)) do%>
 	<table >
 	  <% @notes.each do |item| %>
+	  	<%cache(cache_key_for_search_note(Rails.application.config.old, item)) do%>		
 
 	    <tr style="border-bottom:1px solid black;">
 	<span style="float:center">_________________________________________________________________</span>
@@ -41,9 +43,9 @@
 	
 </tr>
 
-
+<% end %>
 
 	  <%end%>
 	</table>
-
+<% end %>
 	<%= will_paginate @notes%>

@@ -19,7 +19,7 @@
             <div class="media-body">
               <span style="color:grey">Posted by <%=user_name User.find(comment.user_id)%> <%= time_ago_in_words comment.created_at%> ago.</span>
               <br/>
-                <%= comment.content %>
+                <%= comment.body %>
               </h4>
             </div>
           </div>

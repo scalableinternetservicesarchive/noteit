@@ -3,9 +3,9 @@ class NotesController < ApplicationController
   respond_to :json, :html
 
   def search
-    if user_signed_in?
-      @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
-    end
+    # if user_signed_in?
+    #   @notebooks = current_user.notebooks if stale?(current_user.notebooks.all)
+    # end
     if request.post?
       @keyword = params[:search]
       Rails.application.config.old = @keyword
