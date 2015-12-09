@@ -2,7 +2,7 @@
 	<%= form_for Comment.new do |form| %>
   		<%=hidden_field_tag :note_id, @note.id %>
       
-  		<%= form.text_field :content%>
+  		<%= form.text_field :body%>
   		<%= form.submit "Post comment" %>
 	<% end %>
 </div>
